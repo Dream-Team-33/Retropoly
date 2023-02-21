@@ -15,6 +15,6 @@ The layout of the code is:
    * Images (which has its sub-folders too)
 
 - Templates:
- * All HTML files go here
+   * All HTML files go here
 
 - Python file
