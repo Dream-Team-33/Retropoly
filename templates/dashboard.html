@@ -6,22 +6,177 @@
     <title>Retropoly</title>
     <link rel="icon" href="/static/images/logo.png" type="image/x-icon"> <!--add icon link. This icon will show next to Title-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/static/css/dashboard.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/dashboard.css"/> <!--link to dashboard.css file-->
+    <link rel="stylesheet" type="text/css" href="/static/js/dashboard.js"/> <!--link to dashboard.js file-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css"/>
-    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!--Google Icons fonts-->
+
     <!-- Font Google -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Poppins:wght@200&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
 </head>
 
 <body>
     <!------------------------------------------THIS IS FOR THE DASHBOARD PAGE--------------------------------------->
 
+
+    <!--Dashboard start-->
+    <div class="dashboard">
+        <!--Navigation panel-->
+        <section class="navigation">
+            <img src="/static/images/logo.png" alt="R.logo" class="logo">
+
+            <!--Icons on the panel-->
+            <div>
+                <span class="material-icons-outlined">dashboard</span>
+                <span class="material-icons-outlined">grid_view</span>
+                <span class="material-icons-outlined">person</span>
+                <span class="material-icons-outlined">chat_bubble_outline</span>
+                <span class="material-icons-outlined">settings</span>
+            </div>
+        </section>
+
+        <!--Main panel-->
+        <section class="main">
+            <!--First section in the main panel-->
+            <!--Search icon on the left side-->
+            <div class="search">
+                <form action="">
+                    <input type="text" name="search" id="search" placeholder="Search Here">
+                    <span class="material-icons-outlined">search</span>
+                </form>
+
+                <!--Notification and edit icons on the right side-->
+                <div class="notification">
+                    <span class="material-icons-outlined">notifications</span>
+                    <span class="material-icons-outlined">edit</span>
+                </div>
+            </div>
+
+            <!--Second section in the main panel-->
+            <!--Project title on the left side-->
+            <div class="title">
+                <h1>Agile Board</h1>
+                <form action="#">
+                    <label for="agile_board">Sort By</label>
+                    <select name="agile_board" id="agile_board">
+                        <option value="recent">Recent Work</option>
+                        <option value="finished">Completed Work</option>
+                        <option value="ongoing">Ongoing Work</option>
+                        <option value="stalled">Stalled Work</option>
+                    </select>
+                </form>
+            </div>
+
+            <!--Project lists (N.B. This will be changed soon to create a table for Agile)-->
+            <div class="project_list">
+                <div class="project">
+                    <div class="category"></div>
+                    <h2>Graphic Design</h2>
+                    <p>Active recently</p>
+
+                    <ul class="activity">
+                        <li>Coming soon banner</li>
+                        <li>Book cover</li>
+                    </ul>
+
+                    <div class="meta">
+                        <div class="contributors">
+                            <img src="/static/images/dice roller/static/images/dice 1.png" alt="">
+                            <img src="/static/images/dice roller/static/images/dice 2.png" alt="">
+                            <img src="/static/images/dice roller/static/images/dice 3.png" alt="">
+                        </div>
+
+                        <span class="material-icons-outlined">more_vert</span>
+                    </div>
+                </div>
+
+
+                <div class="project">
+                    <div class="category"></div>
+                    <h2>Graphic Design</h2>
+                    <p>Active recently</p>
+
+                    <ul class="activity">
+                        <li>Coming soon banner</li>
+                        <li>Book cover</li>
+                    </ul>
+
+                    <div class="meta">
+                        <div class="contributors">
+                            <img src="/static/images/dice roller/static/images/dice 1.png" alt="">
+                            <img src="/static/images/dice roller/static/images/dice 2.png" alt="">
+                            <img src="/static/images/dice roller/static/images/dice 3.png" alt="">
+                        </div>
+
+                        <span class="material-icons-outlined">more_vert</span>
+                    </div>
+                </div>
+
+
+                <div class="project">
+                    <div class="category"></div>
+                    <h2>Graphic Design</h2>
+                    <p>Active recently</p>
+
+                    <ul class="activity">
+                        <li>Coming soon banner</li>
+                        <li>Book cover</li>
+                    </ul>
+
+                    <div class="meta">
+                        <div class="contributors">
+                            <img src="/static/images/dice roller/static/images/dice 1.png" alt="">
+                            <img src="/static/images/dice roller/static/images/dice 2.png" alt="">
+                            <img src="/static/images/dice roller/static/images/dice 3.png" alt="">
+                        </div>
+
+                        <span class="material-icons-outlined">more_vert</span>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="category"></div>
+                    <h2>Graphic Design</h2>
+                    <p>Active recently</p>
+
+                    <ul class="activity">
+                        <li>Coming soon banner</li>
+                        <li>Book cover</li>
+                    </ul>
+
+                    <div class="meta">
+                        <div class="contributors">
+                            <img src="/static/images/dice roller/static/images/dice 1.png" alt="">
+                            <img src="/static/images/dice roller/static/images/dice 2.png" alt="">
+                            <img src="/static/images/dice roller/static/images/dice 3.png" alt="">
+                        </div>
+
+                        <span class="material-icons-outlined">more_vert</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Secondary panel-->
+        <section class="secondary">
+            <!--Declare a chart section-->
+            <div class="chart">
+                <h2>Total Project</h2>
+                <canvas id="myChart" width="400" height="400"></canvas>
+            </div>
+        </section>
+
+    </div><!--Dashboard end-->    
 
     
 </body>

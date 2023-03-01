@@ -1,19 +1,73 @@
 * {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	font-family: "Nunito", sans-serif;
 	text-decoration: none !important;
 	list-style: none !important;
 	outline: none !important;
-	margin: 0;
 	padding: 0;
 }
 html {
 	height: 100%;
 }
 body {
-	color: #888888;
-	font-size: 15px;
-	font-family: "Poppins", sans-serif;
-	height: 100%;
-	overflow-x: hidden;
+	margin: 0px;
+	background-color: aliceblue;
+}
+
+/*This is for the material icons (Google fonts)*/
+.material-icons-outlined{
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+  
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+  
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+  
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+}
+
+
+/*Dashboard*/
+.dashboard{
+	padding: 0px 15px;
+	margin: 0 auto;
+}
+
+
+
+
+/*============================
+   Navigation panel
+============================*/
+.dashboard .navigation{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.dashboard .navigation img .logo{
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
+}
+
+.dashboard .navigation div .material-icons-outlined{
+	margin-left: 5px;
+	margin-right: 5px;
 }
