@@ -130,3 +130,82 @@ body {
 	font-size: 16px;
 	background-color: rgba(0, 0, 0 / 0);
 }
+
+
+/*Project Lists*/
+.dashboard .main .project_list .project h2{
+	font-size: 20px;
+	line-height: 0;
+}
+
+.dashboard .main .project_list .project p{ color: #727272; }
+
+.dashboard .main .project_list .project ul{ 
+	list-style: none; 
+	position: relative;
+	margin-left: 0px;
+	padding-left: 0px;
+}
+
+.dashboard .main .project_list .project ul li{ 
+	position: relative;
+	color: #727272;
+	margin-left: 15px;
+}
+
+.dashboard .main .project_list .project ul li::before{ /*this is a sudo-class*/
+	content: "\268A";
+	position: absolute;
+	left: -15px;
+}
+
+.dashboard .main .project_list .project .meta img{ 
+	width: 50px;
+	height: 50px;
+	border-radius: 40px;
+	border: 4px solid black;
+}
+
+.dashboard .main .project_list .project{ 
+	padding: 20px 20px 20px 60px;
+	background-color: white;
+	box-shadow: 1px 1px 40px;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	position: relative;
+}
+
+
+
+
+/*============================
+   Media queries
+============================*/
+/*---This is just for larger screens---*/
+@media only screen and (min-width: 1024px){
+	.dashboard .navigation,
+	.dashboard .navigation div span{ display: block; }
+
+	.dashboard .navigation{
+		width: 60px;
+		position: fixed;
+		z-index: 10;
+	}
+
+	section.main{
+		width: 60%;
+		margin-left: 90px;
+		margin-right: 20px;
+	}
+
+	section.main .project_list .project{
+		width: 32%;
+	}
+
+	.dashboard .navigation div{
+		margin-top: 19vh;
+		margin-bottom: 19vh;
+	}
+
+	.dashboard .navigation div span{ margin-top: 5vh; }
+}
