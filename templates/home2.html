@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Retropoly</title>
+    <link rel="icon" href="/static/images/logo.png" type="image/x-icon"> <!--add icon link. This icon will show next to Title-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/css/home.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css"/>
+    
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!------------------------------------------THIS IS FOR THE HOME PAGE--------------------------------------->
+
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container"> 
+      <img src="/static/images/logo.png" alt="logo" class="logo-1">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="fas fa-bars"></span> </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"> <a class="nav-link" href="" data-scroll-nav="0">Home</a></li>
+          <li class="nav-item"> <a class="nav-link" href="" data-scroll-nav="1">About</a></li>
+          <li class="nav-item"> <a class="nav-link" href="" data-scroll-nav="2">Rules</a></li>
+          <li class="nav-item"> <a class="nav-link" href="" data-scroll-nav="4">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar --> 
+
+<!-- Banner Image -->
+
+<div class="banner text-center" data-scroll-index='0'>
+    <div class="banner-overlay">
+      <div class="container">
+        <h1 class="text-capitalize">Retropoly Game (BETA)</h1>
+        <p>
+          The aim is to teach players scrum development with the use of a Kanban board 
+          which will be used as a story telling device and teaching points throughout the game. 
+        </p>
+        <a href="{{ url_for('dashboard') }}" class="banner-btn">Start Game</a></div>
+    </div>
+  </div>
+  
+  <!-- End Banner Image --> 
+
+
+  <!-- About -->
+
+<div class="about-us section-padding" data-scroll-index='1'>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 section-title text-center">
+        <h3>Play Retropoly Game with your team Online!</h3>
+        <p>All the features of the printed version plus additional features are now available online! Simply start and enjoy the game.</p>
+        <span class="section-title-line"></span> </div>
+      <div class="col-md-6 mb-50">
+        <div class="section-info">
+          <div class="sub-title-paragraph">
+            <h4>Play and Learn</h4>
+            <h5>Retropoly allows players to have discussions throughout the game 
+              in relation to their own progress as a team. 
+              They will discuss what is going well, 
+              what needs improvement and what they need to stop doing. 
+              This means that the team can change their approach from sprint to sprint 
+              taking on-board lessons learned and progressing the story scenario. </h5>
+            
+              <p>
+                When creating the game the team will be asked to select the number of players in their team (up to a maximum of 5).
+                They will then enter the names of each player. 
+
+                The Kanban board will then display with the story scenario in the backlog list. 
+                And leave it up to the team to decide in which order they should work through the list. 
+                After that discussion is made and the priority list is decided, 
+                the players will move the story points they want to develop into the to-do list. 
+
+                Each story point will have several hours associated with it. 
+                This is the time that players need to invest into the story point in order to move it into the complete section. 
+              </p>
+
+              <br><br>
+
+              <h4>How To Play</h4>
+              <p>
+                Each player takes it in turns to select a card they want to develop and move it into the to-do list, 
+                this will highlight the card on the Kanban board, and roll the on screen dice. 
+                The number rolled is then deducted from the cards remaining hours. 
+                Each player gets 3 rolls per turn if the card hits 0 then it is moved into the completed section of the Kanban board. <br>
+                At the end of the players turn a challenge card may appear this challenge card has a question related to scrum and agile development. 
+                If the player gets the question correct then a set number of hours will be deducted from the card they were working on. <br><br>
+
+                After each player has taken a turn that is the end of the first sprint. 
+                The game has a set number of sprints which is 4. 
+                After the first sprint the team is presented with cards that each team member needs to fill out.
+                These cards are either Keep doing, doing better and Stop doing. <br><br>
+
+                <h5><b><i>Cards:</i></b></h5>
+                
+                <b>Keep doing - </b>This card will be where the player will say something they
+                 think the team is doing the best and should keep on doing in order to progress the most in the game.<br><br> 
+
+                <b>Doing better – </b>This is where the player puts in what they think 
+                the team could be doing better at in order to make the most progression in the game.<br><br>
+                
+                <b>Stop doing –</b>This is where the players can voice their opinion 
+                on something they think the team are doing wrong and they need to stop doing.<br><br><br><br>
+
+                After each player has entered 1 of each card and selected the next set of cards to move into the to-do list the next sprint begins. 
+
+                After each players turn on this sprint including a challenge card appearing so to does either a keep doing, doing better or a stop doing card. 
+                The team is then able to have a discussion on what the card is about. <br><br>
+
+                For keep doing cards this allows the team to talk about why what is on the card is working and to agree to keep doing it. 
+
+                For Doing better cards this allows the team to talk about ways they can improve on what is on the card and make a plan to improve. 
+
+                For Stop doing cards this allows the players to discuss why a certain player thinks what they are doing 
+                needs to stop and also allows the team to see why certain behaviours are not good in relation to scrum/agile development. <br><br>
+
+                The game then continues along this track until the total number of sprints has been reached or until all story points are completed. 
+
+                Throughout the game their will be teaching points that come up. 
+                These teaching points will either explain the game and 
+                its features to players and also will have lessons on scrum development, agile development and Kanban boards. 
+              </p>
+          </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+
+</html>
