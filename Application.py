@@ -15,6 +15,11 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
+# home page continuation ('Learn More')
+@app.route('/home-learn-more/')
+def home2():
+    return render_template('home2.html')
+
 # dashboard page
 @app.route('/dashboard/')
 def dashboard():
