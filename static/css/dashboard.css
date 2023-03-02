@@ -59,6 +59,7 @@ body {
 	justify-content: space-between;
 	width: 100%;
 	margin-top: 10px;
+	background-color: white;
 }
 
 .dashboard .navigation .logo{
@@ -74,18 +75,15 @@ body {
 	color: #727272;
 }
 
-.dashboard .navigation div{ margin-top: 10px; }
-
 
 
 /*============================
    Main panel
 ============================*/
 /*Search*/
-.dashboard .main .search form{
-	margin-top: 50px;
-	position: relative;
-}
+.dashboard .main .search form{ position: relative; }
+
+.dashboard .main .search{ margin-top: 40px; }
 
 .dashboard .main .search form input{
 	width: 100%;
@@ -106,7 +104,20 @@ body {
 /*Notification & edit icons*/
 .dashboard .main .search .notification{ margin-top: 20px; }
 
-.dashboard .main .search .notification span:nth-child(1){ margin-right: 15px; }
+.dashboard .main .search .notification span:nth-child(1){ 
+	margin-right: 15px; 
+	position: relative;
+}
+
+.dashboard .main .search .notification span:nth-child(1)::before{ 
+	content: '';
+	width: 10px;
+	height: 10px;
+	background-color: sandybrown;
+	position: absolute;
+	border-radius: 50%;
+	top: 5px;
+}
 
 
 /*Agile Board*/
@@ -191,6 +202,15 @@ body {
 		position: fixed;
 		z-index: 10;
 	}
+
+	.dashboard .main .search{
+		display: flex;
+		justify-content: space-between;
+		margin-top: 70px;
+		margin-bottom: 50px;
+	}
+
+	.dashboard .main .search form{ margin-top: 10px; }
 
 	section.main{
 		width: 60%;
