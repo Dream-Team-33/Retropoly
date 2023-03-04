@@ -1,0 +1,241 @@
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: "Nunito", sans-serif;
+	text-decoration: none !important;
+	list-style: none !important;
+	outline: none !important;
+	padding: 0;
+}
+
+html { height: 100%; }
+
+body {
+	margin: 0px;
+	background-color: aliceblue;
+}
+
+/*This is for the material icons (Google fonts)*/
+.material-icons-outlined{
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+  
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+  
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+  
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+}
+
+
+
+/*Dashboard*/
+/* .dashboard{
+	padding: 0px 15px;
+	margin: 0 auto;
+} */
+
+/*============================
+   Navigation panel
+============================*/
+/* .dashboard .navigation{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 10px;
+	background-color: white;
+	width: 60px;
+	position: fixed;
+	z-index: 10;
+}
+
+.dashboard .navigation,
+.dashboard .navigation div span{ display: block; } */
+
+	/* .dashboard .navigation{
+		width: 60px;
+		position: fixed;
+		z-index: 10;
+	} */
+
+/* .dashboard .navigation .logo{
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
+}
+
+.dashboard .navigation div .material-icons-outlined{
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 30px;
+	color: #727272;
+} */
+
+
+
+/*============================
+   Main panel
+============================*/
+/*Search*/
+/* .dashboard .main .search form{ position: relative; }
+
+.dashboard .main .search{ margin-top: 40px; }
+
+.dashboard .main .search form input{
+	width: 100%;
+	font-size: 16px;
+	padding: 10px 10px 10px 60px;
+	border: 1px solid #dadada;
+	background-color: rgba(0, 0, 0 / 0);
+}
+
+.dashboard .main .search form span{
+	position: absolute;
+	left: 15px;
+	top: 10px;
+	color: #727272;
+} */
+
+
+/*Notification & edit icons*/
+/* .dashboard .main .search .notification{ margin-top: 20px; }
+
+.dashboard .main .search .notification span:nth-child(1){ 
+	margin-right: 15px; 
+	position: relative;
+}
+
+.dashboard .main .search .notification span:nth-child(1)::before{ 
+	content: '';
+	width: 10px;
+	height: 10px;
+	background-color: sandybrown;
+	position: absolute;
+	border-radius: 50%;
+	top: 5px;
+} */
+
+
+/*Agile Board*/
+/* .dashboard .main .title{ margin-bottom: 30px; }
+
+.dashboard .main .title h1{
+	font-size: 35px;
+	line-height: 0px;
+}
+
+.dashboard .main .title form{ margin-top: 40px; }
+
+.dashboard .main .title form label{ 
+	margin-right: 15px;
+	color: #727272;
+	font-size: 16px;
+}
+
+.dashboard .main .title form select{ 
+	border: none;
+	font-size: 16px;
+	background-color: rgba(0, 0, 0 / 0);
+} */
+
+
+/*Project Lists*/
+/* .dashboard .main .project_list .project h2{
+	font-size: 20px;
+	line-height: 0;
+}
+
+.dashboard .main .project_list .project p{ color: #727272; }
+
+.dashboard .main .project_list .project ul{ 
+	list-style: none; 
+	position: relative;
+	margin-left: 0px;
+	padding-left: 0px;
+}
+
+.dashboard .main .project_list .project ul li{ 
+	position: relative;
+	color: #727272;
+	margin-left: 15px;
+} */
+
+/* .dashboard .main .project_list .project ul li::before{
+	content: "\268A";
+	position: absolute;
+	left: -15px;
+}
+
+.dashboard .main .project_list .project .meta img{ 
+	width: 50px;
+	height: 50px;
+	border-radius: 40px;
+	border: 4px solid black;
+}
+
+.dashboard .main .project_list .project{ 
+	padding: 20px 20px 20px 60px;
+	background-color: white;
+	box-shadow: 1px 1px 40px;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	position: relative;
+} */
+
+
+
+
+/*============================
+   Media queries
+============================*/
+/*---This is just for larger screens---*/
+/* @media only screen and (min-width: 1024px){
+	.dashboard .navigation,
+	.dashboard .navigation div span{ display: block; }
+
+	.dashboard .navigation{
+		width: 60px;
+		position: fixed;
+		z-index: 10;
+	}
+
+	.dashboard .main .search{
+		display: flex;
+		justify-content: space-between;
+		margin-top: 70px;
+		margin-bottom: 50px;
+	}
+
+	.dashboard .main .search form{ margin-top: 10px; }
+
+	section.main{
+		width: 60%;
+		margin-left: 90px;
+		margin-right: 20px;
+	}
+
+	section.main .project_list .project{
+		width: 32%;
+	}
+
+	.dashboard .navigation div{
+		margin-top: 19vh;
+		margin-bottom: 19vh;
+	}
+
+	.dashboard .navigation div span{ margin-top: 5vh; }
+} */

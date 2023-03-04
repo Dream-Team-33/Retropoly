@@ -8,13 +8,15 @@
 	padding: 0;
 }
 
-html { height: 100%; }
-
-body {
-	margin: 0px;
-	background-color: aliceblue;
+body { 
+    min-height: 100vh;
+    background: aliceblue;
 }
 
+
+/*=====================
+       Icons
+=====================*/
 /*This is for the material icons (Google fonts)*/
 .material-icons-outlined{
 	font-family: 'Material Icons';
@@ -42,190 +44,96 @@ body {
 }
 
 
-/*Dashboard*/
-.dashboard{
-	padding: 0px 15px;
-	margin: 0 auto;
+
+/*=====================
+       Side Bar
+=====================*/
+h1 { color: black; }
+
+li { color: black; }
+
+.side-bar {
+    position: fixed;
+    background: white;
+    width: 20vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-
-
-
-/*============================
-   Navigation panel
-============================*/
-.dashboard .navigation{
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	margin-top: 10px;
-	background-color: white;
-}
-
-.dashboard .navigation .logo{
-	width: 50px;
+.side-bar .logo{
+    width: 50px;
 	height: 50px;
 	border-radius: 10px;
 }
 
-.dashboard .navigation div .material-icons-outlined{
-	margin-left: 5px;
-	margin-right: 5px;
-	font-size: 30px;
-	color: #727272;
+.side-bar .logo-name{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-
-
-/*============================
-   Main panel
-============================*/
-/*Search*/
-.dashboard .main .search form{ position: relative; }
-
-.dashboard .main .search{ margin-top: 40px; }
-
-.dashboard .main .search form input{
-	width: 100%;
-	font-size: 16px;
-	padding: 10px 10px 10px 60px;
-	border: 1px solid #dadada;
-	background-color: rgba(0, 0, 0 / 0);
+.side-bar li{
+    font-size: 24px;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
 }
 
-.dashboard .main .search form span{
-	position: absolute;
-	left: 15px;
-	top: 10px;
-	color: #727272;
+.side-bar li:hover{
+    background: aliceblue;
+    color: rgb(134, 183, 225);
+    font-weight: bolder;
 }
 
-
-/*Notification & edit icons*/
-.dashboard .main .search .notification{ margin-top: 20px; }
-
-.dashboard .main .search .notification span:nth-child(1){ 
-	margin-right: 15px; 
-	position: relative;
+.side-bar a{
+    text-decoration: none;
+    color: inherit;
 }
 
-.dashboard .main .search .notification span:nth-child(1)::before{ 
-	content: '';
-	width: 10px;
-	height: 10px;
-	background-color: sandybrown;
-	position: absolute;
-	border-radius: 50%;
-	top: 5px;
+.side-bar .active{ font-weight: bolder; }
+
+
+
+/*=====================
+       Table
+=====================*/
+.table-box{ margin: 50px auto; }
+
+.table-row{
+    display: table;
+    width: 50%;
+    margin: 10px auto;
+    font-family: sans-serif;
+    background: transparent;
+    padding: 12px 0;
+    color: #555;
+    font-size: 13px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 50, 0.3);
 }
 
-
-/*Agile Board*/
-.dashboard .main .title{ margin-bottom: 30px; }
-
-.dashboard .main .title h1{
-	font-size: 35px;
-	line-height: 0px;
+.table-cell{
+    display: table-cell;
+    width: 30%;
+    text-align: center;
+    padding: 4px 0;
+    border-right: 1px solid plum;
+    vertical-align: middle;
 }
 
-.dashboard .main .title form{ margin-top: 40px; }
-
-.dashboard .main .title form label{ 
-	margin-right: 15px;
-	color: #727272;
-	font-size: 16px;
+.table-head{
+    background: plum;
+    box-shadow: none;
+    color: white;
+    font-weight: 400;
 }
 
-.dashboard .main .title form select{ 
-	border: none;
-	font-size: 16px;
-	background-color: rgba(0, 0, 0 / 0);
-}
+.table-head .table-cell{ border-right: none; }
 
+.last-cell{ border-right: none; }
 
-/*Project Lists*/
-.dashboard .main .project_list .project h2{
-	font-size: 20px;
-	line-height: 0;
-}
-
-.dashboard .main .project_list .project p{ color: #727272; }
-
-.dashboard .main .project_list .project ul{ 
-	list-style: none; 
-	position: relative;
-	margin-left: 0px;
-	padding-left: 0px;
-}
-
-.dashboard .main .project_list .project ul li{ 
-	position: relative;
-	color: #727272;
-	margin-left: 15px;
-}
-
-.dashboard .main .project_list .project ul li::before{ /*this is a sudo-class*/
-	content: "\268A";
-	position: absolute;
-	left: -15px;
-}
-
-.dashboard .main .project_list .project .meta img{ 
-	width: 50px;
-	height: 50px;
-	border-radius: 40px;
-	border: 4px solid black;
-}
-
-.dashboard .main .project_list .project{ 
-	padding: 20px 20px 20px 60px;
-	background-color: white;
-	box-shadow: 1px 1px 40px;
-	margin-bottom: 20px;
-	border-radius: 10px;
-	position: relative;
-}
-
-
-
-
-/*============================
-   Media queries
-============================*/
-/*---This is just for larger screens---*/
-@media only screen and (min-width: 1024px){
-	.dashboard .navigation,
-	.dashboard .navigation div span{ display: block; }
-
-	.dashboard .navigation{
-		width: 60px;
-		position: fixed;
-		z-index: 10;
-	}
-
-	.dashboard .main .search{
-		display: flex;
-		justify-content: space-between;
-		margin-top: 70px;
-		margin-bottom: 50px;
-	}
-
-	.dashboard .main .search form{ margin-top: 10px; }
-
-	section.main{
-		width: 60%;
-		margin-left: 90px;
-		margin-right: 20px;
-	}
-
-	section.main .project_list .project{
-		width: 32%;
-	}
-
-	.dashboard .navigation div{
-		margin-top: 19vh;
-		margin-bottom: 19vh;
-	}
-
-	.dashboard .navigation div span{ margin-top: 5vh; }
+.first-cell {
+    text-align: left;
+    padding-left: 10px;
 }
