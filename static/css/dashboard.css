@@ -53,7 +53,7 @@ h1 { color: black; }
 li { color: black; }
 
 .side-bar {
-    position: fixed;
+    position: relative;
     background: white;
     width: 20vw;
     min-height: 100vh;
@@ -99,7 +99,7 @@ li { color: black; }
 /*=====================
        Table
 =====================*/
-.table-box{ margin: 50px auto; }
+.table-box{ margin: 50px auto;}
 
 .table-row{
     display: table;
@@ -136,4 +136,16 @@ li { color: black; }
 .first-cell {
     text-align: left;
     padding-left: 10px;
+}
+
+/* combine Table and sidebar */
+
+.MainFlex
+{
+    display: flex;
+}
+
+.table-box
+{
+    flex-basis: 100%;
 }
