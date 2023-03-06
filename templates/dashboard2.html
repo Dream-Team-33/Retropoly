@@ -34,7 +34,9 @@
 
   <!-- <script src="{{ url_for('static', filename='/static/js/drag.js') }}"></script>
   <script src="{{ url_for('static', filename='/static/js/todo.js') }}"></script> -->
-
+  
+  <script src="/static/js/drag.js" defer></script>
+  <script src="/static/js/todo.js" defer></script>
 </head>
 
 <body>
@@ -66,7 +68,7 @@
     <div class="board">
       <form id="todo-form">
         <input type="text" placeholder="New TODO..." id="todo-input" />
-        <button type="submit">Add +</button>
+        <button type="submit" onclick="" >Add +</button>
       </form>
 
       <div class="lanes">

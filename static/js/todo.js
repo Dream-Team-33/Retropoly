@@ -17,10 +17,10 @@ form.addEventListener("submit", (e) => {
     newTask.classList.add("is-dragging");
   });
 
-  newTask.addEventListener("dragend", () => {
+  newTask.addEventListener("draged", () => {
     newTask.classList.remove("is-dragging");
   });
-
+  
   todoLane.appendChild(newTask);
 
   input.value = "";
