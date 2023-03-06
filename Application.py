@@ -24,7 +24,3 @@ def home2():
 @app.route('/dashboard/')
 def dashboard():
     return render_template('dashboard.html')
-
-@app.route('/dashboard/dashboard')
-def dashboard2():
-    return render_template('dashboard2.html')
