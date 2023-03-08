@@ -27,7 +27,7 @@
     rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <script src="/static/js/drag.js" defer></script> <!--Link to the drag.js file-->
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=tbdhhTL7F0zhqEGbow0VKehqidPQye19AGSTjp_7hY0bqRNw0dp1vQH0gLO-aGSSJKvTLjpViaAtDruO5PWA0OUoIDVYjC7lAFFF6raUYIGNBOJDKVPt0lfR5Pw8_d27AUb_k5fB5ndvlrrbDyXqUQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZGlzY29yZGFwcC5jb20vYXR0YWNobWVudHMvMTA3OTc3ODgzMTI1MjA3MDQwMi8xMDgzMDMyNzkzMjk2MTYyOTU2L2Rhc2hib2FyZC5odG1s"/><script src="/static/js/drag.js" defer></script> <!--Link to the drag.js file-->
   <script src="/static/js/dice_roll.js" defer></script> <!--Link to the dice_roll.js file-->
   <script src="/static/js/message.js" defer></script> <!--Link to the message.js file-->
 </head>
@@ -169,19 +169,17 @@
       </div> 
    </div>
    <div id='roll' class='roll-button'><button>Roll dice!</button></div>
-
-   
    <!-- Popup Message Box -->
    <div class="container">
     <h1>Click to open Popup</h1>
-    <button id="openMyPopup" data-popup="myPopup" onClick="openPopup('myPopup')" aria-controls="myPopup" aria-label="Open popup">Open</button>
+    <button id="openMyPopup" data-popup="myPopup" onClick="openPopup('infoPopup')" aria-controls="myPopup" aria-label="Open popup">Open</button>
   </div>
   
-  <div class="popup" id="myPopup" aria-hidden="true" onClick="if(event.target == this){closePopup('myPopup');}">
+  <div class="popup" id="infoPopup" aria-hidden="true" onClick="if(event.target == this){closePopup('infoPopup');}">
     <div class="wrapper" aria-labelledby="popupTitle" aria-describedby="popupText" aria-modal="true">
       <h2 id="popupTitle">This is my Popup</h2>
       <p id="popupText">Lorem ipsum dolor sit amet consectetur, adipiscing elit lacinia mus, sapien nibh imperdiet tempus. Vitae massa semper mi sagittis a cum cursus fusce per, gravida tellus metus purus litora nam ultricies donec, nibh dis ligula ad facilisi penatibus condimentum aenean.</p>
-      <button id="closePopup" onClick="closePopup('myPopup');" aria-label="Close popup">Close</button>
+      <button id="closePopup" onClick="closePopup('infoPopup');" aria-label="Close popup">Close</button>
     </div>
   </div>
 
