@@ -169,17 +169,19 @@
       </div> 
    </div>
    <div id='roll' class='roll-button'><button>Roll dice!</button></div>
+
+   
    <!-- Popup Message Box -->
    <div class="container">
     <h1>Click to open Popup</h1>
-    <button id="openMyPopup" data-popup="myPopup" onClick="openPopup('myPopup')" aria-controls="myPopup" aria-label="Open popup">Open</button>
+    <button id="openMyPopup" data-popup="myPopup" onClick="openPopup('#myPopup')" aria-controls="myPopup" aria-label="Open popup">Open</button>
   </div>
   
-  <div class="popup" id="myPopup" aria-hidden="true" onClick="if(event.target == this){closePopup('myPopup');}">
+  <div class="popup" id="myPopup" aria-hidden="true" onClick="if(event.target == this){closePopup('#myPopup');}">
     <div class="wrapper" aria-labelledby="popupTitle" aria-describedby="popupText" aria-modal="true">
       <h2 id="popupTitle">This is my Popup</h2>
       <p id="popupText">Lorem ipsum dolor sit amet consectetur, adipiscing elit lacinia mus, sapien nibh imperdiet tempus. Vitae massa semper mi sagittis a cum cursus fusce per, gravida tellus metus purus litora nam ultricies donec, nibh dis ligula ad facilisi penatibus condimentum aenean.</p>
-      <button id="closePopup" onClick="closePopup('myPopup');" aria-label="Close popup">Close</button>
+      <button id="closePopup" onClick="closePopup('#myPopup');" aria-label="Close popup">Close</button>
     </div>
   </div>
     </div>
