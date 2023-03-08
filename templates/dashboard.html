@@ -28,6 +28,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <script src="/static/js/drag.js" defer></script> <!--Link to the drag.js file-->
+  <script src="/static/js/dice_roll.js" defer></script> <!--Link to the dice_roll.js file-->
+  <script src="/static/js/message.js" defer></script> <!--Link to the message.js file-->
 </head>
 
 <body>
@@ -91,7 +93,97 @@
           </p>
         </div>
       </div>
+      <!-- Dice Roller -->
+    <div class="container">
+      <div id='dice1' class="dice dice-one">
+        <div id="dice-one-side-one" class='side one'>
+          <div class="dot one-1"></div>
+        </div>
+        <div id="dice-one-side-two" class='side two'>
+          <div class="dot two-1"></div>
+          <div class="dot two-2"></div>
+        </div>
+        <div id="dice-one-side-three" class='side three'>
+          <div class="dot three-1"></div>
+          <div class="dot three-2"></div>
+          <div class="dot three-3"></div>
+        </div>
+        <div id="dice-one-side-four" class='side four'>
+          <div class="dot four-1"></div>
+          <div class="dot four-2"></div>
+          <div class="dot four-3"></div>
+          <div class="dot four-4"></div>
+        </div>
+        <div id="dice-one-side-five" class='side five'>
+          <div class="dot five-1"></div>
+          <div class="dot five-2"></div>
+          <div class="dot five-3"></div>
+          <div class="dot five-4"></div>
+          <div class="dot five-5"></div>
+        </div>
+        <div id="dice-one-side-six" class='side six'>
+          <div class="dot six-1"></div>
+          <div class="dot six-2"></div>
+          <div class="dot six-3"></div>
+          <div class="dot six-4"></div>
+          <div class="dot six-5"></div>
+          <div class="dot six-6"></div>
+        </div>
+      </div>
+   </div>
+    <div class="container">
+      <div id='dice2' class="dice dice-two">
+        <div id="dice-two-side-one" class='side one'>
+          <div class="dot one-1"></div>
+        </div>
+        <div id="dice-two-side-two" class='side two'>
+          <div class="dot two-1"></div>
+          <div class="dot two-2"></div>
+        </div>
+        <div id="dice-two-side-three" class='side three'>
+          <div class="dot three-1"></div>
+          <div class="dot three-2"></div>
+          <div class="dot three-3"></div>
+        </div>
+        <div id="dice-two-side-four" class='side four'>
+          <div class="dot four-1"></div>
+          <div class="dot four-2"></div>
+          <div class="dot four-3"></div>
+          <div class="dot four-4"></div>
+        </div>
+        <div id="dice-two-side-five" class='side five'>
+          <div class="dot five-1"></div>
+          <div class="dot five-2"></div>
+          <div class="dot five-3"></div>
+          <div class="dot five-4"></div>
+          <div class="dot five-5"></div>
+        </div>
+        <div id="dice-two-side-six" class='side six'>
+          <div class="dot six-1"></div>
+          <div class="dot six-2"></div>
+          <div class="dot six-3"></div>
+          <div class="dot six-4"></div>
+          <div class="dot six-5"></div>
+          <div class="dot six-6"></div>
+        </div>
+      </div> 
+   </div>
+   <div id='roll' class='roll-button'><button>Roll dice!</button></div>
+   <!-- Popup Message Box -->
+   <div class="container">
+    <h1>Click to open Popup</h1>
+    <button id="openMyPopup" data-popup="myPopup" onClick="openPopup('#myPopup')" aria-controls="myPopup" aria-label="Open popup">Open</button>
+  </div>
+  
+  <div class="popup" id="myPopup" aria-hidden="true" onClick="if(event.target == this){closePopup('#myPopup');}">
+    <div class="wrapper" aria-labelledby="popupTitle" aria-describedby="popupText" aria-modal="true">
+      <h2 id="popupTitle">This is my Popup</h2>
+      <p id="popupText">Lorem ipsum dolor sit amet consectetur, adipiscing elit lacinia mus, sapien nibh imperdiet tempus. Vitae massa semper mi sagittis a cum cursus fusce per, gravida tellus metus purus litora nam ultricies donec, nibh dis ligula ad facilisi penatibus condimentum aenean.</p>
+      <button id="closePopup" onClick="closePopup('#myPopup');" aria-label="Close popup">Close</button>
     </div>
+  </div>
+    </div>
+    
   </div>
 
 </body>
