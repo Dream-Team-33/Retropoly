@@ -23,4 +23,4 @@ def home2():
 # dashboard page
 @app.route('/dashboard/')
 def dashboard():
-    return render_template('dashboard.html')
+    return render_template('dashboard-welcome.html')
