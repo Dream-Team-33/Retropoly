@@ -6,12 +6,10 @@
 	list-style: none !important;
 	outline: none !important;
 	padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+  margin: 0;
   
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 *::-webkit-scrollbar {
     display: none;
