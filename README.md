@@ -14,8 +14,8 @@ The layout of the code is:
    * CSS: dashboard.css, home.css
    * JS: dashboard.js, dice_roll.js, drag.js, message.js, todo.js
    * Images (which has its sub-folders too):
-         * about.png, bg1.jpg, logo.jpg
-         * dice roller folder
+      * about.png, bg1.jpg, logo.jpg
+      * dice roller folder
 
 - Templates:
    * HTML files: home.html, home2.html, dashboard.html
