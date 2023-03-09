@@ -20,7 +20,12 @@ def home():
 def home2():
     return render_template('home2.html')
 
+# dashboard-welcome page
+@app.route('/dashboard-welcome/')
+def dashboardWelcome():
+    return render_template('dashboard-welcome.html')
+
 # dashboard page
 @app.route('/dashboard/')
 def dashboard():
-    return render_template('dashboard-welcome.html')
+    return render_template('dashboard.html')

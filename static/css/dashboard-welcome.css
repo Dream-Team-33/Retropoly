@@ -120,3 +120,23 @@ li { color: black; }
     font-size: 80px;
     font-weight: 800;
 }
+
+
+
+/*===============================
+       Preloader/Countdown
+=================================*/
+/*Preloader*/
+#preloader{
+    background: white url(/static/images/preloader_circle2.gif) no-repeat center;
+    background-size: 20%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+iframe{
+    display: none;
+}/*What this will do is that it will hide the YT video showing on the page, but
+    the loader will still work*/
