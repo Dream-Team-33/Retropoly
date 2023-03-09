@@ -48,11 +48,11 @@
                     team members (Team), notes to be taken (Notes) and exit function
                     (Exit)
                 -->
-        <li><span class="material-icons-outlined">dashboard</span><a href="dashboard.html">Dashboard</a></li>
+        <li><span class="material-icons-outlined">dashboard</span><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
         <li><span class="material-icons-outlined">density_small</span><a href="#">Rules</a></li>
         <li><span class="material-icons-outlined">groups</span><a href="#">Team</a></li>
         <li><span class="material-icons-outlined">description</span><a href="#">Notes</a></li>
-        <li><span class="material-icons-outlined">logout</span><a href="#">Exit</a></li>
+        <li><span class="material-icons-outlined">logout</span><a href="{{ url_for('home') }}">Exit</a></li>
       </ul>
     </div><!--End layout of side bar-->
 
@@ -71,7 +71,7 @@
 
 
     <!--Choosing a team-->
-    
+
 
 
 
