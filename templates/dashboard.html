@@ -57,12 +57,12 @@
       </ul>
     </div><!--End layout of side bar-->
 
-    <!--Table-->
+    <!--Board-->
+    <!--Create a table (aka Kanban Board) that will have a function to allow
+        users to drag cards in each section-->
     <div class="board">
-      <!-- <form id="todo-form">
-        <input type="text" placeholder="New TODO..." id="todo-input" />
-        <button type="submit" onclick="" >Add +</button>
-      </form> --> 
+      
+      <!--sections of the board-->
       <div class="lanes">
         <div class="swim-lane">
           <h3 class="heading">Backlog</h3>
@@ -92,8 +92,11 @@
             Watch video of a man raising a grocery store lobster as a pet
           </p>
         </div>
-      </div>
-      <!-- Dice Roller -->
+      </div> <!--End sections of the board-->
+
+
+
+      <!-- Dice Roller 1-->
     <div class="container">
       <div id='dice1' class="dice dice-one">
         <div id="dice-one-side-one" class='side one'>
@@ -130,7 +133,10 @@
           <div class="dot six-6"></div>
         </div>
       </div>
-   </div>
+   </div> <!--End of Dice Roller 1-->
+
+
+   <!--Dice Roller 2-->
     <div class="container">
       <div id='dice2' class="dice dice-two">
         <div id="dice-two-side-one" class='side one'>
@@ -167,7 +173,10 @@
           <div class="dot six-6"></div>
         </div>
       </div> 
-   </div>
+   </div> <!--End of Dice Roller 2-->
+
+
+   <!--Button for the dice roller-->
    <div id='roll' class='roll-button'><button>Roll dice!</button></div>
 
 
@@ -183,10 +192,9 @@
       <p id="popupText">Lorem ipsum dolor sit amet consectetur, adipiscing elit lacinia mus, sapien nibh imperdiet tempus. Vitae massa semper mi sagittis a cum cursus fusce per, gravida tellus metus purus litora nam ultricies donec, nibh dis ligula ad facilisi penatibus condimentum aenean.</p>
       <button id="closePopup" onClick="closePopup('infoPopup');" aria-label="Close popup">Close</button>
     </div>
-  </div>
+  </div> <!--End of Popup Message Box-->
 
-    
-  </div>
+  </div> <!--End board-->
 
 </body>
 
