@@ -9,16 +9,16 @@ The aim is to teach players scrum development with the use of a Kanban board whi
 
 ## Layout of the code
 The layout of the code is:
-- Technical Documentation
-- Static:
-   * CSS: dashboard.css, home.css
-   * JS: dashboard.js, dice_roll.js, drag.js, message.js, todo.js
-   * Images (which has its sub-folders too):
+- __Technical Documentation__
+- __Static__:
+   * __CSS__: dashboard.css, home.css
+   * __JS__: dashboard.js, dice_roll.js, drag.js, message.js, todo.js
+   * __Images__ (which has its sub-folders too):
       * about.png, bg1.jpg, logo.jpg
       * dice roller folder
 
-- Templates:
-   * HTML files: home.html, home2.html, dashboard.html
+- __Templates__:
+   * __HTML files__: home.html, home2.html, dashboard.html
 
-- Python file
+- __Python file__
    * Application.py -> will contain URLs
