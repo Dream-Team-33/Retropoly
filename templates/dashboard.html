@@ -60,7 +60,7 @@
     <!--Board-->
     <!--Create a table (aka Kanban Board) that will have a function to allow
         users to drag cards in each section-->
-    <div class="board">
+    <div class="board mainGrid">
       
       <!--sections of the board-->
       <div class="lanes">
@@ -72,7 +72,7 @@
           <p class="task" draggable="true">Mow the lawn</p>
         </div>
         <div class="swim-lane" id="todo-lane">
-          <h3 class="heading">TODO</h3>
+          <h3 class="heading">To Do</h3>
 
           <p class="task" draggable="true">Get groceries</p>
           <p class="task" draggable="true">Feed the dogs</p>
@@ -96,8 +96,9 @@
 
 
 
-      <!-- Dice Roller 1-->
-    <div class="container">
+      <!-- Dice Roller - Both dice are grouped in this section to share css-->
+    <div class="groupedDice"> <!-- Conatains both dice for better formatting -->
+      <!-- Dice 1 and all assosiated content -->
       <div id='dice1' class="dice dice-one">
         <div id="dice-one-side-one" class='side one'>
           <div class="dot one-1"></div>
@@ -133,11 +134,8 @@
           <div class="dot six-6"></div>
         </div>
       </div>
-   </div> <!--End of Dice Roller 1-->
 
-
-   <!--Dice Roller 2-->
-    <div class="container">
+      <!-- Dice 2 and all assosiated content -->
       <div id='dice2' class="dice dice-two">
         <div id="dice-two-side-one" class='side one'>
           <div class="dot one-1"></div>
@@ -173,26 +171,29 @@
           <div class="dot six-6"></div>
         </div>
       </div> 
-   </div> <!--End of Dice Roller 2-->
 
+      <!--Button for the dice roller-->
+      <div id='roll' class='roll-button'><button>Roll Dice!</button></div>
+    </div>
+   
+   <!-- class other is used for the bottom left section of the main play space. add things here that you wish to have in that section -->
+    <div class="other">
 
-   <!--Button for the dice roller-->
-   <div id='roll' class='roll-button'><button>Roll dice!</button></div>
+      <!-- Popup Message Box -->
+        <!--  <div class="testing">
+        <h1>Click to open Popup</h1>
+        <button id="openMyPopup" data-popup="myPopup" onClick="openPopup('infoPopup')" aria-controls="myPopup" aria-label="Open popup">Open</button>
+      </div> -->
+    </div>
 
-
-   <!-- Popup Message Box -->
-   <div class="container">
-    <h1>Click to open Popup</h1>
-    <button id="openMyPopup" data-popup="myPopup" onClick="openPopup('infoPopup')" aria-controls="myPopup" aria-label="Open popup">Open</button>
-  </div>
-  
+  <!-- basic format for an information popup - this can be modified to allow for other types of popups -->
   <div class="popup" id="infoPopup" aria-hidden="true" onClick="if(event.target == this){closePopup('infoPopup');}">
     <div class="wrapper" aria-labelledby="popupTitle" aria-describedby="popupText" aria-modal="true">
       <h2 id="popupTitle">This is my Popup</h2>
       <p id="popupText">Lorem ipsum dolor sit amet consectetur, adipiscing elit lacinia mus, sapien nibh imperdiet tempus. Vitae massa semper mi sagittis a cum cursus fusce per, gravida tellus metus purus litora nam ultricies donec, nibh dis ligula ad facilisi penatibus condimentum aenean.</p>
       <button id="closePopup" onClick="closePopup('infoPopup');" aria-label="Close popup">Close</button>
     </div>
-  </div> <!--End of Popup Message Box-->
+  </div><!--  End of Popup Message Box -->
 
   </div> <!--End board-->
 

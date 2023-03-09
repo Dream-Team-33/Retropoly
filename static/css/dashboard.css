@@ -15,7 +15,7 @@
     display: none;
   }
 
-body { 
+body {
     min-height: 100vh;
     background: aliceblue;
 }
@@ -59,7 +59,7 @@ li { color: black; }
 .side-bar {
     position: relative;
     background: white;
-    width: 20vw;
+    width: 300px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -105,15 +105,15 @@ li { color: black; }
   }
 
 .lanes {
-    display: flex;
-    align-items: flex-start;
-    justify-content: start;
-    gap: 16px;
+  grid-area: kanban;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
   
-    padding: 24px 32px;
-  
-    overflow: scroll;
-    height: 100%;
+  padding: 24px 32px;
+
+  height: 50%;
   }
   
   .heading {
@@ -169,21 +169,47 @@ li { color: black; }
     flex-basis: 100%;
 }
 
-/* Dice Roller */
-.container {
-  position: relative;
-  display: inline-block;
-  top: 200px;
+/* Main playspace grid for the main play space to for easier playspace management */
+.mainGrid
+{
+  padding: 30px;
+  display: grid;
+  gap: 0px 0px;
+  grid-template-columns: 5fr 3fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "kanban kanban"
+    "other groupedDice";
 }
-button {
-  position: relative;
-  top:80px;
-  padding: 15px 50px;
+
+/* Dice Roller */
+.groupedDice {
+  background-color: black;
+  border-radius:15px;
+  grid-area: groupedDice;
+  padding: 30px;
+  width: 260px;
+  height: 200px;
+  display: grid;
+  gap: 0px 0px;
+  padding: 10px;
+  grid-template-columns: 50%;
+  grid-template-rows: 50%;
+  grid-template-areas:
+    "die1 die2"
+    "button button";
+  
+}
+
+/* roll button */
+#roll {
+  grid-area: button;
+  align-self: center;
+  justify-self: center;
   color: #fff;
-  background-color: #f4d35e;
   border: none;
   font-size: 20px;
-  border-radius: 20px; 
+  border-radius: 5px; 
   box-shadow: 1px 3px #50514F;
   outline: none;
   transition: .3s; 
@@ -192,16 +218,18 @@ button:hover, button:active {
   outline: none;
   background: #50514F;
   cursor: pointer;
-  transform: translateY(15px); 
+  transform: translateY(1px); 
 }
-
+/* style for both dice appearance */
 .dice {
-  position: relative;
+  align-self: center;
+  justify-self: center;
+  margin-top: 12px;
   width: 100px;
   height: 100px;
   transform-style: preserve-3d;
   transition: transform 1s; }
-
+/* style for the dots on the dice */
 .dot {
   position: absolute;
   width: 20px;
@@ -211,12 +239,25 @@ button:hover, button:active {
   background-color: #ef233c;
   box-shadow: inset 2px 2px #d90429;}
 
+  /* dice 1 and 2 specific changes can be made here */
 .dice-one {
-  left: 450px; }
-
+  display: flexbox;
+  align-self: center;
+  justify-content: center;
+  grid-area: die1;
+}
 .dice-two {
-  left: 300px;
-  top:-200px;
+  grid-area: die2;
+  display: flexbox;
+  align-self: center;
+  justify-content: center;
+}
+
+/* this is used for the bottom left location on the game space grid area. this can be changed later */
+.other
+{
+  grid-area: other;
+  min-width: 150px;
 }
 
 .side {
