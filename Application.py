@@ -33,5 +33,5 @@ def dashboard():
 # dashboard page
 @app.route('/dashboard/notes')
 def dashboard():
-    
-    return render_template('dashboardNotes.html')
+
+    return render_template('dashboard-notes.html')
