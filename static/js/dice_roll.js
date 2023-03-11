@@ -1,14 +1,15 @@
-var elDiceOne       = document.getElementById('dice1');
-var elDiceTwo       = document.getElementById('dice2');
-var elComeOut       = document.getElementById('roll');
+var elDiceOne = document.getElementById('dice1');
+var elDiceTwo = document.getElementById('dice2');
+var elComeOut = document.getElementById('roll');
 
-elComeOut.onclick   = function () {rollDice();};
+elComeOut.onclick = function () {
+  rollDice();
+};
 
 function rollDice() {
+  var diceOne = Math.floor((Math.random() * 6) + 1);
+  var diceTwo = Math.floor((Math.random() * 6) + 1);
 
-  var diceOne   = Math.floor((Math.random() * 6) + 1);
-  var diceTwo   = Math.floor((Math.random() * 6) + 1);
- 
   console.log(diceOne + ' ' + diceTwo);
 
   for (var i = 1; i <= 6; i++) {
@@ -23,6 +24,5 @@ function rollDice() {
     if (diceTwo === k) {
       elDiceTwo.classList.add('show-' + k);
     }
-  } 
-  setTimeout(rollDice(), 1000);
+  }
 }

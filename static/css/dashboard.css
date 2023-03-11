@@ -322,19 +322,19 @@ button:hover, button:active {
 .show-1 {
   transform: rotateX(720deg) rotateZ(-720deg); }
 
-.show-6 {
+.show-2 {
   transform: rotateX(-900deg) rotateZ(1080deg); }
 
-.show-3 {
+.show-6 {
   transform: rotateY(-450deg) rotateZ(-1440deg); }
 
-.show-4 {
+.show-3 {
   transform: rotateY(810deg) rotateZ(720deg); }
 
-.show-5 {
+.show-4 {
   transform: rotateX(-810deg) rotateZ(-1080deg); }
 
-.show-2 {
+.show-5 {
   transform: rotateX(450deg) rotateZ(-720deg); }
 
   /* Message box */
