@@ -28,17 +28,19 @@ def dashboardWelcome():
 # dashboard page
 @app.route('/dashboard/')
 def dashboard():
-
     return render_template('dashboard.html')
 
-# dashboard POST page
-@app.route('/dashboard/', methods=['POST'])
-def dashboard():
-
-    return render_template('dashboard.html')
-
-# dashboard page
+# notes page
 @app.route('/dashboard/notes')
-def dashboard():
+def notes():
+    return render_template('notes.html')
 
-    return render_template('dashboard-notes.html')
+# rules page
+@app.route('/dashboard/rules')
+def rules():
+    return render_template('rules.html')
+
+# teams page
+@app.route('/dashboard/teams')
+def teams():
+    return render_template('teams.html')
