@@ -28,6 +28,13 @@ def dashboardWelcome():
 # dashboard page
 @app.route('/dashboard/')
 def dashboard():
+
+    return render_template('dashboard.html')
+
+# dashboard POST page
+@app.route('/dashboard/', methods=['POST'])
+def dashboard():
+
     return render_template('dashboard.html')
 
 # dashboard page
