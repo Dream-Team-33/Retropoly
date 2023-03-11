@@ -1,0 +1,103 @@
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: "Nunito", sans-serif;
+	text-decoration: none !important;
+	list-style: none !important;
+	outline: none !important;
+	padding: 0;
+    margin: 0;
+  
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    min-height: 100vh;
+    background:linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);
+}
+
+/*=====================
+       Icons
+=====================*/
+/*This is for the material icons (Google fonts)*/
+.material-icons-outlined{
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+  
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+  
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+  
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+}
+
+/*=====================
+       Side Bar
+=====================*/
+h1 { color: black; }
+
+li { color: black; }
+
+.MainFlex {
+    display: flex;
+}
+
+.MainFlex .side-bar {
+    position: relative;
+    background: white;
+    width: 20vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.MainFlex .side-bar .logo{
+    width: 50px;
+	height: 50px;
+	border-radius: 10px;
+}
+
+.MainFlex .side-bar .logo-name{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MainFlex .side-bar li{
+    font-size: 24px;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+}
+
+.MainFlex .side-bar li:hover{
+    background: aliceblue;
+    color: rgb(134, 183, 225);
+    font-weight: bolder;
+}
+
+.MainFlex .side-bar a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.MainFlex .side-bar .active{ font-weight: bolder; }
