@@ -17,7 +17,7 @@
 
 body {
     min-height: 100vh;
-    background: aliceblue;
+    background:linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);
 }
 
 /*=====================
