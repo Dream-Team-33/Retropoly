@@ -54,22 +54,66 @@
         <li><span class="material-icons-outlined">groups</span><a href="#">Team</a></li>
         <li><span class="material-icons-outlined">description</span><a href="#">Notes</a></li>
         <li><span class="material-icons-outlined">logout</span><a href="{{ url_for('home') }}">Exit</a></li>
-      </ul>
+      </ul> 
     </div><!--End layout of side bar-->
 
     <!--Board-->
     <!--Create a table (aka Kanban Board) that will have a function to allow
         users to drag cards in each section-->
-    <div class="board mainGrid">
-      
+    <div class="board mainGrid">      
       <!--sections of the board-->
       <div class="lanes">
         <div class="swim-lane">
           <h3 class="heading">Backlog</h3>
-
-          <p class="task" draggable="true">Get groceries</p>
-          <p class="task" draggable="true">Feed the dogs</p>
-          <p class="task" draggable="true">Mow the lawn</p>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">-1hrs</p>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">-1hrs</p>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">-1hrs</p>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">-1hrs</p>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">-1hrs</p>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">-1hrs</p>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">-1hrs</p>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">-1hrs</p>
+          </div>
+          
         </div>
         <div class="swim-lane" id="todo-lane">
           <h3 class="heading">To Do</h3>
@@ -78,7 +122,7 @@
           <p class="task" draggable="true">Feed the dogs</p>
           <p class="task" draggable="true">Mow the lawn</p>
         </div>
-
+        
         <div class="swim-lane">
           <h3 class="heading">Doing</h3>
 
@@ -88,15 +132,12 @@
         <div class="swim-lane">
           <h3 class="heading">Done</h3>
 
-          <p class="task" draggable="true">
-            Watch video of a man raising a grocery store lobster as a pet
-          </p>
         </div>
       </div> <!--End sections of the board-->
 
 
 
-      <!-- Dice Roller - Both dice are grouped in this section to share css-->
+    <!-- Dice Roller - Both dice are grouped in this section to share css-->
     <div class="groupedDice"> <!-- Conatains both dice for better formatting -->
       <!-- Dice 1 and all assosiated content -->
       <div id='dice1' class="dice dice-one">
