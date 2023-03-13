@@ -33,14 +33,14 @@ def dashboard():
 # notes page
 @app.route('/dashboard/notes')
 def notes():
-    return render_template('notes.html')
+    return render_template('Notes.html')
 
 # rules page
 @app.route('/dashboard/rules')
 def rules():
-    return render_template('rules.html')
+    return render_template('Rules.html')
 
 # teams page
 @app.route('/dashboard/teams')
 def teams():
-    return render_template('teams.html')
+    return render_template('Teams.html')
