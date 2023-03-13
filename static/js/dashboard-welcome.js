@@ -5,7 +5,8 @@
 
 //Declare a variable to display dynamic text
 var typed = new Typed(".auto-type", {
-    strings: ["Click on 'Dashboard' to start the game",
+    strings: ["Start",
+              "Click on 'Dashboard' to start the game",
               "Or click on the 'Rules' tab to understand the rules of the game.",
               "'Teams' tab is to view your team...",
               "...while 'Notes' is cliché"

@@ -64,14 +64,18 @@
         give some "tips" or "tour guide" on the page.
     -->
     <!--Start description-dashboard-page -->
-    <div class="container">
+    <div class="welcomeScreenGrid container">
       <!--color in h1 reflects the colors in the logo-->
       <h1><span class="auto-type"><span style="color: plum;">Welcome</span> <span style="color: rgb(220, 220, 25);">aboard</span><span style="color: yellowgreen;">!</span></span></h1>
+      
+      <!--Choosing a team-->
+      <!--User will click on the button, which will
+          bring up a pop-up to select number of players-->
+          <div>
+            <a href="{{ url_for('dashboard') }}" class="banner-btn" style="color: white;">Start Game</a>
+          </div>
+      <!--End choosing a team-->
     </div>
-
-
-    <!--Choosing a team--><!--End choosing a team-->
-
 
 
 
