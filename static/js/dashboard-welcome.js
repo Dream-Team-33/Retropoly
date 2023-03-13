@@ -14,7 +14,7 @@ var typed = new Typed(".auto-type", {
             //Speed of the text will be 50 when typing,
             //and 10 when cancelling out.
             typeSpeed: 20, 
-            backSpeed: 90,
+            backSpeed: 60,
             loop: true
 })
 

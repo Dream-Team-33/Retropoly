@@ -109,25 +109,26 @@ li { color: black; }
        container
 =====================*/
 .container{
-    grid-area: text;
     font-family: "Poppins", sans-serif;
-    align-items: center;
-    justify-content: center;
     display: flex;
 }
 
 .container h1{
+    grid-area: text;
+    align-self: center;
+    justify-self: center;
     background-color: white;
     font-size: 80px;
     font-weight: 800;
 }
 
+
 .welcomeScreenGrid{
     padding: 30px;
     display: grid;
     gap: 0px 0px;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 100%;
+    grid-template-rows: 70% 30%;
     grid-template-areas:
       "text"
       "startButton";
@@ -136,11 +137,17 @@ li { color: black; }
 /*=====================
        Button
 =====================*/
-.banner-btn {
+
+.buttonDiv{
     grid-area: startButton;
+    align-self: center;
+    justify-self: center;
+    padding: 10px;
+}
+.banner-btn {
 	background: #5c031c;
-	padding: 12px 45px;
-	font-size: 15px;
+	padding: 22px 65px;
+	font-size: 35px;
 	border-radius: 30px;
 	margin-top: 30px;
 }
