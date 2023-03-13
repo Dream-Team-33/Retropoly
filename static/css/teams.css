@@ -49,6 +49,8 @@ body {
 	font-feature-settings: 'liga';
 }
 
+
+
 /*=====================
        Side Bar
 =====================*/
@@ -101,3 +103,37 @@ li { color: black; }
 }
 
 .MainFlex .side-bar .active{ font-weight: bolder; }
+
+
+
+
+/*==========================
+       Displaying players
+============================*/
+.wrapper{
+    background: #fff;
+    width: 580px;
+    height: 200px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+h2{ text-align: center; }
+
+hr{
+    width: 100px;
+    margin: 10px auto;
+}/*It's a thin line*/
+
+.members{ display: flex; }
+
+.team-mem{ margin: 8px; }
+
+h4{ font-weight: bolder; }
+
+h4,p{
+    text-align: center;
+    font-size: 12px;
+    margin: 7px;
+}
