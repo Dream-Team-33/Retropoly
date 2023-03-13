@@ -500,6 +500,9 @@ h6 {
 .info-box .content h4 {
 	font-size: 20px;
 }
+
+.contact { background-color: black;}
+
 .contact-form input, .contact-form textarea {
 	border: none;
 	border-bottom: 1px solid #1c1c1c;

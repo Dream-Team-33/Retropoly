@@ -1,0 +1,181 @@
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: "Nunito", sans-serif;
+	text-decoration: none !important;
+	list-style: none !important;
+	outline: none !important;
+	padding: 0;
+    margin: 0;
+  
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    min-height: 100vh;
+    background:linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);
+}
+
+/*=====================
+       Icons
+=====================*/
+/*This is for the material icons (Google fonts)*/
+.material-icons-outlined{
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+  
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+  
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+  
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+}
+
+
+
+/*=====================
+       Side Bar
+=====================*/
+h1 { color: black; }
+
+li { color: black; }
+
+.side-bar {
+    position: relative;
+    background: white;
+    width: 300px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-bar .logo{
+    width: 50px;
+	height: 50px;
+	border-radius: 10px;
+}
+
+.side-bar .logo-name{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-bar li{
+    font-size: 24px;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+}
+
+.side-bar li:hover{
+    background: aliceblue;
+    color: rgb(134, 183, 225);
+    font-weight: bolder;
+}
+
+.side-bar a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.side-bar .active{ font-weight: bolder; }
+
+
+
+/*=====================
+       Title & Lines
+=====================*/
+.container {
+    width: 100%;
+    max-width: 600px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #f6e58d;
+    padding: 25px 10px;
+    box-shadow: 5px 5px 15px #4a4b4d;
+}
+
+/*Add a media query for the notes*/
+@media only screen and (max-width: 640px){
+    .container{
+        min-height: 550px;
+        box-shadow: 5px 5px 15px #4a4b4d;
+    }
+}
+
+.title-wrap{ margin-bottom: 20px; }
+
+.title{
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    font-size: 20px;
+    max-width: 250px;
+}
+
+.line-wrap{ 
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.line-wrap::after{
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.line-wrap:last-of-type{ margin-bottom: 0; }
+
+.line{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(41, 41, 41);
+    font-size: 20px;
+}
+
+.line:disabled{ color: black }
+
+
+/*=====================
+       Button
+=====================*/
+.btn{
+    max-width: 90px;
+    padding: 10px;
+    border: none;
+    margin-top: 25px;
+    font-size: 17px;
+    color: white;
+    background-color: rgb(0, 187, 93);
+    border-radius: 10px;
+}
+
+.edit-btn{ background-color: rgb(187, 0, 25); }

@@ -1,19 +1,414 @@
 * {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	font-family: "Nunito", sans-serif;
 	text-decoration: none !important;
 	list-style: none !important;
 	outline: none !important;
-	margin: 0;
 	padding: 0;
+  margin: 0;
+  
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
-html {
-	height: 100%;
-}
+*::-webkit-scrollbar {
+    display: none;
+  }
+
 body {
-	color: #888888;
-	font-size: 15px;
-	font-family: "Poppins", sans-serif;
-	height: 100%;
-	overflow-x: hidden;
+    min-height: 100vh;
+    background:linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);
 }
+
+/*=====================
+       Icons
+=====================*/
+/*This is for the material icons (Google fonts)*/
+.material-icons-outlined{
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+  
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+  
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+  
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+}
+
+/*=====================
+       Side Bar
+=====================*/
+h1 { color: black; }
+
+li { color: black; }
+
+.side-bar {
+    position: relative;
+    background: white;
+    width: 300px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-bar .logo{
+    width: 50px;
+	height: 50px;
+	border-radius: 10px;
+}
+
+.side-bar .logo-name{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-bar li{
+    font-size: 24px;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+}
+
+.side-bar li:hover{
+    background: aliceblue;
+    color: rgb(134, 183, 225);
+    font-weight: bolder;
+}
+
+.side-bar a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.side-bar .active{ font-weight: bolder; }
+
+/* ---- BOARD ---- */
+.board{ margin: 100px auto;}
+#todo-form {
+    padding: 32px 32px 0;
+  }
+
+.lanes {
+  grid-area: kanban;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 32px;
+
+  height: 50%;
+  }
+  
+  .heading {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .swim-lane {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: scroll;
+    background: #f4f4f4;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  
+    padding: 12px;
+    border-radius: 4px;
+    width: 225px;
+    min-height: 120px;
+    max-height: 500px;
+
+    flex-shrink: 0;
+  }
+  
+  .task {
+    background: white;
+    color: black;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  
+    padding: 12px;
+    border-radius: 4px;
+  
+    font-size: 16px;
+    cursor: move;
+  }
+  
+  .is-dragging {
+    scale: 1.05;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+    background: rgb(50, 50, 50);
+    color: white;
+  }
+
+  /* combine Table and sidebar */
+
+.MainFlex
+{
+    display: flex;
+}
+
+.board
+{
+    flex-basis: 100%;
+}
+
+/* Main playspace grid for the main play space to for easier playspace management */
+.mainGrid
+{
+  padding: 30px;
+  display: grid;
+  gap: 0px 0px;
+  grid-template-columns: 5fr 3fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "kanban kanban"
+    "other groupedDice";
+}
+
+/* Dice Roller */
+.groupedDice {
+  background-color: black;
+  border-radius:15px;
+  grid-area: groupedDice;
+  padding: 30px;
+  width: 260px;
+  height: 200px;
+  display: grid;
+  gap: 0px 0px;
+  padding: 10px;
+  grid-template-columns: 50%;
+  grid-template-rows: 50%;
+  grid-template-areas:
+    "die1 die2"
+    "button button";
+  
+}
+
+/* roll button */
+#roll {
+  grid-area: button;
+  align-self: center;
+  justify-self: center;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  border-radius: 5px; 
+  box-shadow: 1px 3px #50514F;
+  outline: none;
+  transition: .3s; 
+}
+button:hover, button:active {
+  outline: none;
+  background: #50514F;
+  cursor: pointer;
+  transform: translateY(1px); 
+}
+/* style for both dice appearance */
+.dice {
+  align-self: center;
+  justify-self: center;
+  margin-top: 12px;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: transform 1s; }
+/* style for the dots on the dice */
+.dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: -10px 5px 5px -10px;
+  border-radius: 20px;
+  background-color: #ef233c;
+  box-shadow: inset 2px 2px #d90429;}
+
+  /* dice 1 and 2 specific changes can be made here */
+.dice-one {
+  display: flexbox;
+  align-self: center;
+  justify-content: center;
+  grid-area: die1;
+}
+.dice-two {
+  grid-area: die2;
+  display: flexbox;
+  align-self: center;
+  justify-content: center;
+}
+
+/* this is used for the bottom left location on the game space grid area. this can be changed later */
+.other
+{
+  grid-area: other;
+  min-width: 150px;
+}
+
+.side {
+  position: absolute;
+  background-color: #ffF;
+  border-radius:5px;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  line-height: 2em;
+}
+
+.side:nth-child(1) {
+  transform: translateZ(3.1em); }
+
+.side:nth-child(6) {
+  transform: rotateY(90deg) translateZ(3.1em); }
+
+.side:nth-child(3) {
+  transform: rotateY(-90deg) translateZ(3.1em); }
+
+.side:nth-child(4) {
+  transform: rotateX(90deg) translateZ(3.1em); }
+
+.side:nth-child(5) {
+  transform: rotateX(-90deg) translateZ(3.1em); }
+
+.side:nth-child(2) {
+  transform: rotateY(-180deg) translateZ(3.1em); }
+
+.two-1, .three-1, .four-1, .five-1, .six-1 {
+  top: 20%;
+  left: 20%; }
+
+.four-3, .five-3, .six-4 {
+  top: 20%;
+  left: 80%; }
+
+.one-1, .three-2, .five-5 {
+  top: 50%;
+  left: 50%; }
+
+.four-2, .five-2, .six-3 {
+  top: 80%;
+  left: 20%; }
+
+.two-2, .three-3, .four-4, .five-4, .six-6 {
+  top: 80%;
+  left: 80%; }
+
+.six-2 {
+  top: 50%;
+  left: 20%; }
+
+.six-5 {
+  top: 50%;
+  left: 80%; 
+}
+
+/* Rotation */
+.show-1 {
+  transform: rotateX(720deg) rotateZ(-720deg); }
+
+.show-2 {
+  transform: rotateX(-900deg) rotateZ(1080deg); }
+
+.show-6 {
+  transform: rotateY(-450deg) rotateZ(-1440deg); }
+
+.show-3 {
+  transform: rotateY(810deg) rotateZ(720deg); }
+
+.show-4 {
+  transform: rotateX(-810deg) rotateZ(-1080deg); }
+
+.show-5 {
+  transform: rotateX(450deg) rotateZ(-720deg); }
+
+  /* Message box */
+  
+  
+  h1, h2, p, button {
+    font-family: 'Montserrat', cursive;
+    font-weight: 100;
+  }
+  
+  p, button {
+    font-weight: 300;
+  }
+  
+  h1 {
+    font-size: 40px;
+  }
+  
+  h2 {
+    font-size: 45px;
+  }
+  
+  h1, h2 {
+    text-align: center;
+    color: #666666;
+    margin: 0 0 30px 0;
+  }
+  
+  p {
+    color: #666666;
+    line-height: 1.5;
+  }
+  
+  button {
+    background: #9AD3DE;
+    border: 0;
+    border-radius: 4px;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+  
+    button:focus {
+      outline: none;
+    }
+  
+    button :hover {
+      background: lighten(#9AD3DE, 10%);
+    }
+  
+  
+  .popup {
+    background: rgba(100, 100, 100, 0.6);
+    position: fixed;
+    display: none;
+    z-index: 9999;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+  .wrapper {
+      max-width: 600px; 
+      width: 70%; 
+      position: fixed;
+      transform: translate(-50%, -50%);
+        left: 50%;
+       top: 50%;
+      background: #FFFFFF;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px 0px rgba(#000000, 0.4);
+    }
+  .notes-text{
+    
+  }

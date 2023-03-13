@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <title>Retropoly | Notes</title>
+  <link rel="icon" href="/static/images/logo.jpg" type="image/x-icon">
+  <!--add icon link. This icon will show next to Title-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/static/css/notes.css" /> <!--link to notes.css file-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css" />
+
+  <!-- Font Google -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!--Google Icons fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;
+    0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Poppins:wght@200&display=swap"
+    rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="/static/js/notes.js" defer></script> <!--Link to the notes.js file-->
+
+</head>
+
+<body>
+  <!---------------------------------------------------THIS IS FOR THE NOTES PAGE---------------------------------------------------------->
+  
+
+  <!--Side Bar-->
+  <!--Start layout of side bar--><!--
+  <div class="MainFlex">
+    <div class="side-bar">
+      <div class="logo-name">
+        <img src="/static/images/logo.jpg" alt="R.logo" class="logo">--> <!--Logo of the game-->
+        <!--<h1>Retropoly</h1>--> <!--Name of the game-->
+      <!-- </div>
+      <ul> -->
+        <!--HINT: Add the <a> tag to link each item to a page of its own,
+                    so each will have an explanation (Rules), shows the number of 
+                    team members (Team), notes to be taken (Notes) and exit function
+                    (Exit)
+                -->
+        <!-- <li><span class="material-icons-outlined">dashboard</span><a href="{{ url_for('dashboard') }}"">Dashboard</a></li>
+        <li><span class="material-icons-outlined">density_small</span><a href="{{ url_for('rules') }}">Rules</a></li>
+        <li><span class="material-icons-outlined">groups</span><a href="{{ url_for('teams') }}">Team</a></li>
+        <li><span class="material-icons-outlined">description</span><a href="{{ url_for('notes') }}">Notes</a></li>
+        <li><span class="material-icons-outlined">logout</span><a href="{{ url_for('home') }}">Exit</a></li>
+      </ul> -->
+    <!--</div>--><!--End layout of side bar-->
+
+
+
+  <!--Start lines of notes-->
+  <div class="container">
+    <!--Notes title -->
+    <div class="title-wrap">
+      <span>Title: </span>
+      <input type="text" class="title">
+    </div>
+
+    <!--This will contain the lines of the notes-->
+    <div class="line-wrap">
+      <input type="text" class="line">
+    </div>
+    <div class="line-wrap">
+      <input type="text" class="line">
+    </div>
+    <div class="line-wrap">
+      <input type="text" class="line">
+    </div>
+    <div class="line-wrap">
+      <input type="text" class="line">
+    </div>
+    <div class="line-wrap">
+      <input type="text" class="line">
+    </div>
+    <div class="line-wrap">
+      <input type="text" class="line">
+    </div>
+    <div class="line-wrap">
+      <input type="text" class="line">
+    </div>
+    <div class="line-wrap">
+      <input type="text" class="line">
+    </div>
+    <div class="line-wrap">
+      <input type="text" class="line">
+    </div>
+    <div class="line-wrap">
+      <input type="text" class="line">
+    </div>
+    <div class="line-wrap">
+      <input type="text" class="line">
+    </div>
+    <div class="line-wrap">
+      <input type="text" class="line">
+    </div>
+    <div class="line-wrap">
+      <input type="text" class="line">
+    </div>
+
+    <!--Create a button for saving notes -->
+    <button class="btn">
+      Save
+    </button> <!-- End of button for saving notes-->
+
+  </div><!--End of lines of notes-->
+
+</body>
+</html>
