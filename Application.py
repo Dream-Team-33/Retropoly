@@ -6,8 +6,29 @@
 from fileinput import filename
 from os import abort
 from flask import Flask, redirect, url_for, request, render_template
+from flask_socketio import SocketIO, emit
+
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app)
+
+@socketio.on('connect')
+def handle_connect():
+    print('Client connected')
+
+@socketio.on('disconnect')
+def test_disconnect():
+    print('Client disconnected')
+
+@socketio.on_error()        # Handles the default namespace
+def error_handler(e):
+    pass
+
+@socketio.on_error_default  # handles all namespaces without an explicit error handler
+def default_error_handler(e):
+    pass
+
 
 # home page
 @app.route('/')
@@ -26,14 +47,24 @@ def dashboardWelcome():
     return render_template('dashboard-welcome.html')
 
 # dashboard page
-@app.route('/dashboard/')
+@app.route('/dashboard/', methods=['GET','POST'])
 def dashboard():
-    return render_template('dashboard.html')
+    if request.method == 'POST':
+        hours_for_selected = request.form['hours']
+        return render_template('dashboard.html', hours=hours_for_selected)
+    else:
+        
+        return render_template('dashboard.html')
 
 # notes page
-@app.route('/dashboard/notes')
+@app.route('/dashboard/notes', methods=['GET','POST'])
 def notes():
-    return render_template('Notes.html')
+    if request.method == 'POST':
+        notes_title = request.form['notes_title']
+        notes_content = request.form['notes_content']
+        return render_template('Notes.html', notes=notes_content, title=notes_title)
+    else:  
+        return render_template('Notes.html')
 
 # rules page
 @app.route('/dashboard/rules')
@@ -44,3 +75,6 @@ def rules():
 @app.route('/dashboard/teams')
 def teams():
     return render_template('Teams.html')
+
+if __name__ == '__main__':
+    socketio.run(app)
