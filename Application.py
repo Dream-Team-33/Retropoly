@@ -30,9 +30,12 @@ def default_error_handler(e):
 
 @socketio.on('diceroll')
 def handle_dice_roll(data):
-    dice_one, dice_two = data['diceRollValues']
-
-    print("dice rolled :"+str(dice_one)+" and "+str(dice_two))
+    dice_one, dice_two, hours_from_selected = data['diceRollValues']
+    new_hours_format = int(hours_from_selected.replace("hrs", ""))
+    new_hours = new_hours_format-(int(dice_one)+int(dice_two))
+    new_hours_text = str(new_hours)
+    # Emit the new hours text to the client
+    socketio.emit('new_hours', {'newHoursText': new_hours_text})
 
 # home page
 @app.route('/')
