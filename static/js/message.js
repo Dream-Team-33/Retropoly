@@ -7,7 +7,6 @@ function openPopup(popup) {
 	//assigns the display style "none" to hide the popup from the user
 	specifiedPopup.style.display = "block"
 
-
 	/* IGNORE Requires JQUERY AND WE DONT HAVE IT INTSALLED CURRENTLY
 	$(popup).show().attr("aria-hidden", "false");
 	Focus on element to guide screen readers to popup
@@ -31,3 +30,5 @@ function closePopup(popup) {
 	$("#openMyPopup").focus();
 	*/
 }
+
+

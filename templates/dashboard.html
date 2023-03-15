@@ -31,6 +31,7 @@
   <script src="/static/js/drag.js" defer></script> <!--Link to the message.js file-->
   <script src="/static/js/dice_roll.js" defer></script> <!--Link to the dice_roll.js file-->
   <script src="/static/js/message.js" defer></script> <!--Link to the message.js file-->
+  <script src="/static/js/chellange.js" defer></script> <!--Link to the message.js file-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 </head>
 
@@ -92,15 +93,12 @@
         <div class="swim-lane todo" id="todo-lane">
           <h3 class="heading">To Do</h3>
 
-          <p class="task" draggable="true">Get groceries</p>
-          <p class="task" draggable="true">Feed the dogs</p>
-          <p class="task" draggable="true">Mow the lawn</p>
+         
         </div>
         
         <div class="swim-lane  doing">
           <h3 class="heading">Doing</h3>
 
-          <p class="task" draggable="true">Binge 80 hours of Game of Thrones</p>
         </div>
 
         <div class="swim-lane done">
@@ -188,29 +186,31 @@
       </div> 
 
       <!--Button for the dice roller-->
-      <div id='roll' class='roll-button'><button>Roll Dice!</button></div>
+      <div id='roll' class='roll-button'><button id="openMyPopup" data-popup="myPopup" onClick="openPopup('infoPopup')" aria-controls="myPopup" aria-label="Open popup">Roll Dice!</button></div>
     </div>
    
    <!-- class other is used for the bottom left section of the main play space. add things here that you wish to have in that section -->
     <div class="other">
 
       <!-- Popup Message Box -->
-        <!--  <div class="testing">
-        <h1>Click to open Popup</h1>
-        <button id="openMyPopup" data-popup="myPopup" onClick="openPopup('infoPopup')" aria-controls="myPopup" aria-label="Open popup">Open</button>
-      </div> -->
-    </div>
+      
 
-  <!-- basic format for an information popup - this can be modified to allow for other types of popups -->
+     <!-- basic format for an information popup - this can be modified to allow for other types of popups -->
   <div class="popup" id="infoPopup" aria-hidden="true" onClick="if(event.target == this){closePopup('infoPopup');}">
     <div class="wrapper" aria-labelledby="popupTitle" aria-describedby="popupText" aria-modal="true">
-      <h2 id="popupTitle">This is my Popup</h2>
-      <p id="popupText">Lorem ipsum dolor sit amet consectetur, adipiscing elit lacinia mus, sapien nibh imperdiet tempus. Vitae massa semper mi sagittis a cum cursus fusce per, gravida tellus metus purus litora nam ultricies donec, nibh dis ligula ad facilisi penatibus condimentum aenean.</p>
+      <div id="question-container" class="hide">
+      <div id="question">Question</div>
+      <div id="answer-buttons" class="btn-grid">
+        <button class="btn">Answer 1</button>
+        <button class="btn">Answer 2</button>
+        <button class="btn">Answer 3</button>
+        <button class="btn">Answer 4</button>
       <button id="closePopup" onClick="closePopup('infoPopup');" aria-label="Close popup">Close</button>
+    </div>
     </div>
   </div><!--  End of Popup Message Box -->
 
-  </div> <!--End board-->
+  
 
 </body>
 
