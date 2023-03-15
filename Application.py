@@ -29,6 +29,13 @@ def error_handler(e):
 def default_error_handler(e):
     pass
 
+@socketio.on('diceroll')
+def handle_dice_roll(data):
+    dice_one, dice_two = data['diceRollValues']
+
+    print("dice rolled :"+str(dice_one)+" and "+str(dice_two))
+
+
 
 # home page
 @app.route('/')
