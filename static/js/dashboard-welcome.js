@@ -21,6 +21,17 @@ var typed = new Typed(".auto-type", {
 
 
 
+/**This contains the function of toggling a button for 
+ * users to select the number of players.
+ */
+function togglePopup(){
+  document.getElementById("popup-1").classList.toggle("active");
+}
+
+
+
+
+
 /*This is for the preloader*/
 //define the loader variable
 var loader = document.getElementById("preloader");

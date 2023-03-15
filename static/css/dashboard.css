@@ -149,7 +149,7 @@ li { color: black; }
     font-size: 16px;
   }
   
-  .-selected{
+  .selected-task{
     background: black;
     color: white;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
@@ -389,34 +389,56 @@ button:hover, button:active {
     cursor: pointer;
   }
   
-    button:focus {
-      outline: none;
-    }
+button:focus { outline: none; }
   
-    button :hover {
-      background: lighten(#9AD3DE, 10%);
-    }
+button :hover { background: lighten(#9AD3DE, 10%); }
   
-  
-  .popup {
-    background: rgba(100, 100, 100, 0.6);
-    position: fixed;
-    display: none;
-    z-index: 9999;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-  }
-  .wrapper {
-      max-width: 600px; 
-      width: 70%; 
-      position: fixed;
-      transform: translate(-50%, -50%);
-        left: 50%;
-       top: 50%;
-      background: #FFFFFF;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 2px 2px 10px 0px rgba(#000000, 0.4);
-    }
+.popup {
+  background: rgba(100, 100, 100, 0.6);
+  position: fixed;
+  display: none;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.wrapper {
+  max-width: 600px; 
+  width: 70%; 
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  background: #FFFFFF;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px 0px rgba(#000000, 0.4);
+}
+
+
+
+/*==========================
+       Evaluation cards
+==========================*/
+.wrap{
+  width: 200px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  transition: 0.4s;
+  width: 300px;
+  background: #fff;
+  text-align: center;
+  font-size: 16px;
+  float: left;
+  margin: 10px;
+}
+
+.card:hover{ box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6); }
+
+.container-ev{ padding: 2px 16px; }
