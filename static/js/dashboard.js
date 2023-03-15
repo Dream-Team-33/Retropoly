@@ -92,6 +92,7 @@ function updateHoursRemaining(taskElement, newHoursText) {
     const hoursRemainingElement = taskElement.querySelector(".hoursRemaining");
     hoursRemainingElement.textContent = (newHoursText.toString() + "hrs");
     taskElement.classList.remove("selected-task");
+    selectedTask == null
 }
 
   
