@@ -43,18 +43,13 @@ function selectTask(taskElement) {
               // Select the new task
               // adds selected-task class to the class list of the parent node of the button clicked to select the card
               selectedTask.classList.add("selected-task");
+              const hoursRemainingElement = taskElement.querySelector(".hoursRemaining");
+              hoursRemainingText = hoursRemainingElement.textContent;
           }
       
           //TODO: disallow the user to reroll on something that is selected and is within the done section or backlog(should be impossible to go back to backlog)
 
     
-    // Select the new task
-    selectedTask = taskElement;
-    selectedTask.classList.add("selected-task");
-
-    const hoursRemainingElement = taskElement.querySelector(".hoursRemaining");
-
-    hoursRemainingText = hoursRemainingElement.textContent;
 }
 
 
