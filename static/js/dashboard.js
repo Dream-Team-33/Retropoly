@@ -1,7 +1,11 @@
 //socketIO connection verification
 var socket = io();
-socket.on('connect', function() {
-    socket.emit('my event', {data: 'I\'m connected!'});
+socket.on('connect', () => {
+  console.log('Connected to server');
+});
+
+socket.on('disconnect', () => {
+  console.log('Disconnected from server');
 });
 
 socket.on("new_hours", function(data) {
