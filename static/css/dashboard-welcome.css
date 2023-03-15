@@ -123,6 +123,8 @@ li { color: black; }
 }
 
 
+
+/*This is to set up the grid layout of the page*/
 .welcomeScreenGrid{
     padding: 30px;
     display: grid;
