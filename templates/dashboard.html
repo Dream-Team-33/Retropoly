@@ -65,8 +65,24 @@
     <div class="board mainGrid">      
       <!--sections of the board-->
       <div class="lanes">
-        <div class="swim-lane">
+        <div class="swim-lane backlog">
           <h3 class="heading">Backlog</h3>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">-1hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">-1hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+
           <div class="task" draggable="true">
             <p>
               template card
@@ -76,7 +92,7 @@
           </div>
           
         </div>
-        <div class="swim-lane" id="todo-lane">
+        <div class="swim-lane todo" id="todo-lane">
           <h3 class="heading">To Do</h3>
 
           <p class="task" draggable="true">Get groceries</p>
@@ -84,13 +100,13 @@
           <p class="task" draggable="true">Mow the lawn</p>
         </div>
         
-        <div class="swim-lane">
+        <div class="swim-lane  doing">
           <h3 class="heading">Doing</h3>
 
           <p class="task" draggable="true">Binge 80 hours of Game of Thrones</p>
         </div>
 
-        <div class="swim-lane">
+        <div class="swim-lane done">
           <h3 class="heading">Done</h3>
 
         </div>
