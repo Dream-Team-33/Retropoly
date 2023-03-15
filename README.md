@@ -10,6 +10,7 @@ The aim is to teach players scrum development with the use of a Kanban board whi
 ## Layout of the code
 The layout of the code is:
 - __Technical Documentation__
+- __pycache__
 - __Static__:
    * __CSS__: dashboard.css, dashboard-welcome.css, home.css, notes.css, rules.css, team.css
    * __JS__: dashboard.js, dashboard-welcome.js, dice_roll.js, drag.js, message.js, notes.js, todo.js
