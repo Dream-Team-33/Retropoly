@@ -98,6 +98,7 @@ function updateHoursRemaining(taskElement, newHoursText) {
     hoursRemainingElement.textContent = (newHoursText.toString() + "hrs");
     taskElement.classList.remove("selected-task");
 }
+
   
  
 
