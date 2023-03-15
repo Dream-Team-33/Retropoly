@@ -38,8 +38,5 @@ function selectTask(taskElement) {
     }
 
     //TODO: disallow the user to reroll on something that is selected and is within the done section or backlog(should be impossible to go back to backlog)
-
-    
-
-    
+ 
 }

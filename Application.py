@@ -8,7 +8,6 @@ from os import abort
 from flask import Flask, redirect, url_for, request, render_template
 from flask_socketio import SocketIO, emit
 
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, log_level='ERROR', log_output=False)
@@ -34,8 +33,6 @@ def handle_dice_roll(data):
     dice_one, dice_two = data['diceRollValues']
 
     print("dice rolled :"+str(dice_one)+" and "+str(dice_two))
-
-
 
 # home page
 @app.route('/')
@@ -82,6 +79,8 @@ def rules():
 @app.route('/dashboard/teams')
 def teams():
     return render_template('Teams.html')
+
+#
 
 if __name__ == '__main__':
     socketio.run(app)
