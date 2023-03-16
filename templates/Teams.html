@@ -89,6 +89,36 @@
 
       </div> <!--End members-->
     </div> <!--End wrapper-->
+    <div>
+      <h3>create a room</h3>
+      <form action="{{ url_for('create') }}" method="POST">
+      
+        
+            <label for="room_name">Room Name:</label>
+            <input type="text" id="room_name" name="room_name" required><br><br>
+            <label for="user_name">Username:</label>
+            <input type="text" id="user_name" name="user_name" required><br><br>
+            <input type="submit" value="Create Room">
+      </form>
+        {% if room_code %}
+            <p class="message">Your room code is: {{ room_code }}</p>
+        {% endif %}
+    </div>
+    <div>
+      <h3>Join a room</h3>
+      <form action="{{ url_for('join') }}" method="POST">
+        <label for="room_code">Room Code:</label>
+              <input type="text" id="room_code" name="room_code" required><br>
+
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" required><br>
+
+              <input type="submit" value="Join Room">
+              {% if message %}
+                <p class="message">{{message}}</p>
+              {% endif %}
+      </form>
+    </div>
 
 </body>
 </html>
