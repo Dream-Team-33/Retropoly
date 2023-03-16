@@ -2,24 +2,28 @@ const startButton = document.getElementById('openMyPopup')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
+const closeButton = document.getElementById('closePopup')
 
 let shuffledQuestions, currentQuestionIndex
+let countdown // stores the countdown timer interval
 
 startButton.addEventListener('click', startGame)
-
+closeButton.addEventListener('click', closePopup)
 
 function startGame() {
   startButton.classList.add('hide')
+  questionContainerElement.classList.remove('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
-  questionContainerElement.classList.remove('hide')
-  
+  showQuestion(shuffledQuestions[currentQuestionIndex])
+  countdown = startCountdown(10) // 10 seconds timer
 }
-
-
 
 function showQuestion(question) {
   questionElement.innerText = question.question
+  while (answerButtonsElement.firstChild) {
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+  }
   question.answers.forEach(answer => {
     const button = document.createElement('button')
     button.innerText = answer.text
@@ -32,15 +36,8 @@ function showQuestion(question) {
   })
 }
 
-function resetState() {
-  clearStatusClass(document.body)
- 
-  while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
-  }
-}
-
 function selectAnswer(e) {
+  clearInterval(countdown)
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
   setStatusClass(document.body, correct)
@@ -48,7 +45,9 @@ function selectAnswer(e) {
     setStatusClass(button, button.dataset.correct)
   })
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
-   
+    currentQuestionIndex++
+    showQuestion(shuffledQuestions[currentQuestionIndex])
+    countdown = startCountdown(10) // reset timer for next question
   } else {
     startButton.innerText = 'Restart'
     startButton.classList.remove('hide')
@@ -67,6 +66,29 @@ function setStatusClass(element, correct) {
 function clearStatusClass(element) {
   element.classList.remove('correct')
   element.classList.remove('wrong')
+}
+
+function startCountdown(seconds) {
+  const timerElement = document.getElementById('timer')
+  let remainingSeconds = seconds
+  timerElement.innerText = `${remainingSeconds} seconds`
+  const countdown = setInterval(() => {
+    remainingSeconds--
+    timerElement.innerText = `${remainingSeconds} seconds`
+    if (remainingSeconds <= 0) {
+      clearInterval(countdown)
+      selectAnswer({ target: answerButtonsElement }) // automatically select wrong answer
+    }
+  }, 1000)
+  return countdown
+}
+
+function closePopup(popupId) {
+  const popupElement = document.getElementById(popupId)
+  popupElement.setAttribute('aria-hidden', 'true')
+  popupElement.removeEventListener('click', closePopup)
+  startButton.removeEventListener('click', startGame)
+  closeButton.removeEventListener('click', closePopup)
 }
 
 const questions = [
