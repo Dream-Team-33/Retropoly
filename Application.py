@@ -10,11 +10,11 @@ from flask_socketio import SocketIO, emit, join_room, leave_room
 import secrets
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app, log_level='ERROR', log_output=False)
+app.config['SECRET_KEY'] = 'MLPQlLg9afWMbBsbAAAB'
+socketio = SocketIO(app)
 
 #prep for rooms
-session_id = ""
+user_key = ""
 #setup for a dictionary or room details
 rooms = {}
 
@@ -25,13 +25,27 @@ def generate_room_code():
 
 @socketio.on('connect')
 def handle_connect():
-    session_id = secrets.token_hex(16)
-    print('Client connected: '+session_id)
+    # Generate a unique user key for this client
+    user_key = request.sid
+    print('Client connected: '+user_key)
     
+    # Send the user key back to the client
+    emit('user_key', user_key)
+    
+    # Join the default room for this client
+    join_room(user_key)
 
 @socketio.on('disconnect')
-def test_disconnect():
-    print('Client disconnected:'+session_id)
+def handle_disconnect():
+    # Get the user key for this client
+    user_key = request.sid
+    print('Client disconnected: '+user_key)
+    
+    # Leave the default room for this client
+    leave_room(user_key)
+
+if __name__ == '__main__':
+    socketio.run(app)
 
 @socketio.on_error()        # Handles the default namespace
 def error_handler(e):
@@ -106,54 +120,57 @@ def rules():
 def teams():
     return render_template('Teams.html')
 
-#room creation
-@app.route('/dashboard/teams/create_room', methods=['GET','POST'])
-def create_room():
+# Room Creation
+@app.route('/dashboard/teams/create', methods=['GET','POST'])
+def create():
     if request.method == 'POST':
         # Get the room name from the request data
         room_name = request.form['room_name']
-        
+        user_name = request.form['user_name']
         # Generate a unique room code
         room_code = generate_room_code()
         
         # Add the room to the rooms dictionary
         rooms[room_code] = {
             'name': room_name,
-            'users': {},
+            'users': {user_name},
         }
-        
+        print(str(rooms))
         # Return the room code to the user
-        return render_template('create.html', room_name=room_name, room_code=room_code)
+        return render_template('Teams.html', room_name=room_name, room_code=room_code)
     else:
-        return render_template('create.html')
+        return render_template('Teams.html')
 
-# Define the route for joining a room, which can be accessed with GET or POST requests
-@app.route('/dashboard/teams/join', methods=['GET','POST'])
+
+# Join Room
+@app.route('/dashboard/teams/join', methods=['GET', 'POST'])
 def join():
-
     # If the request method is POST, extract the room code and username from the request arguments
     if request.method == 'POST':
-        room_code = request.args.get('room_code')
-        username = request.args.get('username')
-
-        # If the room code is in the dictionary of rooms,
+        room_code = request.form['room_code']
+        username = request.form['username']
+        
+        # If the room code is in the dictionary of rooms
         if room_code in rooms:
             # Check if the username is not already in the list of users in the room
             if username not in rooms[room_code]['users']:
+                # Use Flask's join_room function to add the user to the room
+                join_room(room_code)
                 # Add the username to the list of users in the room
-                rooms[room_code]['users'].append(username)
+                rooms[room_code]['users'].add(username)
                 # Render the join template with a success message
-                return render_template('join.html', room_code=room_code, username=username, message = f"You joined room {room_code} as {username}.")
+                return render_template('Teams.html', room_code=room_code, username=username, message=f"You joined room {room_code} as {username}.")
             else:
                 # Render the join template with a message indicating the user is already in the room
-                return render_template('join.html', room_code=room_code, username=username, message = f"You are already in room {room_code}.")
+                return render_template('Teams.html', room_code=room_code, username=username, message=f"You are already in room {room_code}.")
         else:
             # Render the join template with a message indicating the room does not exist
-            return render_template('join.html', room_code=room_code, username=username, message = f"Room {room_code} does not exist.")
+            return render_template('Teams.html', room_code=room_code, username=username, message=f"Room {room_code} does not exist.")
         
     else:
         # If the request method is GET, render the join template
-        return render_template('join.html')
+        return render_template('Teams.html')
 
 if __name__ == '__main__':
-    socketio.run(app)
+    #CHANGE BACK TO socketio.run(app) IF NOT WORKING
+    socketio.run(app, debug=True, port=5000, host='0.0.0.0')
