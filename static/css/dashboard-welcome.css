@@ -1,60 +1,68 @@
 * {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	font-family: "Nunito", sans-serif;
-	text-decoration: none !important;
-	list-style: none !important;
-	outline: none !important;
-	padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+    text-decoration: none !important;
+    list-style: none !important;
+    outline: none !important;
+    padding: 0;
     margin: 0;
-  
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
+
 *::-webkit-scrollbar {
     display: none;
 }
 
 body {
     min-height: 100vh;
-    background:linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);
+    background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);
 }
 
 /*=====================
        Icons
 =====================*/
 /*This is for the material icons (Google fonts)*/
-.material-icons-outlined{
-	font-family: 'Material Icons';
-	font-weight: normal;
-	font-style: normal;
-	font-size: 24px;  /* Preferred icon size */
-	display: inline-block;
-	line-height: 1;
-	text-transform: none;
-	letter-spacing: normal;
-	word-wrap: normal;
-	white-space: nowrap;
-	direction: ltr;
-  
-	/* Support for all WebKit browsers. */
-	-webkit-font-smoothing: antialiased;
-	/* Support for Safari and Chrome. */
-	text-rendering: optimizeLegibility;
-  
-	/* Support for Firefox. */
-	-moz-osx-font-smoothing: grayscale;
-  
-	/* Support for IE. */
-	font-feature-settings: 'liga';
+.material-icons-outlined {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
 }
 
 /*=====================
        Side Bar
 =====================*/
-h1 { color: black; }
+h1 {
+    color: black;
+}
 
-li { color: black; }
+li {
+    color: black;
+}
 
 .MainFlex {
     display: flex;
@@ -69,38 +77,40 @@ li { color: black; }
     flex-direction: column;
 }
 
-.MainFlex .side-bar .logo{
+.MainFlex .side-bar .logo {
     width: 50px;
-	height: 50px;
-	border-radius: 10px;
+    height: 50px;
+    border-radius: 10px;
 }
 
-.MainFlex .side-bar .logo-name{
+.MainFlex .side-bar .logo-name {
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.MainFlex .side-bar li{
+.MainFlex .side-bar li {
     font-size: 24px;
     padding: 10px 40px;
     display: flex;
     align-items: center;
 }
 
-.MainFlex .side-bar li:hover{
+.MainFlex .side-bar li:hover {
     background: aliceblue;
     color: rgb(134, 183, 225);
     font-weight: bolder;
 }
 
-.MainFlex .side-bar a{
+.MainFlex .side-bar a {
     text-decoration: none;
     color: inherit;
 }
 
-.MainFlex .side-bar .active{ font-weight: bolder; }
+.MainFlex .side-bar .active {
+    font-weight: bolder;
+}
 
 
 
@@ -108,12 +118,12 @@ li { color: black; }
 /*=====================
        container
 =====================*/
-.container{
+.container {
     font-family: "Poppins", sans-serif;
     display: flex;
 }
 
-.container h1{
+.container h1 {
     grid-area: text;
     align-self: center;
     justify-self: center;
@@ -125,15 +135,15 @@ li { color: black; }
 
 
 /*This is to set up the grid layout of the page*/
-.welcomeScreenGrid{
+.welcomeScreenGrid {
     padding: 30px;
     display: grid;
     gap: 0px 0px;
     grid-template-columns: 100%;
     grid-template-rows: 70% 30%;
     grid-template-areas:
-      "text"
-      "startButton";
+        "text"
+        "startButton";
 }
 
 
@@ -141,22 +151,24 @@ li { color: black; }
        Button
 =====================*/
 
-.buttonDiv{
+.buttonDiv {
     grid-area: startButton;
     align-self: center;
     justify-self: center;
     padding: 10px;
 }
+
 .banner-btn {
-	background: #5c031c;
-	padding: 22px 65px;
-	font-size: 35px;
-	border-radius: 30px;
-	margin-top: 30px;
+    background: #5c031c;
+    padding: 22px 65px;
+    font-size: 35px;
+    border-radius: 30px;
+    margin-top: 30px;
 }
+
 .banner-btn:hover {
-	background: #b4506d;
-	color:#ab2f52;
+    background: #b4506d;
+    color: #ab2f52;
 }
 
 .popup .overlay {
@@ -165,7 +177,7 @@ li { color: black; }
     left: 0px;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
     display: none;
 }
@@ -201,19 +213,21 @@ li { color: black; }
     border-radius: 50%;
 }
 
-.popup .num-btn{
+.popup .num-btn {
     background: #c74c6f;
-	padding: 10px 15px;
-	font-size: 15px;
-	border-radius: 30px;
-	margin-bottom: 60px;
+    padding: 10px 15px;
+    font-size: 15px;
+    border-radius: 30px;
+    margin-bottom: 60px;
 }
 
-.popup.active .overlay{ display: block; }
+.popup.active .overlay {
+    display: block;
+}
 
-.popup.active .content{ 
+.popup.active .content {
     transition: all 300ms ease-in-out;
-    transform: translate(-50%, -50%) scale(1); 
+    transform: translate(-50%, -50%) scale(1);
 }
 
 
@@ -221,7 +235,7 @@ li { color: black; }
        Preloader/Countdown
 =================================*/
 /*Preloader*/
-#preloader{
+#preloader {
     background: white url(/static/images/preloader_circle2.gif) no-repeat center;
     background-size: 20%;
     height: 100vh;
@@ -230,7 +244,9 @@ li { color: black; }
     z-index: 100;
 }
 
-iframe{
+iframe {
     display: none;
-}/*What this will do is that it will hide the YT video showing on the page, but
+}
+
+/*What this will do is that it will hide the YT video showing on the page, but
     the loader will still work*/

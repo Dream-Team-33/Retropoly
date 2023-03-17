@@ -3,25 +3,25 @@ const input = document.getElementById("todo-input");
 const todoLane = document.getElementById("todo-lane");
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const value = input.value;
+	e.preventDefault();
+	const value = input.value;
 
-  if (!value) return;
+	if (!value) return;
 
-  const newTask = document.createElement("p");
-  newTask.classList.add("task");
-  newTask.setAttribute("draggable", "true");
-  newTask.innerText = value;
+	const newTask = document.createElement("p");
+	newTask.classList.add("task");
+	newTask.setAttribute("draggable", "true");
+	newTask.innerText = value;
 
-  newTask.addEventListener("dragstart", () => {
-    newTask.classList.add("is-dragging");
-  });
+	newTask.addEventListener("dragstart", () => {
+		newTask.classList.add("is-dragging");
+	});
 
-  newTask.addEventListener("draged", () => {
-    newTask.classList.remove("is-dragging");
-  });
-  
-  todoLane.appendChild(newTask);
+	newTask.addEventListener("draged", () => {
+		newTask.classList.remove("is-dragging");
+	});
 
-  input.value = "";
+	todoLane.appendChild(newTask);
+
+	input.value = "";
 });
