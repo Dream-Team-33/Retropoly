@@ -111,3 +111,11 @@ li {
 .MainFlex .side-bar .active {
     font-weight: bolder;
 }
+
+p{ color: #fff; }
+
+.color-card-1{ color: green }
+
+.color-card-2{ color: orange }
+
+.color-card-3{ color: red }
