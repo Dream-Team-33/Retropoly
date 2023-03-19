@@ -518,3 +518,20 @@ body.wrong { --hue: var(--hue-wrong); }
 }
 
 .hide { display: none; }
+
+
+
+/*=====================
+       Sprint Tracker
+=====================*/
+.sprint-container{
+  background-color: #af4716;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  float: right;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
