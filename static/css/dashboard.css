@@ -528,9 +528,9 @@ body.wrong { --hue: var(--hue-wrong); }
   background-color: #af4716;
   color: #fff;
   font-weight: bold;
-  display: flex;
+  position: relative;
   float: right;
-  top: 50%;
+  bottom: 120%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 20px;
