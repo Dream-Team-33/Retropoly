@@ -95,3 +95,24 @@ function updateHoursRemaining(taskElement, newHoursText) {
 	taskElement.classList.remove("selected-task");
 	selectedTask == null;
 }
+
+
+
+
+/**
+ * This is for the sprint tracker. It will be used to display
+ * the sprint time tracker during the game.
+ */
+function displaySprintTimeTracker() {
+	var dateTime = new Date(); // Get the current date and time
+	var hours = dateTime.getHours(); //This will hold the hours
+	var min = dateTime.getMinutes(); //This will hold the minutes
+	var sec = dateTime.getSeconds(); //This will hold the seconds
+
+	// Display the current time
+	document.getElementById("hours").innerHTML = hours;
+	document.getElementById("minutes").innerHTML = min;
+	document.getElementById("seconds").innerHTML = sec;
+}
+
+setInterval(displaySprintTimeTracker, 10); // Call the displaySprintTimeTracker function every 10 milliseconds
