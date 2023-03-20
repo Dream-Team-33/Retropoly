@@ -53,69 +53,69 @@ body {
     font-feature-settings: 'liga';
 }
 
-/*=====================
-       Side Bar
-=====================*/
-h1 {
-    color: black;
+
+
+
+
+
+/*==============================
+       Popup player selection
+===============================*/
+.popup .overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    /* display: none; */
 }
 
-li {
-    color: black;
+.popup .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background: #fff;
+    width: 450px;
+    height: 220px;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.MainFlex {
-    display: flex;
+
+.popup .close-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: #222;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
 }
 
-.MainFlex .side-bar {
-    position: relative;
-    background: white;
-    width: 20vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+.popup .num-btn {
+    background: #c74c6f;
+    padding: 10px 15px;
+    font-size: 15px;
+    border-radius: 30px;
+    margin-bottom: 60px;
 }
 
-.MainFlex .side-bar .logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
+.popup.active .overlay {
+    display: block;
 }
 
-.MainFlex .side-bar .logo-name {
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.MainFlex .side-bar li {
-    font-size: 24px;
-    padding: 10px 40px;
-    display: flex;
-    align-items: center;
-}
-
-.MainFlex .side-bar li:hover {
-    background: aliceblue;
-    color: rgb(134, 183, 225);
-    font-weight: bolder;
-}
-
-.MainFlex .side-bar a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.MainFlex .side-bar .active {
-    font-weight: bolder;
-}
-
-p{ color: #fff; }
-
-.color-card-1{ color: green }
-
-.color-card-2{ color: orange }
-
-.color-card-3{ color: red }
+/* .popup.active .content {
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+} */

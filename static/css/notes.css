@@ -1,15 +1,17 @@
 * {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	font-family: "Nunito", sans-serif;
-	text-decoration: none !important;
-	list-style: none !important;
-	outline: none !important;
-	padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+    text-decoration: none !important;
+    list-style: none !important;
+    outline: none !important;
+    padding: 0;
     margin: 0;
-  
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 *::-webkit-scrollbar {
@@ -18,36 +20,37 @@
 
 body {
     min-height: 100vh;
-    background:linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);
+    background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);
 }
 
 /*=====================
        Icons
 =====================*/
 /*This is for the material icons (Google fonts)*/
-.material-icons-outlined{
-	font-family: 'Material Icons';
-	font-weight: normal;
-	font-style: normal;
-	font-size: 24px;  /* Preferred icon size */
-	display: inline-block;
-	line-height: 1;
-	text-transform: none;
-	letter-spacing: normal;
-	word-wrap: normal;
-	white-space: nowrap;
-	direction: ltr;
-  
-	/* Support for all WebKit browsers. */
-	-webkit-font-smoothing: antialiased;
-	/* Support for Safari and Chrome. */
-	text-rendering: optimizeLegibility;
-  
-	/* Support for Firefox. */
-	-moz-osx-font-smoothing: grayscale;
-  
-	/* Support for IE. */
-	font-feature-settings: 'liga';
+.material-icons-outlined {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
 }
 
 
@@ -55,9 +58,13 @@ body {
 /*=====================
        Side Bar
 =====================*/
-h1 { color: black; }
+h1 {
+    color: black;
+}
 
-li { color: black; }
+li {
+    color: black;
+}
 
 .side-bar {
     position: relative;
@@ -68,38 +75,40 @@ li { color: black; }
     flex-direction: column;
 }
 
-.side-bar .logo{
+.side-bar .logo {
     width: 50px;
-	height: 50px;
-	border-radius: 10px;
+    height: 50px;
+    border-radius: 10px;
 }
 
-.side-bar .logo-name{
+.side-bar .logo-name {
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.side-bar li{
+.side-bar li {
     font-size: 24px;
     padding: 10px 40px;
     display: flex;
     align-items: center;
 }
 
-.side-bar li:hover{
+.side-bar li:hover {
     background: aliceblue;
     color: rgb(134, 183, 225);
     font-weight: bolder;
 }
 
-.side-bar a{
+.side-bar a {
     text-decoration: none;
     color: inherit;
 }
 
-.side-bar .active{ font-weight: bolder; }
+.side-bar .active {
+    font-weight: bolder;
+}
 
 
 
@@ -119,16 +128,18 @@ li { color: black; }
 }
 
 /*Add a media query for the notes*/
-@media only screen and (max-width: 640px){
-    .container{
+@media only screen and (max-width: 640px) {
+    .container {
         min-height: 550px;
         box-shadow: 5px 5px 15px #4a4b4d;
     }
 }
 
-.title-wrap{ margin-bottom: 20px; }
+.title-wrap {
+    margin-bottom: 20px;
+}
 
-.title{
+.title {
     border: none;
     border-bottom: 1px solid black;
     background-color: transparent;
@@ -136,12 +147,12 @@ li { color: black; }
     max-width: 250px;
 }
 
-.line-wrap{ 
+.line-wrap {
     margin-bottom: 15px;
     display: flex;
 }
 
-.line-wrap::after{
+.line-wrap::after {
     content: "";
     display: inline-block;
     width: 15px;
@@ -151,9 +162,11 @@ li { color: black; }
     background-color: white;
 }
 
-.line-wrap:last-of-type{ margin-bottom: 0; }
+.line-wrap:last-of-type {
+    margin-bottom: 0;
+}
 
-.line{
+.line {
     width: 100%;
     background-color: transparent;
     border: none;
@@ -161,13 +174,15 @@ li { color: black; }
     font-size: 20px;
 }
 
-.line:disabled{ color: black }
+.line:disabled {
+    color: black
+}
 
 
 /*=====================
        Button
 =====================*/
-.btn{
+.btn {
     max-width: 90px;
     padding: 10px;
     border: none;
@@ -178,4 +193,6 @@ li { color: black; }
     border-radius: 10px;
 }
 
-.edit-btn{ background-color: rgb(187, 0, 25); }
+.edit-btn {
+    background-color: rgb(187, 0, 25);
+}

@@ -26,6 +26,7 @@
     href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Poppins:wght@200&display=swap"
     rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/static/js/teams.js" defer></script> <!--Link to the teams.js file-->
 </head>
 <body>
   <!------------------------------------------THIS IS FOR THE TEAMS PAGE--------------------------------------->
@@ -89,36 +90,13 @@
 
       </div> <!--End members-->
     </div> <!--End wrapper-->
-    <div>
-      <h3>create a room</h3>
-      <form action="{{ url_for('create') }}" method="POST">
-      
-        
-            <label for="room_name">Room Name:</label>
-            <input type="text" id="room_name" name="room_name" required><br><br>
-            <label for="user_name">Username:</label>
-            <input type="text" id="user_name" name="user_name" required><br><br>
-            <input type="submit" value="Create Room">
-      </form>
-        {% if room_code %}
-            <p class="message">Your room code is: {{ room_code }}</p>
-        {% endif %}
-    </div>
-    <div>
-      <h3>Join a room</h3>
-      <form action="{{ url_for('join') }}" method="POST">
-        <label for="room_code">Room Code:</label>
-              <input type="text" id="room_code" name="room_code" required><br>
-
-              <label for="username">Username:</label>
-              <input type="text" id="username" name="username" required><br>
-
-              <input type="submit" value="Join Room">
-              {% if message %}
-                <p class="message">{{message}}</p>
-              {% endif %}
-      </form>
-    </div>
+    <div id="room-form">
+      <input type="text" id="room-input" placeholder="Enter room name">
+      <button id="create-room-btn">Create Room</button>
+      <button id="join-room-btn">Join Room</button>
+      <button id="leave-room-btn">Leave Room</button>
+  </div>
+  <div id="status"></div>
 
 </body>
 </html>

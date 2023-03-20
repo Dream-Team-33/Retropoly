@@ -1,104 +1,118 @@
 //socketIO connection verification
 var socket = io();
-socket.on('connect', () => {
-  console.log('Connected to server');
+socket.on("connect", () => {
+	console.log("Connected to server");
 });
 
-socket.on('disconnect', () => {
-  console.log('Disconnected from server');
+socket.on("disconnect", () => {
+	console.log("Disconnected from server");
 });
 
-socket.on("new_hours", function(data) {
-    new_hours_text = data['newHoursText']
-    const taskElement = selectedTask.closest(".task");
-    updateHoursRemaining(taskElement, new_hours_text);
-  });
-  
-  
+socket.on("new_hours", function (data) {
+	new_hours_text = data["newHoursText"];
+	const taskElement = selectedTask.closest(".task");
+	updateHoursRemaining(taskElement, new_hours_text);
+});
 
 let selectedTask = null;
 let hoursRemainingText = null; // Declare the variable here
 
 function selectTask(taskElement) {
-    //changes the name of taskelement to be selected task for clarity in the code
-    selectedTask = taskElement;
+	//changes the name of taskelement to be selected task for clarity in the code
+	selectedTask = taskElement;
 
+	if (selectedTask !== null) {
+		// Unselect the previously selected task
+		selectedTask.classList.remove("selected-task");
+	}
+	var parent = selectedTask.parentNode;
+	console.log(parent);
+	// rest of your code that uses parent
 
-    if (selectedTask !== null) {
-    // Unselect the previously selected task
-    selectedTask.classList.remove("selected-task");
-    }   
-          var parent = selectedTask.parentNode;
-          console.log(parent)
-          // rest of your code that uses parent
-      
-          // checks to see if the classes within the parent node of the slected task contains either 'backlog' or 'done'
-          if (parent.classList.contains('backlog') || parent.classList.contains('done')) {
-              //
-              // popup should appear explaining why they cannot select the card that they have selected
-              //
-              //
-              
-              // debuggign console log to tell us that they card is not a valid choice
-              console.log("backlog or done detected please choose a valid card!")
-          }
-          else
-          {
-              // Select the new task
-              // adds selected-task class to the class list of the parent node of the button clicked to select the card
-              selectedTask.classList.add("selected-task");
-              const hoursRemainingElement = taskElement.querySelector(".hoursRemaining");
-              hoursRemainingText = hoursRemainingElement.textContent;
-          }
-      
-          //TODO: disallow the user to reroll on something that is selected and is within the done section or backlog(should be impossible to go back to backlog)
+	// checks to see if the classes within the parent node of the slected task contains either 'backlog' or 'done'
+	if (
+		parent.classList.contains("backlog") ||
+		parent.classList.contains("done")
+	) {
+		//
+		// popup should appear explaining why they cannot select the card that they have selected
+		//
+		//
 
-    
+		// debuggign console log to tell us that they card is not a valid choice
+		console.log("backlog or done detected please choose a valid card!");
+	} else {
+		// Select the new task
+		// adds selected-task class to the class list of the parent node of the button clicked to select the card
+		selectedTask.classList.add("selected-task");
+		const hoursRemainingElement = taskElement.querySelector(".hoursRemaining");
+		hoursRemainingText = hoursRemainingElement.textContent;
+	}
+
+	//TODO: disallow the user to reroll on something that is selected and is within the done section or backlog(should be impossible to go back to backlog)
 }
 
-
-
-var elDiceOne = document.getElementById('dice1');
-var elDiceTwo = document.getElementById('dice2');
-var elComeOut = document.getElementById('roll');
-
+var elDiceOne = document.getElementById("dice1");
+var elDiceTwo = document.getElementById("dice2");
+var elComeOut = document.getElementById("roll");
 
 elComeOut.onclick = function () {
-    if (hoursRemainingText !== null) { // Make sure hoursRemainingText is defined
-        rollDice(hoursRemainingText); // Pass the hoursRemainingText to rollDice
-    } else {
-        console.log("No task selected");
-    }
+	if (hoursRemainingText !== null) {
+		// Make sure hoursRemainingText is defined
+		rollDice(hoursRemainingText); // Pass the hoursRemainingText to rollDice
+	} else {
+		console.log("No task selected");
+	}
 };
-  
-function rollDice(hoursRemainingText) { // Accept the hoursRemainingText as a parameter
-  var diceOne = Math.floor((Math.random() * 6) + 1);
-  var diceTwo = Math.floor((Math.random() * 6) + 1);
 
-  socket.emit('diceroll', {diceRollValues:[diceOne,diceTwo, hoursRemainingText]}); // Pass the hoursRemaining text value
+function rollDice(hoursRemainingText) {
+	// Accept the hoursRemainingText as a parameter
+	var diceOne = Math.floor(Math.random() * 6 + 1);
+	var diceTwo = Math.floor(Math.random() * 6 + 1);
 
-  for (var i = 1; i <= 6; i++) {
-    elDiceOne.classList.remove('show-' + i);
-    if (diceOne === i) {
-      elDiceOne.classList.add('show-' + i);
-    }
-  }
+	socket.emit("diceroll", {
+		diceRollValues: [diceOne, diceTwo, hoursRemainingText],
+	}); // Pass the hoursRemaining text value
 
-  for (var k = 1; k <= 6; k++) {
-    elDiceTwo.classList.remove('show-' + k);
-    if (diceTwo === k) {
-      elDiceTwo.classList.add('show-' + k);
-    }
-  }
+	for (var i = 1; i <= 6; i++) {
+		elDiceOne.classList.remove("show-" + i);
+		if (diceOne === i) {
+			elDiceOne.classList.add("show-" + i);
+		}
+	}
+
+	for (var k = 1; k <= 6; k++) {
+		elDiceTwo.classList.remove("show-" + k);
+		if (diceTwo === k) {
+			elDiceTwo.classList.add("show-" + k);
+		}
+	}
 }
 
 function updateHoursRemaining(taskElement, newHoursText) {
-    const hoursRemainingElement = taskElement.querySelector(".hoursRemaining");
-    hoursRemainingElement.textContent = (newHoursText.toString() + "hrs");
-    taskElement.classList.remove("selected-task");
-    selectedTask == null
+	const hoursRemainingElement = taskElement.querySelector(".hoursRemaining");
+	hoursRemainingElement.textContent = newHoursText.toString() + "hrs";
+	taskElement.classList.remove("selected-task");
+	selectedTask == null;
 }
 
-  
- 
 
+
+
+/**
+ * This is for the sprint tracker. It will be used to display
+ * the sprint time tracker during the game.
+ */
+function displaySprintTimeTracker() {
+	var dateTime = new Date(); // Get the current date and time
+	var hours = dateTime.getHours(); //This will hold the hours
+	var min = dateTime.getMinutes(); //This will hold the minutes
+	var sec = dateTime.getSeconds(); //This will hold the seconds
+
+	// Display the current time
+	document.getElementById("hours").innerHTML = hours;
+	document.getElementById("minutes").innerHTML = min;
+	document.getElementById("seconds").innerHTML = sec;
+}
+
+setInterval(displaySprintTimeTracker, 10); // Call the displaySprintTimeTracker function every 10 milliseconds
