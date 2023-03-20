@@ -13,6 +13,29 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MLPQlLg9afWMbBsbAAAB'
 socketio = SocketIO(app)
 
+
+# =========================================>
+# players choice page
+@app.route('/player/')
+def player():
+    return render_template('player-choice.html')
+
+
+
+# THIS WAS CREATED BECAUSE THE PLAYER CHOICE PAGE DOESN'T OPEN THE DASHBOARD USING
+# /templates/dashboard-welcome.html THAT IS STATED IN THE player-choice.js FILE.
+# THIS NEEDS TO BE FIXED. ===>
+# =======>
+# @app.route('/player-open-dashboard/')
+# def player_open_dashboard():
+#     return render_template('dashboard-welcome.html')          <======================================
+
+
+
+
+
+
+
 # prep for rooms
 user_key = ""
 # setup for a dictionary or room details
@@ -100,23 +123,20 @@ def handle_dice_roll(data):
 def home():
     return render_template('home.html')
 
+
 # home page continuation ('Learn More')
-
-
 @app.route('/home-learn-more/')
 def home2():
     return render_template('home2.html')
 
+
 # dashboard-welcome page
-
-
 @app.route('/dashboard-welcome/')
 def dashboardWelcome():
     return render_template('dashboard-welcome.html')
 
+
 # dashboard page
-
-
 @app.route('/dashboard/', methods=['GET', 'POST'])
 def dashboard():
     if request.method == 'POST':
@@ -126,9 +146,8 @@ def dashboard():
 
         return render_template('dashboard.html')
 
+
 # notes page
-
-
 @app.route('/dashboard/notes', methods=['GET', 'POST'])
 def notes():
     if request.method == 'POST':
@@ -138,23 +157,20 @@ def notes():
     else:
         return render_template('Notes.html')
 
+
 # rules page
-
-
 @app.route('/dashboard/rules')
 def rules():
     return render_template('Rules.html')
 
+
 # teams page
-
-
 @app.route('/dashboard/teams')
 def teams():
     return render_template('Teams.html')
 
+
 # Room Creation
-
-
 @app.route('/dashboard/teams/create', methods=['GET', 'POST'])
 def create():
     if request.method == 'POST':
