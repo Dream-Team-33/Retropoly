@@ -19,6 +19,11 @@
 }
 
 body {
+  /* 
+    This will change the default zoom setting when the page is loaded.
+    PLEASE LET ME KNOW IF THIS DOESNT LOOK RIGHT ON YOUR SCREEN!
+    */
+  zoom: 100%; 
   min-height: 100vh;
   background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);
 }
@@ -77,6 +82,7 @@ li {
   width: 50px;
   height: 50px;
   border-radius: 10px;
+  padding: 10px;
 }
 
 .side-bar .logo-name {
@@ -84,6 +90,7 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
 }
 
 .side-bar li {
@@ -110,7 +117,7 @@ li {
 
 /* ---- BOARD ---- */
 .board {
-  margin: 100px auto;
+  margin: 1cm auto;
 }
 
 #todo-form {
@@ -165,12 +172,6 @@ li {
 .selected-task {
   background: black;
   color: white;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
-
-  padding: 12px;
-  border-radius: 4px;
-
-  font-size: 16px;
   cursor: move;
 }
 
@@ -196,8 +197,8 @@ li {
   padding: 30px;
   display: grid;
   gap: 0px 0px;
-  grid-template-columns: 5fr 3fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 0.3fr;
+  grid-template-rows: 55ch auto;
   grid-template-areas:
     "kanban kanban"
     "other groupedDice";
@@ -205,6 +206,7 @@ li {
 
 /* Dice Roller */
 .groupedDice {
+  justify-self: center;
   background-color: black;
   border-radius: 15px;
   grid-area: groupedDice;
@@ -430,24 +432,7 @@ button :hover {
   background: lighten(#9AD3DE, 10%);
 }
 
-.popup {
-  background: rgba(100, 100, 100, 0.6);
-  position: fixed;
-  display: none;
-  z-index: 9999;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-}
-
 .wrapper {
-  max-width: 600px;
-  width: 70%;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
   background: #FFFFFF;
   padding: 30px;
   border-radius: 10px;
@@ -459,30 +444,70 @@ button :hover {
 /*==========================
        Evaluation cards
 ==========================*/
-.wrap {
+
+/* contains the css that controls the location and the layout of the challenge grid */
+.challengeGrid {
+  grid-area: other;
+  display: grid;
+  /* display: none; */
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 45% auto;
+  grid-template-areas:
+    "card questions"
+    "card questions"
+    "card questions";
+  /* z-index: 5; */
+
+}
+/* will specify the location of the popup and its contents */
+.popup {
+  margin: 10px;
+  grid-area: questions;
+}
+/* .wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: auto;
+  margin-top: 100px;
+  width: 900px;
+} */
+
+/* .wrap {
   width: 200px;
   margin: auto;
   margin-top: 100px;
-}
+} */
 
+/* this is linked to the Challenege cards and their contents */
+.container-ev {
+  grid-area: card;
+  padding: 2px 16px;
+}
+/* this is the actual card properties */
 .card {
+  align-self: center;
+  justify-self: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
   transition: 0.4s;
-  width: 300px;
+  width: 30ch;
   background: #fff;
   text-align: center;
   font-size: 16px;
-  float: left;
   margin: 10px;
 }
-
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
 }
-
-.container-ev {
-  padding: 2px 16px;
-}
+/* end of card properties */
 
 
 /* quizz */
@@ -501,6 +526,7 @@ body.wrong {
 }
 
 .container {
+  grid-area: questions;
   width: 800px;
   max-width: 80%;
   background-color: white;

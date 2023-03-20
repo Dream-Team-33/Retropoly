@@ -94,20 +94,43 @@
         <div class="swim-lane todo" id="todo-lane">
           <h3 class="heading">To Do</h3>
 
-          <p class="task" draggable="true">Get groceries</p>
-          <p class="task" draggable="true">Feed the dogs</p>
-          <p class="task" draggable="true">Mow the lawn</p>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">14hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">14hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
         </div>
 
         <div class="swim-lane  doing">
           <h3 class="heading">Doing</h3>
 
-          <p class="task" draggable="true">Binge 80 hours of Game of Thrones</p>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">14hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
         </div>
 
         <div class="swim-lane done">
           <h3 class="heading">Done</h3>
-
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">14hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
         </div>
       </div> <!--End sections of the board-->
 
@@ -190,19 +213,46 @@
         </div>
 
         <!--Button for the dice roller-->
-        <div id='roll' class='roll-button'><button id="openMyPopup" data-popup="myPopup"
-            onClick="openPopup('infoPopup')" aria-controls="myPopup" aria-label="Open popup">Roll Dice!</button></div>
+        <div id='roll' class='roll-button'>
+          <button id="openMyPopup" data-popup="myPopup" onClick="openPopup('infoPopup')" aria-controls="myPopup"
+            aria-label="Open popup">Roll Dice!</button>
+        </div>
       </div>
-
       <!-- class other is used for the bottom left section of the main play space. add things here that you wish to have in that section -->
       <div class="other">
+        
+      </div> <!--End board-->
+
+
+      <div class="challengeGrid">
+        <!--Keep Doing card-->
+        <div class="card keepDoing" style="display: none;">
+          <img src="/static/images/keep-doing.png" alt="keep-doing">
+          <div class="container-ev">
+            <p>Users can send emails securely to unspecified reipients</p>
+          </div>
+        </div>
+
+        <!--Doing Better card-->
+        <div class="card doingBetter" style="display: none;">
+          <img src="/static/images/doing-better.png" alt="doing-better">
+          <div class="container-ev">
+            <p>Users can manage their emails effectively</p>
+          </div>
+        </div>
+
+        <!--Stop Doing card-->
+        <div class="card stopDoing" style="display: none;">
+          <img src="/static/images/stop-doing.png" alt="stop-doing">
+          <div class="container-ev">
+            <p>Users can send emails securely to unspecified reipients</p>
+          </div>
+        </div>
 
         <!-- Popup Message Box -->
-
-
         <!-- basic format for an information popup - this can be modified to allow for other types of popups -->
         <div class="popup" id="infoPopup" aria-hidden="true"
-          onClick="if(event.target == this){closePopup('infoPopup');}">
+          onClick="if(event.target == this){closePopup('infoPopup');}" style="display: none;">
           <div class="wrapper" aria-labelledby="popupTitle" aria-describedby="popupText" aria-modal="true">
             <div id="question-container" class="hide">
               <div id="question">Question</div>
@@ -215,37 +265,11 @@
               </div>
             </div>
           </div><!--  End of Popup Message Box -->
-
-
           <!--Evaluation Cards-->
-          <div class="mainGrid wrap">
-            <!--Keep Doing card-->
-            <div class="card">
-              <img src="/static/images/keep-doing.png" alt="keep-doing">
-              <div class="container-ev">
-                <p>Users can send emails securely to unspecified reipients</p>
-              </div>
-            </div>
+        </div><!--End of Evaluation Cards-->
 
-            <!--Doing Better card-->
-            <div class="card">
-              <img src="/static/images/doing-better.png" alt="doing-better">
-              <div class="container-ev">
-                <p>Users can manage their emails effectively</p>
-              </div>
-            </div>
 
-            <!--Stop Doing card-->
-            <div class="card">
-              <img src="/static/images/stop-doing.png" alt="stop-doing">
-              <div class="container-ev">
-                <p>Users can send emails securely to unspecified reipients</p>
-              </div>
-            </div>
 
-          </div><!--End of Evaluation Cards-->
-
-        </div> <!--End board-->
 
 </body>
 
