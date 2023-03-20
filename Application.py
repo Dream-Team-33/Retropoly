@@ -47,9 +47,23 @@ def handle_disconnect():
     # Leave the default room for this client
     leave_room(user_key)
 
+@socketio.on('create')
+def create_room(data):
+    room = data['room']
+    join_room(user_key)
+    socketio.emit('status', {'msg': 'User has created and entered the room.', 'room': room}, room=room)
 
-if __name__ == '__main__':
-    socketio.run(app)
+@socketio.on('join')
+def join_room(data):
+    room = data['room']
+    join_room(room)
+    socketio.emit('status', {'msg': 'User has entered the room.', 'room': room}, room=room)
+
+@socketio.on('leave')
+def leave_room(data):
+    room = data['room']
+    leave_room(room)
+    socketio.emit('status', {'msg': 'User has left the room.', 'room': room}, room=room)
 
 
 @socketio.on_error()        # Handles the default namespace
@@ -175,7 +189,9 @@ def join():
             # Check if the username is not already in the list of users in the room
             if username not in rooms[room_code]['users']:
                 # Use Flask's join_room function to add the user to the room
+                print("Joined Room:" + room_code)
                 join_room(room_code)
+                
                 # Add the username to the list of users in the room
                 rooms[room_code]['users'].add(username)
                 # Render the join template with a success message
