@@ -13,6 +13,29 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MLPQlLg9afWMbBsbAAAB'
 socketio = SocketIO(app)
 
+
+# =========================================>
+# players choice page
+@app.route('/player/')
+def player():
+    return render_template('player-choice.html')
+
+
+
+# THIS WAS CREATED BECAUSE THE PLAYER CHOICE PAGE DOESN'T OPEN THE DASHBOARD USING
+# /templates/dashboard-welcome.html THAT IS STATED IN THE player-choice.js FILE.
+# THIS NEEDS TO BE FIXED. ===>
+# =======>
+# @app.route('/player-open-dashboard/')
+# def player_open_dashboard():
+#     return render_template('dashboard-welcome.html')          <======================================
+
+
+
+
+
+
+
 # prep for rooms
 user_key = ""
 # setup for a dictionary or room details
