@@ -91,6 +91,7 @@ function closePopup(popupId) {
   closeButton.removeEventListener('click', closePopup)
 }
 
+
 const questions = [
   {
     question: 'What is 2 + 2?',
