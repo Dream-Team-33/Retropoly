@@ -7,7 +7,7 @@ from fileinput import filename
 from os import abort
 from flask import Flask, redirect, url_for, request, render_template
 from flask_socketio import SocketIO, emit, join_room, leave_room
-import secrets
+import secrets, json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MLPQlLg9afWMbBsbAAAB'
@@ -191,6 +191,20 @@ def join():
         # If the request method is GET, render the join template
         return render_template('Teams.html')
 
+
+# handle JSON data
+@app.route('/save-json', methods=['POST'])
+def save_json():
+    data = request.get_json()
+    with open('data.json', 'w') as f:
+        json.dump(data, f)
+    return jsonify({'message': 'Data saved successfully.'})
+
+@app.route('/read-json', methods=['GET'])
+def read_json():
+    with open('data.json', 'r') as f:
+        data = json.load(f)
+    return jsonify(data)
 
 if __name__ == '__main__':
     # CHANGE BACK TO socketio.run(app) IF NOT WORKING

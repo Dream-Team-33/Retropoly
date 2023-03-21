@@ -23,7 +23,7 @@ body {
     This will change the default zoom setting when the page is loaded.
     PLEASE LET ME KNOW IF THIS DOESNT LOOK RIGHT ON YOUR SCREEN!
     */
-  zoom: 100%; 
+  zoom: 100%;
   min-height: 100vh;
   background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);
 }
@@ -113,6 +113,16 @@ li {
 
 .side-bar .active {
   font-weight: bolder;
+}
+
+/* sprint tracker number */
+#currentSprint {
+  /* grid-area: kanban; */
+  top: 0;
+  right: 0;
+  position: absolute;
+  padding: 0px 20px;
+  background: #f4f4f4;
 }
 
 /* ---- BOARD ---- */
@@ -386,9 +396,13 @@ button:hover, button:active {
 /* Message box */
 
 
-h2, p, button { font-weight: 100; }
+h2, p, button {
+  font-weight: 100;
+}
 
-p, button { font-weight: 300; }
+p, button {
+  font-weight: 300;
+}
 
 h2 {
   font-size: 45px;
@@ -412,7 +426,9 @@ button {
   cursor: pointer;
 }
 
-button:focus { outline: none; }
+button:focus {
+  outline: none;
+}
 
 button :hover {
   background: lighten(#9AD3DE, 10%);
@@ -445,11 +461,13 @@ button :hover {
   /* z-index: 5; */
 
 }
+
 /* will specify the location of the popup and its contents */
 .popup {
   margin: 10px;
   grid-area: questions;
 }
+
 /* .wrap {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -472,6 +490,7 @@ button :hover {
   grid-area: card;
   padding: 2px 16px;
 }
+
 /* this is the actual card properties */
 .card {
   align-self: center;
@@ -484,15 +503,18 @@ button :hover {
   font-size: 16px;
   margin: 10px;
 }
+
 .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 5px;
 }
+
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
 }
+
 /* end of card properties */
 
 
@@ -503,9 +525,13 @@ button :hover {
   --hue-correct: 145;
 }
 
-body.correct { --hue: var(--hue-correct); }
+body.correct {
+  --hue: var(--hue-correct);
+}
 
-body.wrong { --hue: var(--hue-wrong); }
+body.wrong {
+  --hue: var(--hue-wrong);
+}
 
 .container {
   grid-area: questions;
@@ -534,14 +560,18 @@ body.wrong { --hue: var(--hue-wrong); }
   outline: none;
 }
 
-.btn:hover { border-color: black; }
+.btn:hover {
+  border-color: black;
+}
 
 .btn.correct {
   --hue: var(--hue-correct);
   color: black;
 }
 
-.btn.wrong { --hue: var(--hue-wrong); }
+.btn.wrong {
+  --hue: var(--hue-wrong);
+}
 
 .controls {
   display: flex;
@@ -549,21 +579,19 @@ body.wrong { --hue: var(--hue-wrong); }
   align-items: center;
 }
 
-.hide { display: none; }
+.hide {
+  display: none;
+}
 
 
 
 /*=====================
        Sprint Tracker
 =====================*/
-.sprint-container{
+.sprint-container {
   background-color: #af4716;
   color: #fff;
   font-weight: bold;
-  position: relative;
-  float: right;
-  bottom: 120%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute;
   font-size: 20px;
 }
