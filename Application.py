@@ -13,6 +13,29 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MLPQlLg9afWMbBsbAAAB'
 socketio = SocketIO(app)
 
+
+# =========================================>
+# players choice page
+@app.route('/player/')
+def player():
+    return render_template('player-choice.html')
+
+
+
+# THIS WAS CREATED BECAUSE THE PLAYER CHOICE PAGE DOESN'T OPEN THE DASHBOARD USING
+# /templates/dashboard-welcome.html THAT IS STATED IN THE player-choice.js FILE.
+# THIS NEEDS TO BE FIXED. ===>
+# =======>
+# @app.route('/player-open-dashboard/')
+# def player_open_dashboard():
+#     return render_template('dashboard-welcome.html')          <======================================
+
+
+
+
+
+
+
 # prep for rooms
 user_key = ""
 # setup for a dictionary or room details
@@ -47,9 +70,23 @@ def handle_disconnect():
     # Leave the default room for this client
     leave_room(user_key)
 
+@socketio.on('create')
+def create_room(data):
+    room = data['room']
+    join_room(user_key)
+    socketio.emit('status', {'msg': 'User has created and entered the room.', 'room': room}, room=room)
 
-if __name__ == '__main__':
-    socketio.run(app)
+@socketio.on('join')
+def join_room(data):
+    room = data['room']
+    join_room(room)
+    socketio.emit('status', {'msg': 'User has entered the room.', 'room': room}, room=room)
+
+@socketio.on('leave')
+def leave_room(data):
+    room = data['room']
+    leave_room(room)
+    socketio.emit('status', {'msg': 'User has left the room.', 'room': room}, room=room)
 
 
 @socketio.on_error()        # Handles the default namespace
@@ -86,23 +123,20 @@ def handle_dice_roll(data):
 def home():
     return render_template('home.html')
 
+
 # home page continuation ('Learn More')
-
-
 @app.route('/home-learn-more/')
 def home2():
     return render_template('home2.html')
 
+
 # dashboard-welcome page
-
-
 @app.route('/dashboard-welcome/')
 def dashboardWelcome():
     return render_template('dashboard-welcome.html')
 
+
 # dashboard page
-
-
 @app.route('/dashboard/', methods=['GET', 'POST'])
 def dashboard():
     if request.method == 'POST':
@@ -112,9 +146,8 @@ def dashboard():
 
         return render_template('dashboard.html')
 
+
 # notes page
-
-
 @app.route('/dashboard/notes', methods=['GET', 'POST'])
 def notes():
     if request.method == 'POST':
@@ -124,23 +157,20 @@ def notes():
     else:
         return render_template('Notes.html')
 
+
 # rules page
-
-
 @app.route('/dashboard/rules')
 def rules():
     return render_template('Rules.html')
 
+
 # teams page
-
-
 @app.route('/dashboard/teams')
 def teams():
     return render_template('Teams.html')
 
+
 # Room Creation
-
-
 @app.route('/dashboard/teams/create', methods=['GET', 'POST'])
 def create():
     if request.method == 'POST':
@@ -175,7 +205,9 @@ def join():
             # Check if the username is not already in the list of users in the room
             if username not in rooms[room_code]['users']:
                 # Use Flask's join_room function to add the user to the room
+                print("Joined Room:" + room_code)
                 join_room(room_code)
+                
                 # Add the username to the list of users in the room
                 rooms[room_code]['users'].add(username)
                 # Render the join template with a success message

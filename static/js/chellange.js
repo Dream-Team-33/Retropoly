@@ -4,124 +4,115 @@ const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const closeButton = document.getElementById("closePopup");
 
-let shuffledQuestions, currentQuestionIndex;
-let countdown; // stores the countdown timer interval
 
-startButton.addEventListener("click", startGame);
-closeButton.addEventListener("click", closePopup);
-
-function startGame() {
-	startButton.classList.add("hide");
-	questionContainerElement.classList.remove("hide");
-	shuffledQuestions = questions.sort(() => Math.random() - 0.5);
-	currentQuestionIndex = 0;
-	showQuestion(shuffledQuestions[currentQuestionIndex]);
-	countdown = startCountdown(10); // 10 seconds timer
-}
-
-function showQuestion(question) {
-	questionElement.innerText = question.question;
-	while (answerButtonsElement.firstChild) {
-		answerButtonsElement.removeChild(answerButtonsElement.firstChild);
-	}
-	question.answers.forEach((answer) => {
-		const button = document.createElement("button");
-		button.innerText = answer.text;
-		button.classList.add("btn");
-		if (answer.correct) {
-			button.dataset.correct = answer.correct;
-		}
-		button.addEventListener("click", selectAnswer);
-		answerButtonsElement.appendChild(button);
-	});
-}
-
-function selectAnswer(e) {
-	clearInterval(countdown);
-	const selectedButton = e.target;
-	const correct = selectedButton.dataset.correct;
-	setStatusClass(document.body, correct);
-	Array.from(answerButtonsElement.children).forEach((button) => {
-		setStatusClass(button, button.dataset.correct);
-	});
-	if (shuffledQuestions.length > currentQuestionIndex + 1) {
-		currentQuestionIndex++;
-		showQuestion(shuffledQuestions[currentQuestionIndex]);
-		countdown = startCountdown(10); // reset timer for next question
-	} else {
-		startButton.innerText = "Restart";
-		startButton.classList.remove("hide");
-	}
-}
-
-function setStatusClass(element, correct) {
-	clearStatusClass(element);
-	if (correct) {
-		element.classList.add("correct");
-	} else {
-		element.classList.add("wrong");
-	}
-}
-
-function clearStatusClass(element) {
-	element.classList.remove("correct");
-	element.classList.remove("wrong");
-}
-
-function startCountdown(seconds) {
-	const timerElement = document.getElementById("timer");
-	let remainingSeconds = seconds;
-	timerElement.innerText = `${remainingSeconds} seconds`;
-	const countdown = setInterval(() => {
-		remainingSeconds--;
-		timerElement.innerText = `${remainingSeconds} seconds`;
-		if (remainingSeconds <= 0) {
-			clearInterval(countdown);
-			selectAnswer({ target: answerButtonsElement }); // automatically select wrong answer
-		}
-	}, 1000);
-	return countdown;
-}
-
-function closePopup(popupId) {
-	const popupElement = document.getElementById(popupId);
-	popupElement.setAttribute("aria-hidden", "true");
-	popupElement.removeEventListener("click", closePopup);
-	startButton.removeEventListener("click", startGame);
-	closeButton.removeEventListener("click", closePopup);
-}
-
+// Define the questions array
 const questions = [
-	{
-		question: "What is 2 + 2?",
-		answers: [
-			{ text: "4", correct: true },
-			{ text: "22", correct: false },
-		],
-	},
-	{
-		question: "Who is the best YouTuber?",
-		answers: [
-			{ text: "Web Dev Simplified", correct: true },
-			{ text: "Traversy Media", correct: true },
-			{ text: "Dev Ed", correct: true },
-			{ text: "Fun Fun Function", correct: true },
-		],
-	},
-	{
-		question: "Is web development fun?",
-		answers: [
-			{ text: "Kinda", correct: false },
-			{ text: "YES!!!", correct: true },
-			{ text: "Um no", correct: false },
-			{ text: "IDK", correct: false },
-		],
-	},
-	{
-		question: "What is 4 * 2?",
-		answers: [
-			{ text: "6", correct: false },
-			{ text: "8", correct: true },
-		],
-	},
+  {
+    question: "How does an agile team promote customer engagement?",
+    answers: [
+      { text: "a. With regular communication between the customer and team.", correct: true },
+      { text: "b. With incentives and kickbacks for approving completed features.", correct: false },
+      { text: "c. With a defect information radiator showing customer meeting absences. ", correct: false},
+      { text:"d. With bi-weekly communication between the customer and team.", correct: false},
+    ],
+  },
+  {
+    question: "Which role is the owner of the Sprint Backlog?",
+    answers: [
+      { text: "a. Scrum Master", correct: false },
+      { text: "b. Team Leader Media", correct: true },
+      { text: "c. Product Owner ", correct: false },
+      { text: "d. Development Team", correct: false },
+    ],
+  },
+  {
+    question: "When is extending an iteration deadline okay?",
+    answers: [
+      { text: "a. Only during holidays", correct: false },
+      { text: "b. Never", correct: true },
+      { text: "c. It can happen any time", correct: false },
+      { text: "d. Only when mission-critical stories cannot be completed in the original sprint length", correct: false },
+    ],
+  },
+  {
+    question: "Which role is the owner of the Product Backlog? ",
+    answers: [
+      { text: "a. Customer", correct: false },
+      { text: "b. Product Owner", correct: true },
+      { text: "c. Scrum Master ", correct: false },
+      { text: "d. Development Team", correct: false },
+    ],
+  }
 ];
+
+// Function to shuffle the questions array
+function shuffleQuestions() {
+  for (let i = questions.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [questions[i], questions[j]] = [questions[j], questions[i]];
+  }
+}
+
+// Function to display a random question and its answer options
+function displayQuestion() {
+  // Choose a random question
+  const randomQuestion = questions.pop();
+
+  // Display the question text
+  questionElement.innerText = randomQuestion.question;
+
+  // Remove any existing answer buttons
+  while (answerButtonsElement.firstChild) {
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+  }
+
+  // Create a button for each answer option
+  randomQuestion.answers.forEach(answer => {
+    const button = document.createElement("button");
+    button.innerText = answer.text;
+    button.classList.add("btn");
+    if (answer.correct) {
+      button.dataset.correct = answer.correct;
+    }
+    button.addEventListener("click", selectAnswer);
+    answerButtonsElement.appendChild(button);
+  });
+}
+
+// Function to handle selecting an answer
+function selectAnswer(e) {
+  const selectedButton = e.target;
+  const correct = selectedButton.dataset.correct;
+  setStatusClass(document.body, correct);
+  Array.from(answerButtonsElement.children).forEach(button => {
+    setStatusClass(button, button.dataset.correct);
+  });
+}
+
+// Function to set the status class for an element
+function setStatusClass(element, correct) {
+  clearStatusClass(element);
+  if (correct) {
+    element.classList.add("correct");
+  } else {
+    element.classList.add("wrong");
+  }
+}
+
+// Function to clear the status class for an element
+function clearStatusClass(element) {
+  element.classList.remove("correct");
+  element.classList.remove("wrong");
+}
+
+// Event listener for the Start button
+startButton.addEventListener("click", () => {
+  shuffleQuestions();
+  displayQuestion();
+  questionContainerElement.classList.remove("hide");
+});
+
+// Event listener for the Close button
+closeButton.addEventListener("click", () => {
+  questionContainerElement.classList.add("hide");
+});
