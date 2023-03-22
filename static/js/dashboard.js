@@ -103,25 +103,25 @@ function updateHoursRemaining(taskElement, newHoursText) {
  * This is for the sprint tracker. It will be used to display
  * the sprint time tracker during the game.
  */
-const startingMinutes = 20; // This will set the timer to start at 20 minutes
+// const startingMinutes = 20; // This will set the timer to start at 20 minutes
 
-let time = startingMinutes * 60; // This will have the segments
+// let time = startingMinutes * 60; // This will have the segments
 
-const countdownEl = document.getElementById("countdown"); // This will get the element with the id of countdown
+// const countdownEl = document.getElementById("countdown"); // This will get the element with the id of countdown
 
-setInterval(updateCountdown, 1000); // This will update the countdown every second
+// setInterval(updateCountdown, 1000); // This will update the countdown every second
 
 
-//have a function that will update the time every second
-function updateCountdown(){
-	const minutes = Math.floor(time / 60); // This will get the minutes
-	let seconds = time % 60; // This will get the seconds
+// //have a function that will update the time every second
+// function updateCountdown(){
+// 	const minutes = Math.floor(time / 60); // This will get the minutes
+// 	let seconds = time % 60; // This will get the seconds
 
-	seconds = seconds < 20 ? '0' + seconds : seconds; // This will add a 0 to the seconds if it is less than 20
+// 	seconds = seconds < 20 ? '0' + seconds : seconds; // This will add a 0 to the seconds if it is less than 20
 
-	countdownEl.innerHTML = `${minutes}:${seconds}`; // This will display the time in the countdown element
-	time--; // This will decrement the time by 1 second
-}
+// 	countdownEl.innerHTML = `${minutes}:${seconds}`; // This will display the time in the countdown element
+// 	time--; // This will decrement the time by 1 second
+// }
 
 /**
  * This is for the game tracker. It will be used to count (track)
@@ -130,7 +130,7 @@ function updateCountdown(){
 var timer = document.getElementById("timer");
 var totalSeconds = 0;
 
-setInterval(setTime, 1000);
+setInterval(setTime, 1000); // Update the timer every second
 
 // Function to update the timer display
 function setTime() {
@@ -149,10 +149,12 @@ function setTime() {
 
 // Function to pad a number with leading zeros if necessary
 function pad(val) {
-  var valString = val + "";
+  var valString = val + ""; // Convert the input number to a string
+
+  // check if the string is less than 2 characters
   if (valString.length < 2) {
-    return "0" + valString;
+    return "0" + valString; // Add a 0 to the front of the string if it is less than 2 characters
   } else {
-    return valString;
+    return valString; // Return the string if it is 2 characters or more
   }
 }
