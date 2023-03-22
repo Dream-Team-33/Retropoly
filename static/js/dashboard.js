@@ -122,3 +122,37 @@ function updateCountdown(){
 	countdownEl.innerHTML = `${minutes}:${seconds}`; // This will display the time in the countdown element
 	time--; // This will decrement the time by 1 second
 }
+
+/**
+ * This is for the game tracker. It will be used to count (track)
+ * time during the game.
+ */
+var timer = document.getElementById("timer");
+var totalSeconds = 0;
+
+setInterval(setTime, 1000);
+
+// Function to update the timer display
+function setTime() {
+ 
+  ++totalSeconds; // Increment the total number of seconds
+
+  // Calculate the number of hours, minutes, and seconds
+  var hours = pad(parseInt(totalSeconds / 3600));
+  var minutes = pad(parseInt((totalSeconds % 3600) / 60));
+  var seconds = pad(totalSeconds % 60);
+
+  var timeString = hours + ":" + minutes + ":" + seconds;
+
+  timer.innerHTML = timeString;  // Update the timer display
+}
+
+// Function to pad a number with leading zeros if necessary
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
