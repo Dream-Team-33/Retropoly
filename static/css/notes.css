@@ -57,9 +57,9 @@ body {
 /*Grid-Area-Template & Grid-Column-Template*/
 .position-items{
     display: grid;
-    grid-template-columns: auto auto;
-    grid-template-areas: sidebar main;
-    float: left;
+    grid-template-columns: 300px auto;
+    grid-template-areas: 
+        "sidebar main";
 }
 
 
@@ -77,7 +77,6 @@ li {
 
 .side-bar {
     grid-area: sidebar;
-    position: relative;
     background: white;
     width: 300px;
     min-height: 100vh;
@@ -127,7 +126,8 @@ li {
  =====================*/
 .page_wrap{
     grid-area: main;
-    display: table;
+    display: block;
+    background-color: green;
     border: 1px solid #ccc;
     width: 90%;
     max-width: 350px;
