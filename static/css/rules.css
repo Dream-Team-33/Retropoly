@@ -112,6 +112,11 @@ li {
     font-weight: bolder;
 }
 
+
+
+/*=============================
+       Main Content (Rules)
+===============================*/
 p{ color: #fff; }
 
 .color-card-1{ color: green }
@@ -119,3 +124,11 @@ p{ color: #fff; }
 .color-card-2{ color: orange }
 
 .color-card-3{ color: red }
+
+.description{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px; 
+}
+
+.description-1{ margin-bottom: 1em; } /*layout borders of text*/
