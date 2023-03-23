@@ -125,7 +125,7 @@ def dashboard():
 
 
 # notes page
-@app.route('/dashboard/notes', methods=['GET', 'POST'])
+@app.route('/dashboard/notes/', methods=['GET', 'POST'])
 def notes():
     if request.method == 'POST':
         notes_title = request.form['notes_title']
@@ -136,19 +136,19 @@ def notes():
 
 
 # rules page
-@app.route('/dashboard/rules')
+@app.route('/dashboard/rules/')
 def rules():
     return render_template('Rules.html')
 
 
 # teams page
-@app.route('/dashboard/teams')
+@app.route('/dashboard/teams/')
 def teams():
     return render_template('Teams.html')
 
 
 # Room Creation
-@app.route('/dashboard/teams/create', methods=['GET', 'POST'])
+@app.route('/dashboard/teams/create/', methods=['GET', 'POST'])
 def create():
     if request.method == 'POST':
         # Get the room name from the request data
@@ -170,7 +170,7 @@ def create():
 
 
 # Join Room
-@app.route('/dashboard/teams/join', methods=['GET', 'POST'])
+@app.route('/dashboard/teams/join/', methods=['GET', 'POST'])
 def join():
     # If the request method is POST, extract the room code and username from the request arguments
     if request.method == 'POST':
@@ -202,14 +202,14 @@ def join():
 
 
 # handle JSON data
-@app.route('/save-json', methods=['POST'])
+@app.route('/save-json/', methods=['POST'])
 def save_json():
     data = request.get_json()
     with open('data.json', 'w') as f:
         json.dump(data, f)
     return jsonify({'message': 'Data saved successfully.'})
 
-@app.route('/read-json', methods=['GET'])
+@app.route('/read-json/', methods=['GET'])
 def read_json():
     with open('data.json', 'r') as f:
         data = json.load(f)
