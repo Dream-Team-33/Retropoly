@@ -1,10 +1,3 @@
-# This is the server whereby Flask will run all the files.
-
-# import flask | redirect user to a web page | url_for is used for creating a URL
-# to prevent the overhead of having to change URLs
-# throughout the application (including in templates)
-from fileinput import filename
-from os import abort
 from flask import Flask, redirect, url_for, request, render_template
 from flask_socketio import SocketIO, emit, join_room, leave_room
 import secrets, json
@@ -138,7 +131,7 @@ def dashboardWelcome():
 
 # dashboard page
 @app.route('/dashboard/', methods=['GET', 'POST'])
-def dashboard_page():
+def dashboard():
     if request.method == 'POST':
         hours_for_selected = request.form['hours']
         return render_template('dashboard.html', hours=hours_for_selected)
