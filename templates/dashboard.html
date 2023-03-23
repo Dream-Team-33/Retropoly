@@ -26,10 +26,15 @@
     href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Poppins:wght@200&display=swap"
     rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
+  <script src="/static/js/dashboard.js" defer></script> <!--Link to the dashboard.js file-->
   <script src="/static/js/drag.js" defer></script> <!--Link to the message.js file-->
-  <script src="/static/js/dice_roll.js" defer></script> <!--Link to the dice_roll.js file-->
   <script src="/static/js/message.js" defer></script> <!--Link to the message.js file-->
+  <script src="/static/js/chellange.js" defer></script> <!--Link to the message.js file-->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+    integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -49,194 +54,241 @@
                     team members (Team), notes to be taken (Notes) and exit function
                     (Exit)
                 -->
-                <li><span class="material-icons-outlined">dashboard</span><a href="#" class="active">Dashboard</a></li>
-                <li><span class="material-icons-outlined">density_small</span><a href="{{ url_for('rules') }}">Rules</a></li>
-                <li><span class="material-icons-outlined">groups</span><a href="{{ url_for('teams') }}">Team</a></li>
-                <li><span class="material-icons-outlined">description</span><a href="{{ url_for('notes') }}">Notes</a></li>
-                <li><span class="material-icons-outlined">logout</span><a href="{{ url_for('home') }}">Exit</a></li>
-      </ul> 
+        <li><span class="material-icons-outlined">dashboard</span><a href="#" class="active">Dashboard</a></li>
+        <li><span class="material-icons-outlined">density_small</span><a href="{{ url_for('rules') }}">Rules</a></li>
+        <li><span class="material-icons-outlined">groups</span><a href="{{ url_for('teams') }}">Team</a></li>
+        <li><span class="material-icons-outlined">description</span><a href="{{ url_for('notes') }}">Notes</a></li>
+        <li><span class="material-icons-outlined">logout</span><a href="{{ url_for('home') }}">Exit</a></li>
+      </ul>
     </div><!--End layout of side bar-->
 
     <!--Board-->
     <!--Create a table (aka Kanban Board) that will have a function to allow
         users to drag cards in each section-->
-    <div class="board mainGrid">      
+    <div class="board mainGrid">
+      <!-- <div id="currentSprint">
+        <h4>Sprint {{sprintNumber}}</h4>
+      </div> -->
+
       <!--sections of the board-->
       <div class="lanes">
-        <div class="swim-lane">
+        <div class="swim-lane backlog">
           <h3 class="heading">Backlog</h3>
           <div class="task" draggable="true">
             <p>
               template card
             </p>
-            <p class="hoursRemaining" style="float: right">-1hrs</p>
+            <p class="hoursRemaining" style="float: right">24hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
           </div>
           <div class="task" draggable="true">
             <p>
               template card
             </p>
-            <p class="hoursRemaining" style="float: right">-1hrs</p>
+            <p class="hoursRemaining" style="float: right">18hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
           </div>
           <div class="task" draggable="true">
             <p>
               template card
             </p>
-            <p class="hoursRemaining" style="float: right">-1hrs</p>
+            <p class="hoursRemaining" style="float: right">14hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
           </div>
-          <div class="task" draggable="true">
-            <p>
-              template card
-            </p>
-            <p class="hoursRemaining" style="float: right">-1hrs</p>
-          </div>
-          <div class="task" draggable="true">
-            <p>
-              template card
-            </p>
-            <p class="hoursRemaining" style="float: right">-1hrs</p>
-          </div>
-          <div class="task" draggable="true">
-            <p>
-              template card
-            </p>
-            <p class="hoursRemaining" style="float: right">-1hrs</p>
-          </div>
-          <div class="task" draggable="true">
-            <p>
-              template card
-            </p>
-            <p class="hoursRemaining" style="float: right">-1hrs</p>
-          </div>
-          <div class="task" draggable="true">
-            <p>
-              template card
-            </p>
-            <p class="hoursRemaining" style="float: right">-1hrs</p>
-          </div>
-          
         </div>
-        <div class="swim-lane" id="todo-lane">
+        <div class="swim-lane todo" id="todo-lane">
           <h3 class="heading">To Do</h3>
 
-          <p class="task" draggable="true">Get groceries</p>
-          <p class="task" draggable="true">Feed the dogs</p>
-          <p class="task" draggable="true">Mow the lawn</p>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">14hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">14hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
         </div>
-        
-        <div class="swim-lane">
+
+        <div class="swim-lane  doing">
           <h3 class="heading">Doing</h3>
 
-          <p class="task" draggable="true">Binge 80 hours of Game of Thrones</p>
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">14hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
         </div>
 
-        <div class="swim-lane">
+        <div class="swim-lane done">
           <h3 class="heading">Done</h3>
-
+          <div class="task" draggable="true">
+            <p>
+              template card
+            </p>
+            <p class="hoursRemaining" style="float: right">14hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
         </div>
       </div> <!--End sections of the board-->
 
 
 
-    <!-- Dice Roller - Both dice are grouped in this section to share css-->
-    <div class="groupedDice"> <!-- Conatains both dice for better formatting -->
-      <!-- Dice 1 and all assosiated content -->
-      <div id='dice1' class="dice dice-one">
-        <div id="dice-one-side-one" class='side one'>
-          <div class="dot one-1"></div>
+      <!-- Dice Roller - Both dice are grouped in this section to share css-->
+      <div class="groupedDice"> <!-- Conatains both dice for better formatting -->
+        <!-- Dice 1 and all assosiated content -->
+        <div id='dice1' class="dice dice-one">
+          <div id="dice-one-side-one" class='side one'>
+            <div class="dot one-1"></div>
+          </div>
+          <div id="dice-one-side-two" class='side two'>
+            <div class="dot two-1"></div>
+            <div class="dot two-2"></div>
+          </div>
+          <div id="dice-one-side-three" class='side three'>
+            <div class="dot three-1"></div>
+            <div class="dot three-2"></div>
+            <div class="dot three-3"></div>
+          </div>
+          <div id="dice-one-side-four" class='side four'>
+            <div class="dot four-1"></div>
+            <div class="dot four-2"></div>
+            <div class="dot four-3"></div>
+            <div class="dot four-4"></div>
+          </div>
+          <div id="dice-one-side-five" class='side five'>
+            <div class="dot five-1"></div>
+            <div class="dot five-2"></div>
+            <div class="dot five-3"></div>
+            <div class="dot five-4"></div>
+            <div class="dot five-5"></div>
+          </div>
+          <div id="dice-one-side-six" class='side six'>
+            <div class="dot six-1"></div>
+            <div class="dot six-2"></div>
+            <div class="dot six-3"></div>
+            <div class="dot six-4"></div>
+            <div class="dot six-5"></div>
+            <div class="dot six-6"></div>
+          </div>
         </div>
-        <div id="dice-one-side-two" class='side two'>
-          <div class="dot two-1"></div>
-          <div class="dot two-2"></div>
+
+        <!-- Dice 2 and all assosiated content -->
+        <div id='dice2' class="dice dice-two">
+          <div id="dice-two-side-one" class='side one'>
+            <div class="dot one-1"></div>
+          </div>
+          <div id="dice-two-side-two" class='side two'>
+            <div class="dot two-1"></div>
+            <div class="dot two-2"></div>
+          </div>
+          <div id="dice-two-side-three" class='side three'>
+            <div class="dot three-1"></div>
+            <div class="dot three-2"></div>
+            <div class="dot three-3"></div>
+          </div>
+          <div id="dice-two-side-four" class='side four'>
+            <div class="dot four-1"></div>
+            <div class="dot four-2"></div>
+            <div class="dot four-3"></div>
+            <div class="dot four-4"></div>
+          </div>
+          <div id="dice-two-side-five" class='side five'>
+            <div class="dot five-1"></div>
+            <div class="dot five-2"></div>
+            <div class="dot five-3"></div>
+            <div class="dot five-4"></div>
+            <div class="dot five-5"></div>
+          </div>
+          <div id="dice-two-side-six" class='side six'>
+            <div class="dot six-1"></div>
+            <div class="dot six-2"></div>
+            <div class="dot six-3"></div>
+            <div class="dot six-4"></div>
+            <div class="dot six-5"></div>
+            <div class="dot six-6"></div>
+          </div>
         </div>
-        <div id="dice-one-side-three" class='side three'>
-          <div class="dot three-1"></div>
-          <div class="dot three-2"></div>
-          <div class="dot three-3"></div>
-        </div>
-        <div id="dice-one-side-four" class='side four'>
-          <div class="dot four-1"></div>
-          <div class="dot four-2"></div>
-          <div class="dot four-3"></div>
-          <div class="dot four-4"></div>
-        </div>
-        <div id="dice-one-side-five" class='side five'>
-          <div class="dot five-1"></div>
-          <div class="dot five-2"></div>
-          <div class="dot five-3"></div>
-          <div class="dot five-4"></div>
-          <div class="dot five-5"></div>
-        </div>
-        <div id="dice-one-side-six" class='side six'>
-          <div class="dot six-1"></div>
-          <div class="dot six-2"></div>
-          <div class="dot six-3"></div>
-          <div class="dot six-4"></div>
-          <div class="dot six-5"></div>
-          <div class="dot six-6"></div>
+
+        <!--Button for the dice roller-->
+        <div id='roll' class='roll-button'>
+          <button id="openMyPopup" data-popup="myPopup" onClick="openPopup('infoPopup')" aria-controls="myPopup"
+            aria-label="Open popup">Roll Dice!</button>
         </div>
       </div>
+      <!-- class other is used for the bottom left section of the main play space. add things here that you wish to have in that section -->
+      <div class="other">
 
-      <!-- Dice 2 and all assosiated content -->
-      <div id='dice2' class="dice dice-two">
-        <div id="dice-two-side-one" class='side one'>
-          <div class="dot one-1"></div>
-        </div>
-        <div id="dice-two-side-two" class='side two'>
-          <div class="dot two-1"></div>
-          <div class="dot two-2"></div>
-        </div>
-        <div id="dice-two-side-three" class='side three'>
-          <div class="dot three-1"></div>
-          <div class="dot three-2"></div>
-          <div class="dot three-3"></div>
-        </div>
-        <div id="dice-two-side-four" class='side four'>
-          <div class="dot four-1"></div>
-          <div class="dot four-2"></div>
-          <div class="dot four-3"></div>
-          <div class="dot four-4"></div>
-        </div>
-        <div id="dice-two-side-five" class='side five'>
-          <div class="dot five-1"></div>
-          <div class="dot five-2"></div>
-          <div class="dot five-3"></div>
-          <div class="dot five-4"></div>
-          <div class="dot five-5"></div>
-        </div>
-        <div id="dice-two-side-six" class='side six'>
-          <div class="dot six-1"></div>
-          <div class="dot six-2"></div>
-          <div class="dot six-3"></div>
-          <div class="dot six-4"></div>
-          <div class="dot six-5"></div>
-          <div class="dot six-6"></div>
-        </div>
-      </div> 
+      </div> <!--End board-->
 
-      <!--Button for the dice roller-->
-      <div id='roll' class='roll-button'><button>Roll Dice!</button></div>
-    </div>
-   
-   <!-- class other is used for the bottom left section of the main play space. add things here that you wish to have in that section -->
-    <div class="other">
 
-      <!-- Popup Message Box -->
-        <!--  <div class="testing">
-        <h1>Click to open Popup</h1>
-        <button id="openMyPopup" data-popup="myPopup" onClick="openPopup('infoPopup')" aria-controls="myPopup" aria-label="Open popup">Open</button>
-      </div> -->
-    </div>
+      <div class="challengeGrid">
+        <!--Keep Doing card-->
+        <div class="card keepDoing" style="display: none;">
+          <img src="/static/images/keep-doing.png" alt="keep-doing">
+          <div class="container-ev">
+            <p>Users can send emails securely to unspecified reipients</p>
+          </div>
+        </div>
 
-  <!-- basic format for an information popup - this can be modified to allow for other types of popups -->
-  <div class="popup" id="infoPopup" aria-hidden="true" onClick="if(event.target == this){closePopup('infoPopup');}">
-    <div class="wrapper" aria-labelledby="popupTitle" aria-describedby="popupText" aria-modal="true">
-      <h2 id="popupTitle">This is my Popup</h2>
-      <p id="popupText">Lorem ipsum dolor sit amet consectetur, adipiscing elit lacinia mus, sapien nibh imperdiet tempus. Vitae massa semper mi sagittis a cum cursus fusce per, gravida tellus metus purus litora nam ultricies donec, nibh dis ligula ad facilisi penatibus condimentum aenean.</p>
-      <button id="closePopup" onClick="closePopup('infoPopup');" aria-label="Close popup">Close</button>
-    </div>
-  </div><!--  End of Popup Message Box -->
+        <!--Doing Better card-->
+        <div class="card doingBetter" style="display: none;">
+          <img src="/static/images/doing-better.png" alt="doing-better">
+          <div class="container-ev">
+            <p>Users can manage their emails effectively</p>
+          </div>
+        </div>
 
-  </div> <!--End board-->
+        <!--Stop Doing card-->
+        <div class="card stopDoing" style="display: none;">
+          <img src="/static/images/stop-doing.png" alt="stop-doing">
+          <div class="container-ev">
+            <p>Users can send emails securely to unspecified reipients</p>
+          </div>
+        </div>
+
+        <!-- Popup Message Box -->
+        <!-- basic format for an information popup - this can be modified to allow for other types of popups -->
+        <div class="popup" id="infoPopup" aria-hidden="true"
+          onClick="if(event.target == this){closePopup('infoPopup');}" style="display: none;">
+          <div class="wrapper" aria-labelledby="popupTitle" aria-describedby="popupText" aria-modal="true">
+            <div id="question-container" class="hide">
+              <div id="question">Question</div>
+              <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+          
+              </div>
+              <button id="closePopup" onClick="closePopup('infoPopup');" aria-label="Close popup">Close</button>
+            </div>
+          </div><!--  End of Popup Message Box -->
+          <!--Evaluation Cards-->
+        </div><!--End of Evaluation Cards-->
+
+
+        <!--Sprint Tracker-->
+        <!--Create a sprint tracker that will time the
+            the game while the users are playing
+        -->
+        <!-- <p class="sprintText" id="countdown">20:00</p> -->
+        <!--End of sprint tracker-->
+
+
+
+        <!--Game time tracker / Sprint Tracker-->
+        <div id="timer">00:00:00</div>
+        <!--End of game time tracker-->
+
+        
 
 </body>
 
