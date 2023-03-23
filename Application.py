@@ -138,7 +138,7 @@ def dashboardWelcome():
 
 # dashboard page
 @app.route('/dashboard/', methods=['GET', 'POST'])
-def dashboard():
+def dashboard_page():
     if request.method == 'POST':
         hours_for_selected = request.form['hours']
         return render_template('dashboard.html', hours=hours_for_selected)
