@@ -90,7 +90,7 @@ def handle_dice_roll(data):
 
 # home page
 @app.route('/')
-@app.route('/home/')
+# @app.route('/home/')
 def home():
     return render_template('home.html')
 
