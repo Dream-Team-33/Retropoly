@@ -7,28 +7,6 @@ app.config['SECRET_KEY'] = 'MLPQlLg9afWMbBsbAAAB'
 socketio = SocketIO(app)
 
 
-# =========================================>
-# players choice page
-@app.route('/player/')
-def player():
-    return render_template('player-choice.html')
-
-
-
-# THIS WAS CREATED BECAUSE THE PLAYER CHOICE PAGE DOESN'T OPEN THE DASHBOARD USING
-# /templates/dashboard-welcome.html THAT IS STATED IN THE player-choice.js FILE.
-# THIS NEEDS TO BE FIXED. ===>
-# =======>
-# @app.route('/player-open-dashboard/')
-# def player_open_dashboard():
-#     return render_template('dashboard-welcome.html')          <======================================
-
-
-
-
-
-
-
 # prep for rooms
 user_key = ""
 # setup for a dictionary or room details
@@ -121,6 +99,12 @@ def home():
 @app.route('/home-learn-more/')
 def home2():
     return render_template('home2.html')
+
+
+# players choice page
+@app.route('/player/')
+def player():
+    return render_template('player-choice.html')
 
 
 # dashboard-welcome page
