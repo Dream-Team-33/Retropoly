@@ -15,41 +15,29 @@ socket.on("new_hours", function (data) {
 });
 
 let selectedTask = null;
-let hoursRemainingText = null; // Declare the variable here
+let hoursRemainingText = null;
+let taskSelectedAndRolled = false; // Add flag variable here
 
 function selectTask(taskElement) {
-	//changes the name of taskelement to be selected task for clarity in the code
-	selectedTask = taskElement;
+  console.log(selectedTask);
+  if (selectedTask !== null) {
+    selectedTask.classList.remove("selected-task");
+  }
+  selectedTask = taskElement;
+  var parent = selectedTask.parentNode;
+  console.log(parent);
 
-	if (selectedTask !== null) {
-		// Unselect the previously selected task
-		selectedTask.classList.remove("selected-task");
-	}
-	var parent = selectedTask.parentNode;
-	console.log(parent);
-	// rest of your code that uses parent
-
-	// checks to see if the classes within the parent node of the slected task contains either 'backlog' or 'done'
-	if (
-		parent.classList.contains("backlog") ||
-		parent.classList.contains("done")
-	) {
-		//
-		// popup should appear explaining why they cannot select the card that they have selected
-		//
-		//
-
-		// debuggign console log to tell us that they card is not a valid choice
-		console.log("backlog or done detected please choose a valid card!");
-	} else {
-		// Select the new task
-		// adds selected-task class to the class list of the parent node of the button clicked to select the card
-		selectedTask.classList.add("selected-task");
-		const hoursRemainingElement = taskElement.querySelector(".hoursRemaining");
-		hoursRemainingText = hoursRemainingElement.textContent;
-	}
-
-	//TODO: disallow the user to reroll on something that is selected and is within the done section or backlog(should be impossible to go back to backlog)
+  if (
+    parent.classList.contains("backlog") ||
+    parent.classList.contains("done")
+  ) {
+    console.log("backlog or done detected please choose a valid card!");
+  } else {
+    selectedTask.classList.add("selected-task");
+    const hoursRemainingElement = selectedTask.querySelector(".hoursRemaining");
+    hoursRemainingText = hoursRemainingElement.textContent;
+    taskSelectedAndRolled = false; // Reset flag variable
+  }
 }
 
 var elDiceOne = document.getElementById("dice1");
@@ -57,12 +45,12 @@ var elDiceTwo = document.getElementById("dice2");
 var elComeOut = document.getElementById("roll");
 
 elComeOut.onclick = function () {
-	if (hoursRemainingText !== null) {
-		// Make sure hoursRemainingText is defined
-		rollDice(hoursRemainingText); // Pass the hoursRemainingText to rollDice
-	} else {
-		console.log("No task selected");
-	}
+  if (hoursRemainingText !== null && !taskSelectedAndRolled) { // Check if flag variable is false
+    rollDice(hoursRemainingText);
+    taskSelectedAndRolled = true; // Set flag variable to true
+  } else {
+    console.log("No task selected or task already rolled");
+  }
 };
 
 function rollDice(hoursRemainingText) {
