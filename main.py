@@ -52,7 +52,7 @@ def handle_connect():
     emit('user_key', user_key)
     
     # creates a file for the user using their specific user key
-    # filename = f"datastorage/{user_key}.txt"
+    # filename = f"datastorage/{user_key}.json"
     # with open(filename, 'w') as f:
     #     f.write("")
     # f.close()
@@ -69,7 +69,7 @@ def handle_disconnect():
     print('Client disconnected: '+user_key)
 
     # removes the file that was created for the user
-    # filename = f"datastorage/{user_key}.txt"
+    # filename = f"datastorage/{user_key}.json"
     # remove(filename)
     
     # Leave the default room for this client
@@ -243,7 +243,7 @@ def join():
 #         socketio.emit("recieveJson", data)
 
 
-# @socketio.on('jsonSave')
+# # @socketio.on('jsonSave')
 # def save_json(data):
 #     dataToSaveRAW = data["cardInfo"]
 #     print("saving data: " + str(dataToSaveRAW))
