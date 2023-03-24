@@ -14,6 +14,8 @@ socket.on("new_hours", function (data) {
 	updateHoursRemaining(taskElement, new_hours_text);
 });
 
+let cardNum = 0;
+
 let selectedTask = null;
 let hoursRemainingText = null; // Declare the variable here
 
@@ -25,6 +27,7 @@ function selectTask(taskElement) {
 		// Unselect the previously selected task
 		selectedTask.classList.remove("selected-task");
 	}
+
 	var parent = selectedTask.parentNode;
 	console.log(parent);
 	// rest of your code that uses parent
@@ -96,6 +99,23 @@ function updateHoursRemaining(taskElement, newHoursText) {
 	selectedTask == null;
 }
 
+
+// !!!!!!!!!!!!
+// COMMENTS WILL BE ADDED AFTER THE CARDS POPUP IS WORKING FOR THINGS TO ACTUALLY BE SAVED
+// !!!!!!!!!!!!
+
+// event listener for the save button
+// document.getElementById("save").addEventListener("click", saveCardInfo);
+// function saveCardInfo() {
+// 	socket.emit("jsonSave", {
+// 		cardInfo: {"card": cardNum+=1, "type": "Keep-Doing", "text": "Keep searching for who asked"},
+// 	});
+// }
+
+// socket.on("recieveJson", function (data) {
+// 	fileData = data;
+// 	console.log(fileData);
+// });
 
 
 

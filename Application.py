@@ -4,7 +4,7 @@
 # to prevent the overhead of having to change URLs
 # throughout the application (including in templates)
 from fileinput import filename
-from os import abort
+from os import abort, remove
 from flask import Flask, redirect, url_for, request, render_template
 from flask_socketio import SocketIO, emit, join_room, leave_room
 import secrets, json
@@ -20,8 +20,6 @@ socketio = SocketIO(app)
 def player():
     return render_template('player-choice.html')
 
-
-
 # THIS WAS CREATED BECAUSE THE PLAYER CHOICE PAGE DOESN'T OPEN THE DASHBOARD USING
 # /templates/dashboard-welcome.html THAT IS STATED IN THE player-choice.js FILE.
 # THIS NEEDS TO BE FIXED. ===>
@@ -29,12 +27,6 @@ def player():
 # @app.route('/player-open-dashboard/')
 # def player_open_dashboard():
 #     return render_template('dashboard-welcome.html')          <======================================
-
-
-
-
-
-
 
 # prep for rooms
 user_key = ""
@@ -51,12 +43,18 @@ def generate_room_code():
 @socketio.on('connect')
 def handle_connect():
     # Generate a unique user key for this client
-    user_key = request.sid
+    user_key = request.sid    
     print('Client connected: '+user_key)
 
     # Send the user key back to the client
     emit('user_key', user_key)
 
+    # creates a file for the user using their specific user key
+    # filename = f"datastorage/{user_key}.txt"
+    # with open(filename, 'w') as f:
+    #     f.write("")
+    # f.close()
+    
     # Join the default room for this client
     join_room(user_key)
 
@@ -66,7 +64,12 @@ def handle_disconnect():
     # Get the user key for this client
     user_key = request.sid
     print('Client disconnected: '+user_key)
-
+    
+    
+    # removes the file that was created for the user
+    # filename = f"datastorage/{user_key}.txt"
+    # remove(filename)
+    
     # Leave the default room for this client
     leave_room(user_key)
 
@@ -224,19 +227,39 @@ def join():
         return render_template('Teams.html')
 
 
+# TODO Try SocketIO
 # handle JSON data
-@app.route('/save-json', methods=['POST'])
-def save_json():
-    data = request.get_json()
-    with open('data.json', 'w') as f:
-        json.dump(data, f)
-    return jsonify({'message': 'Data saved successfully.'})
 
-@app.route('/read-json', methods=['GET'])
-def read_json():
-    with open('data.json', 'r') as f:
-        data = json.load(f)
-    return jsonify(data)
+# !!!!!!!!!!!!
+# COMMENTS WILL BE ADDED AFTER THE CARDS POPUP IS WORKING FOR THINGS TO ACTUALLY BE SAVED
+# !!!!!!!!!!!!
+
+# @socketio.on('jsonRead')
+# def read_json():
+#     with open('datastorage/playerCardInfo.json', 'r') as f:
+#         data = json.load(f)
+#         socketio.emit("recieveJson", data)
+
+
+# @socketio.on('jsonSave')
+# def save_json(data):
+#     dataToSaveRAW = data["cardInfo"]
+#     print("saving data: " + str(dataToSaveRAW))
+#     try:
+#         with open('datastorage/playerCardInfo.json', 'r') as rJson:
+#             fileContent = json.load(rJson)
+#             rJson.close()
+#     except:
+#         print("No data in file. Creating blank variable.")
+#         fileContent = [{"cards": []}]
+
+#     fileContent.append(dataToSaveRAW)
+#     print("fileContent: " + str(fileContent))
+#     with open('datastorage/playerCardInfo.json', 'w') as wJson:
+#         json.dump(fileContent, wJson, indent=4)
+#         wJson.close()
+    
+#     read_json()
 
 if __name__ == '__main__':
     # CHANGE BACK TO socketio.run(app) IF NOT WORKING
