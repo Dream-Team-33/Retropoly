@@ -53,6 +53,17 @@ body {
     font-feature-settings: 'liga';
 }
 
+
+
+/*Grid-Area-Template & Grid-Column-Template*/
+.position-items{
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-areas: 
+        "sidebar main";
+}
+
+
 /*=====================
        Side Bar
 =====================*/
@@ -64,14 +75,11 @@ li {
     color: black;
 }
 
-.MainFlex {
-    display: flex;
-}
 
 .MainFlex .side-bar {
-    position: relative;
+    grid-area: sidebar;
     background: white;
-    width: 20vw;
+    width: 300px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
