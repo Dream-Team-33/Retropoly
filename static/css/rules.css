@@ -53,17 +53,6 @@ body {
     font-feature-settings: 'liga';
 }
 
-
-
-/*Grid-Area-Template & Grid-Column-Template*/
-.position-items{
-    display: grid;
-    grid-template-columns: 300px auto;
-    grid-template-areas: 
-        "sidebar main";
-}
-
-
 /*=====================
        Side Bar
 =====================*/
@@ -75,11 +64,16 @@ li {
     color: black;
 }
 
+.MainFlex {
+    display: flex;
+    flex-direction: row;
+}
 
 .MainFlex .side-bar {
-    grid-area: sidebar;
+    /* flex: 1; */
+    position: relative;
     background: white;
-    width: 300px;
+    width: 20vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -134,7 +128,8 @@ p{ color: #fff; }
 .color-card-3{ color: red }
 
 .description{
-    display: flex;
+    flex: 3;
+    display: inline-block;
     flex-direction: column;
     padding: 30px 30px; 
 }
