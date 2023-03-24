@@ -67,13 +67,9 @@ body {
 /*=====================
        Side Bar
 =====================*/
-h1 {
-    color: black;
-}
+h1 { color: black; }
 
-li {
-    color: black;
-}
+li { color: black; }
 
 .side-bar {
     grid-area: sidebar;
@@ -115,9 +111,7 @@ li {
     color: inherit;
 }
 
-.side-bar .active {
-    font-weight: bolder;
-}
+.side-bar .active { font-weight: bolder; }
 
 
 
