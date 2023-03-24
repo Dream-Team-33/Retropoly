@@ -20,6 +20,8 @@ socketio = SocketIO(app)
 def player():
     return render_template('player-choice.html')
 
+
+
 # THIS WAS CREATED BECAUSE THE PLAYER CHOICE PAGE DOESN'T OPEN THE DASHBOARD USING
 # /templates/dashboard-welcome.html THAT IS STATED IN THE player-choice.js FILE.
 # THIS NEEDS TO BE FIXED. ===>
@@ -43,18 +45,19 @@ def generate_room_code():
 @socketio.on('connect')
 def handle_connect():
     # Generate a unique user key for this client
-    user_key = request.sid    
+    user_key = request.sid
     print('Client connected: '+user_key)
 
     # Send the user key back to the client
     emit('user_key', user_key)
-
+    
     # creates a file for the user using their specific user key
     # filename = f"datastorage/{user_key}.txt"
     # with open(filename, 'w') as f:
     #     f.write("")
     # f.close()
     
+
     # Join the default room for this client
     join_room(user_key)
 
@@ -64,8 +67,7 @@ def handle_disconnect():
     # Get the user key for this client
     user_key = request.sid
     print('Client disconnected: '+user_key)
-    
-    
+
     # removes the file that was created for the user
     # filename = f"datastorage/{user_key}.txt"
     # remove(filename)
@@ -260,6 +262,7 @@ def join():
 #         wJson.close()
     
 #     read_json()
+
 
 if __name__ == '__main__':
     # CHANGE BACK TO socketio.run(app) IF NOT WORKING

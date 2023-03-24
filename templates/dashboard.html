@@ -31,6 +31,7 @@
   <script src="/static/js/drag.js" defer></script> <!--Link to the message.js file-->
   <script src="/static/js/message.js" defer></script> <!--Link to the message.js file-->
   <script src="/static/js/chellange.js" defer></script> <!--Link to the message.js file-->
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
     integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
     crossorigin="anonymous"></script>
@@ -66,7 +67,7 @@
         users to drag cards in each section-->
     <div class="board mainGrid">
       <div id="currentSprint">
-        <h4>Sprint 1</h4>
+        <h4>Sprint {{sprintNumber}}</h4>
       </div>
 
       <!--sections of the board-->
@@ -274,7 +275,7 @@
           <!--Evaluation Cards-->
         </div><!--End of Evaluation Cards-->
 
-        
+
 
 
 
@@ -283,13 +284,17 @@
         <!--Create a sprint tracker that will time the
             the game while the users are playing
         -->
-        <div class="sprint-container">
-          <span id="hours">00</span>
-          <span>:</span>
-          <span id="minutes">00</span>
-          <span>:</span>
-          <span id="seconds">00</span>
-        </div><!--End of sprint tracker-->
+        <!-- <p class="sprintText" id="countdown">20:00</p> -->
+        <!--End of sprint tracker-->
+
+
+
+        <!--Game time tracker / Sprint Tracker-->
+        <div id="timer">00:00:00</div>
+        <!--End of game time tracker-->
+
+        
+
 </body>
 
 </html>
