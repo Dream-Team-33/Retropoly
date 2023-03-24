@@ -72,7 +72,7 @@ li {
 .side-bar {
   position: relative;
   background: white;
-  width: 300px;
+  width: 400px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
