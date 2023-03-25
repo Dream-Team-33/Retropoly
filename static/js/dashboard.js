@@ -88,6 +88,7 @@ function updateHoursRemaining(taskElement, newHoursText) {
 
 // will be used to update the current player displayed in the html
 function updatePlayerNumber() {
+  //read the number of players and the current player from the session storage
   var numPlayersStored = sessionStorage.getItem("numPlayers");
   var currentPlayer = sessionStorage.getItem("currentPlayer");
 
@@ -100,6 +101,7 @@ function updatePlayerNumber() {
 
   // set the current player number in the html
   sessionStorage.setItem("currentPlayer", currentPlayer);
+  // set the current player number in the html to the current player number
   document.getElementById("currentPlayer").innerHTML = currentPlayer;
 }
 
