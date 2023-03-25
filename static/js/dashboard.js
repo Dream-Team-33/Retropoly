@@ -86,6 +86,22 @@ function updateHoursRemaining(taskElement, newHoursText) {
 	selectedTask == null;
 }
 
+// will be used to update the current player displayed in the html
+function updatePlayerNumber() {
+  var numPlayersStored = sessionStorage.getItem("numPlayers");
+  var currentPlayer = sessionStorage.getItem("currentPlayer");
+
+  // set the currentPlayer number to the next number in the sequence as long as it is less than or equal to the number of players
+  if (currentPlayer <= numPlayersStored-1) {
+    currentPlayer++;
+  } else {
+    currentPlayer = 1;
+  }
+
+  // set the current player number in the html
+  sessionStorage.setItem("currentPlayer", currentPlayer);
+  document.getElementById("currentPlayer").innerHTML = currentPlayer;
+}
 
 // !!!!!!!!!!!!
 // COMMENTS WILL BE ADDED AFTER THE CARDS POPUP IS WORKING FOR THINGS TO ACTUALLY BE SAVED

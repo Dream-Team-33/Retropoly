@@ -23,6 +23,8 @@ buttons.forEach(button => {
 function setNumPlayers(numPlayers) {
     // store the number of players in the session storage (will be contstant as long as they dont close the page :) )
     sessionStorage.setItem("numPlayers", numPlayers);
+    // set the current player to 1
+    sessionStorage.setItem("currentPlayer", 1);
     // send the user to the welcome page
     window.location.href = '/dashboard-welcome/'
 }
