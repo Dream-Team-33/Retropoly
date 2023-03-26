@@ -126,9 +126,9 @@ li {
 }
 
 /* ---- BOARD ---- */
-.board {
- /* add board styles here */
-}
+/* .board {
+ add board styles here
+} */
 
 #todo-form {
   padding: 32px 32px 0;
@@ -248,7 +248,8 @@ li {
   transition: .3s;
 }
 
-button:hover, button:active {
+button:hover,
+button:active {
   outline: none;
   background: #50514F;
   cursor: pointer;
@@ -333,27 +334,41 @@ button:hover, button:active {
   transform: rotateY(-180deg) translateZ(3.1em);
 }
 
-.two-1, .three-1, .four-1, .five-1, .six-1 {
+.two-1,
+.three-1,
+.four-1,
+.five-1,
+.six-1 {
   top: 20%;
   left: 20%;
 }
 
-.four-3, .five-3, .six-4 {
+.four-3,
+.five-3,
+.six-4 {
   top: 20%;
   left: 80%;
 }
 
-.one-1, .three-2, .five-5 {
+.one-1,
+.three-2,
+.five-5 {
   top: 50%;
   left: 50%;
 }
 
-.four-2, .five-2, .six-3 {
+.four-2,
+.five-2,
+.six-3 {
   top: 80%;
   left: 20%;
 }
 
-.two-2, .three-3, .four-4, .five-4, .six-6 {
+.two-2,
+.three-3,
+.four-4,
+.five-4,
+.six-6 {
   top: 80%;
   left: 80%;
 }
@@ -396,11 +411,14 @@ button:hover, button:active {
 /* Message box */
 
 
-h2, p, button {
+h2,
+p,
+button {
   font-weight: 100;
 }
 
-p, button {
+p,
+button {
   font-weight: 300;
 }
 
@@ -446,6 +464,23 @@ button :hover {
 /*==========================
        Evaluation cards
 ==========================*/
+/* style for the eval cards to be displayed to the user for input */
+#cardPopup {
+  display: block;
+  justify-self: center;
+  align-self: center;
+  white-space: normal;
+}
+
+#page-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0,0,0,0.6);
+}
+
 
 /* contains the css that controls the location and the layout of the challenge grid */
 .challengeGrid {
@@ -589,7 +624,7 @@ body.wrong {
 /*=====================
        Sprint Tracker
 =====================*/
-#timer{
+#timer {
   background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #6a290a 100%);
   color: #fff;
   font-size: 30px;

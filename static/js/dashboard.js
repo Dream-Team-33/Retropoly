@@ -21,13 +21,11 @@ let hoursRemainingText = null;
 let taskSelectedAndRolled = false; // Add flag variable here
 
 function selectTask(taskElement) {
-  console.log(selectedTask);
   if (selectedTask !== null) {
     selectedTask.classList.remove("selected-task");
   }
   selectedTask = taskElement;
   var parent = selectedTask.parentNode;
-  console.log(parent);
 
   if (
     parent.classList.contains("backlog") ||

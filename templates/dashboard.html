@@ -31,7 +31,7 @@
   <script src="/static/js/drag.js" defer></script> <!--Link to the message.js file-->
   <script src="/static/js/message.js" defer></script> <!--Link to the message.js file-->
   <script src="/static/js/chellange.js" defer></script> <!--Link to the message.js file-->
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
     integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
     crossorigin="anonymous"></script>
@@ -69,7 +69,7 @@
       <div id="currentSprint">
         <h4>Sprint {{sprintNumber}}</h4>
       </div>
-      
+
       <!--sections of the board-->
       <div class="lanes">
         <div class="swim-lane backlog">
@@ -228,6 +228,7 @@
       <div class="other">
 
       </div> <!--End board-->
+
       <!-- save button for file testing, to be removed after file system is 100% working -->
       <!-- <button id="save">Save</button> -->
 
@@ -267,34 +268,62 @@
                 <button class="btn">Answer 1</button>
                 <button class="btn">Answer 2</button>
                 <button class="btn">Answer 3</button>
-                <button class="btn">Answer 4</button>          
+                <button class="btn">Answer 4</button>
               </div>
               <button id="closePopup" onClick="closePopup('infoPopup');" aria-label="Close popup">Close</button>
             </div>
           </div><!--  End of Popup Message Box -->
           <!--Evaluation Cards-->
         </div><!--End of Evaluation Cards-->
+      </div>
 
 
-
-
-
-
-        <!--Sprint Tracker-->
-        <!--Create a sprint tracker that will time the
+      <!--Sprint Tracker-->
+      <!--Create a sprint tracker that will time the
             the game while the users are playing
-        -->
-        <!-- <p class="sprintText" id="countdown">20:00</p> -->
-        <!--End of sprint tracker-->
+      -->
+      <!-- <p class="sprintText" id="countdown">20:00</p> -->
+      <!--End of sprint tracker-->
 
+      <!--Game time tracker / Sprint Tracker-->
+      <div id="timer">00:00:00</div>
+      <!--End of game time tracker-->
 
+      <!-- User Inputted Eval Cards -->
+      <div id="evalCardsDiv" style="position: absolute; align-self: center; justify-self: center; display: none;">
+        <!-- used to make the background become uninteractable -->
+      <div id="page-mask" style="display: block;"></div>
+        <!-- Popup containing the cards that will be inputted -->
+        <div class="popup" id="cardPopup" style="display: flex;">
+          <!-- Keep Doing Card -->
+          <div class="card keepDoing" style="display: block;">
+            <img src="/static/images/keep-doing.png" alt="keep-doing">
+            <div class="container-ev">
+              <textarea name="userInputEval" id="keepDoingEval" cols="25" rows="3" placeholder="Discuss as a team what should keep happening"></textarea>
+            </div>
+          </div>
 
-        <!--Game time tracker / Sprint Tracker-->
-        <div id="timer">00:00:00</div>
-        <!--End of game time tracker-->
+          <!--Doing Better card-->
+          <div class="card doingBetter" style="display: block;">
 
-        
+            <img src="/static/images/doing-better.png" alt="doing-better">
+            <div class="container-ev">
+              <textarea name="userInputEval" id="doingBetterEval" cols="25" rows="3" placeholder="Discuss as a team what could be done better"></textarea>
+            </div>
+          </div>
 
+          <!-- Stop Doing Card -->
+          <div class="card stopDoing" style="display: inline-block;">
+            <img src="/static/images/stop-doing.png" alt="stop-doing">
+            <div class="container-ev">
+              <textarea name="userInputEval" id="stopDoingEval" cols="25" rows="3" placeholder="Discuss as a team what should be stopped from happening"></textarea>
+            </div>
+          </div>
+        </div>
+        <!-- Submit Button - will be used to submit the text that has been collected from the users cards (not functional yet - TODO)-->
+        <button id="Submit Card" onClick="closePopup('Popup');" style="position: absolute; left: 44%; margin: 10px;">Submit</button>
+      </div>
+    </div>
 </body>
 
 </html>

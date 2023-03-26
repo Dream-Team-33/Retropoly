@@ -21,7 +21,6 @@ def player():
     return render_template('player-choice.html')
 
 
-
 # THIS WAS CREATED BECAUSE THE PLAYER CHOICE PAGE DOESN'T OPEN THE DASHBOARD USING
 # /templates/dashboard-welcome.html THAT IS STATED IN THE player-choice.js FILE.
 # THIS NEEDS TO BE FIXED. ===>
@@ -29,7 +28,6 @@ def player():
 # @app.route('/player-open-dashboard/')
 # def player_open_dashboard():
 #     return render_template('dashboard-welcome.html')          <======================================
-
 # prep for rooms
 user_key = ""
 # setup for a dictionary or room details
@@ -50,13 +48,12 @@ def handle_connect():
 
     # Send the user key back to the client
     emit('user_key', user_key)
-    
+
     # creates a file for the user using their specific user key
     # filename = f"datastorage/{user_key}.json"
     # with open(filename, 'w') as f:
     #     f.write("")
     # f.close()
-    
 
     # Join the default room for this client
     join_room(user_key)
@@ -71,9 +68,10 @@ def handle_disconnect():
     # removes the file that was created for the user
     # filename = f"datastorage/{user_key}.json"
     # remove(filename)
-    
+
     # Leave the default room for this client
     leave_room(user_key)
+
 
 @socketio.on('create')
 def create_room(data):
@@ -114,7 +112,8 @@ def handle_dice_roll(data):
 
     # Calculate the new hours by subtracting the dice roll values from the selected hours
     new_hours = new_hours_format-(int(dice_one)+int(dice_two))
-
+    if new_hours <= 0:
+        new_hours = 0
     # Convert the new hours back to a string
     new_hours_text = str(new_hours)
 
@@ -228,8 +227,7 @@ def join():
         # If the request method is GET, render the join template
         return render_template('Teams.html')
 
-
-# TODO Try SocketIO
+# INFO: This is the code for file saving and reading for the cards
 # handle JSON data
 
 # !!!!!!!!!!!!
@@ -260,7 +258,7 @@ def join():
 #     with open('datastorage/playerCardInfo.json', 'w') as wJson:
 #         json.dump(fileContent, wJson, indent=4)
 #         wJson.close()
-    
+
 #     read_json()
 
 
