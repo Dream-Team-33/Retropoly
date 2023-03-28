@@ -21,6 +21,7 @@
 body {
     min-height: 100vh;
     /* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%); */
+    background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%);
 }
 
 /*=====================
@@ -70,18 +71,32 @@ li {
 }
 
 .MainFlex .side-bar {
-    position: relative;
+    /* position: relative;
     background-color: #f2f2f2;
     width: 20vw;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; */
+    position: relative;
+
+  width: 400px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* border-style: groove;
+  border-color: #cfefcf;
+  border-width: 7px; */
+  background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%);
+
 }
 
 .MainFlex .side-bar .logo {
     width: 50px;
     height: 50px;
     border-radius: 10px;
+    padding: 5px;
+    margin-left: 10px;
+  
 }
 
 .MainFlex .side-bar .logo-name {
@@ -89,11 +104,14 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #537479;
+    /* background-color: #537479; */
     border-radius:10px; /* round corners */
     box-sizing: 10px;
 }
 
+.side-bar .logo-name h1 {
+    color: #FFFFFF;
+  }
 
 
 .MainFlex .side-bar li {
@@ -133,7 +151,7 @@ li {
     grid-area: text;
     align-self: center;
     justify-self: center;
-    background-color: white;
+    /* background-color: white; */
     font-size: 80px;
     font-weight: 800;
 }
