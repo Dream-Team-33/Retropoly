@@ -20,7 +20,7 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);
+    /* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%); */
 }
 
 /*=====================
@@ -40,6 +40,7 @@ body {
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
+    
 
     /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;
@@ -70,7 +71,7 @@ li {
 
 .MainFlex .side-bar {
     position: relative;
-    background: white;
+    background-color: #f2f2f2;
     width: 20vw;
     min-height: 100vh;
     display: flex;
@@ -88,7 +89,12 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #537479;
+    border-radius:10px; /* round corners */
+    box-sizing: 10px;
 }
+
+
 
 .MainFlex .side-bar li {
     font-size: 24px;
@@ -119,7 +125,7 @@ li {
        container
 =====================*/
 .container {
-    font-family: "Poppins", sans-serif;
+    font-family: "Nunito", sans-serif;
     display: flex;
 }
 

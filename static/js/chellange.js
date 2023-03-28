@@ -5,46 +5,6 @@ const answerButtonsElement = document.getElementById("answer-buttons");
 const closeButton = document.getElementById("closePopup");
 
 
-// Define the questions array
-const questions = [
-  {
-    question: "How does an agile team promote customer engagement?",
-    answers: [
-      { text: "a. With regular communication between the customer and team.", correct: true },
-      { text: "b. With incentives and kickbacks for approving completed features.", correct: false },
-      { text: "c. With a defect information radiator showing customer meeting absences. ", correct: false},
-      { text:"d. With bi-weekly communication between the customer and team.", correct: false},
-    ],
-  },
-  {
-    question: "Which role is the owner of the Sprint Backlog?",
-    answers: [
-      { text: "a. Scrum Master", correct: false },
-      { text: "b. Team Leader Media", correct: true },
-      { text: "c. Product Owner ", correct: false },
-      { text: "d. Development Team", correct: false },
-    ],
-  },
-  {
-    question: "When is extending an iteration deadline okay?",
-    answers: [
-      { text: "a. Only during holidays", correct: false },
-      { text: "b. Never", correct: true },
-      { text: "c. It can happen any time", correct: false },
-      { text: "d. Only when mission-critical stories cannot be completed in the original sprint length", correct: false },
-    ],
-  },
-  {
-    question: "Which role is the owner of the Product Backlog? ",
-    answers: [
-      { text: "a. Customer", correct: false },
-      { text: "b. Product Owner", correct: true },
-      { text: "c. Scrum Master ", correct: false },
-      { text: "d. Development Team", correct: false },
-    ],
-  }
-];
-
 // Function to shuffle the questions array
 function shuffleQuestions() {
   for (let i = questions.length - 1; i > 0; i--) {
@@ -116,3 +76,106 @@ startButton.addEventListener("click", () => {
 closeButton.addEventListener("click", () => {
   questionContainerElement.classList.add("hide");
 });
+
+
+// Define the questions array
+const questions = [
+  {
+    question: "How does an agile team promote customer engagement?",
+    answers: [
+      { text: "a. With regular communication between the customer and team.", correct: true },
+      { text: "b. With incentives and kickbacks for approving completed features.", correct: false },
+      { text: "c. With a defect information radiator showing customer meeting absences. ", correct: false},
+      { text:"d. With bi-weekly communication between the customer and team.", correct: false},
+    ],
+  },
+  {
+    question: "Which role is the owner of the Sprint Backlog?",
+    answers: [
+      { text: "a. Scrum Master", correct: false },
+      { text: "b. Team Leader Media", correct: true },
+      { text: "c. Product Owner ", correct: false },
+      { text: "d. Development Team", correct: false },
+    ],
+  },
+  {
+    question: "When is extending an iteration deadline okay?",
+    answers: [
+      { text: "a. Only during holidays", correct: false },
+      { text: "b. Never", correct: true },
+      { text: "c. It can happen any time", correct: false },
+      { text: "d. Only when mission-critical stories cannot be completed in the original sprint length", correct: false },
+    ],
+  },
+  {
+    question: "Which role is the owner of the Product Backlog? ",
+    answers: [
+      { text: "a. Customer", correct: false },
+      { text: "b. Product Owner", correct: true },
+      { text: "c. Scrum Master ", correct: false },
+      { text: "d. Development Team", correct: false },
+    ],
+  },
+  {
+    question: "What is the purpose of a Kanban board?",
+    answers: [
+      { text: "a. To visually represent the progress of a project", correct: true },
+      { text: "b. To assign tasks to team members", correct: false },
+      { text: "c. To track individual work hours", correct: false },
+      { text: "d. To create a project timeline", correct: false },
+    ],
+  },
+  {question: "What is the difference between a Scrum board and a Kanban board?",
+    answers: [
+      { text: "a. A Scrum board is used for planning, while a Kanban board is used for tracking progress", correct: false },
+      { text: "b. A Scrum board has predefined stages, while a Kanban board can be customized", correct: true },
+      { text: "c. A Scrum board is limited to software development projects, while a Kanban board can be used for any project", correct: false },
+      { text: "d. A Scrum board is more effective than a Kanban board", correct: false },
+    ],
+  },
+  {
+    question: "What is the purpose of the 'To Do' column on a Kanban board?",
+    answers: [
+      { text: "a. To indicate work that is currently in progress", correct: false },
+      { text: "b. To indicate work that has been completed", correct: false },
+      { text: "c. To indicate work that has not yet started", correct: true },
+      { text: "d. To indicate work that has been put on hold", correct: false },
+    ],
+  },
+  {
+    question: "What is the purpose of a backlog?",
+    answers: [
+      { text: "a. To store completed work items", correct: false },
+      { text: "b. To store work items that have not yet been started", correct: true },
+      { text: "c. To store work items that are currently in progress", correct: false },
+      { text: "d. To store work items that have been put on hold", correct: false },
+    ],
+  },
+  {
+    question: "What is a user story?",
+    answers: [
+      { text: "a. A brief description of a feature or requirement from the user's perspective", correct: true },
+      { text: "b. A list of tasks to complete a project", correct: false },
+      { text: "c. A summary of the project's budget", correct: false },
+      { text: "d. A list of potential risks for a project", correct: false },
+    ],
+  },
+  {
+    question: "What is the purpose of the 'Done' column on a Kanban board?",
+    answers: [
+      { text: "a. To indicate work that has been completed", correct: true },
+      { text: "b. To indicate work that is currently in progress", correct: false },
+      { text: "c. To indicate work that has not yet started", correct: false },
+      { text: "d. To indicate work that has been put on hold", correct: false },
+    ],
+  },
+  {
+    question: "What is the purpose of a daily stand-up meeting?",
+    answers: [
+      { text: "a. To review the budget for the project ", correct: false },
+      { text: "b. To assign tasks for the day", correct: false },
+      { text: "c. To present completed work to stakeholders", correct: false },
+      { text: "d. To discuss progress and obstacles with the team", correct: true },
+    ],
+  },
+];
