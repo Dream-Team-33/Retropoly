@@ -59,7 +59,9 @@ body {
 h1 {
     color: black;
 }
-
+h2{
+    color: black;
+}
 li {
     color: black;
 }
@@ -119,7 +121,7 @@ li {
 /*=============================
        Main Content (Rules)
 ===============================*/
-p{ color: #fff; }
+.description p{ color: #fff; }
 
 .color-card-1{ color: green }
 

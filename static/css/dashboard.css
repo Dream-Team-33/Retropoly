@@ -472,13 +472,21 @@ button :hover {
   white-space: normal;
 }
 
-#page-mask {
+#page-mask1 {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
   background-color: rgba(0,0,0,0.6);
+}
+
+#page-mask2 {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
 }
 
 

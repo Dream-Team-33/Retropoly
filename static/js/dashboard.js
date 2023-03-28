@@ -95,6 +95,7 @@ async function rollDice(hoursRemainingText) {
 			elDiceTwo.classList.add("show-" + k);
 		}
 	}
+	updatePlayerNumber();
 }
 
 function updateHoursRemaining(taskElement, newHoursText) {
@@ -115,12 +116,26 @@ function updatePlayerNumber() {
 		currentPlayer++;
 	} else {
 		currentPlayer = 1;
+		updateSprintNum();
 	}
 
 	// set the current player number in the html
 	sessionStorage.setItem("currentPlayer", currentPlayer);
 	// set the current player number in the html to the current player number
-	document.getElementById("currentPlayer").innerHTML = currentPlayer;
+	document.getElementById("currentPlayer").innerHTML = "Player: " + currentPlayer;
+	document.getElementById("currentPlayerPopup").style.display = "block";
+	// setTimeout(document.getElementById("currentPlayerPopup").style.display = "none", 5000) // this will make the popup disappear after 5 seconds
+	//change the number 5000 to adjust the time the popup is displayed
+	setTimeout(function(){
+		document.getElementById("currentPlayerPopup").style.display = "none";
+	}, 5000);
+}
+
+function updateSprintNum(){
+	var sprintNum = sessionStorage.getItem("currentSprint");
+	sprintNum++;
+	sessionStorage.setItem("currentSprint", sprintNum);
+	document.getElementById("sprintNum").innerHTML = "Sprint " + sprintNum;
 }
 
 // !!!!!!!!!!!!

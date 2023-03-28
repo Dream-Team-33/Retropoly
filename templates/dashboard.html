@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
     integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/static/css/dashboard.css" /> <!--link to dashboard.css file-->
+  <link rel="stylesheet" type="text/css" href="/static/css/rules.css" /> <!--link to rules.css file-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
     integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css" />
@@ -55,9 +56,6 @@
                     (Exit)
                 -->
         <li><span class="material-icons-outlined">dashboard</span><a href="#" class="active">Dashboard</a></li>
-        <li><span class="material-icons-outlined">density_small</span><a href="{{ url_for('rules') }}">Rules</a></li>
-        <li><span class="material-icons-outlined">groups</span><a href="{{ url_for('teams') }}">Team</a></li>
-        <li><span class="material-icons-outlined">description</span><a href="{{ url_for('notes') }}">Notes</a></li>
         <li><span class="material-icons-outlined">logout</span><a href="{{ url_for('home') }}">Exit</a></li>
       </ul>
     </div><!--End layout of side bar-->
@@ -69,7 +67,7 @@
     <!-- TODO: Retain state after reload (BLOCK) -->
     <div class="board mainGrid">
       <div id="currentSprint">
-        <h4>Sprint {{sprintNumber}}</h4>
+        <h4 id="sprintNum">Sprint 1</h4>
       </div>
       <!--sections of the board-->
       <div class="lanes">
@@ -141,7 +139,6 @@
       </div> <!--End sections of the board-->
 
       <!-- Dice Roller - Both dice are grouped in this section to share css-->
-      <!-- <p id="currentPlayer">Player: 1</p> -->
       <div class="groupedDice"> <!-- Conatains both dice for better formatting -->
         <!-- Dice 1 and all assosiated content -->
         <div id='dice1' class="dice dice-one">
@@ -276,6 +273,56 @@
       </div>
 
 
+      <div class="description">
+        <div class="description-1">
+          <h1>Rules</h1>
+          <h2>Description</h2>
+          <p>Each player takes it in turns to select a card they want to develop and move it into the to-do list, 
+          this will highlight the card on the Kanban board, and roll the on screen dice. 
+          The number rolled is then deducted from the cards remaining hours. 
+          Each player gets 3 rolls per turn if the card hits 0 then it is moved into the completed section of the Kanban board. <br>
+          At the end of the players turn a challenge card may appear this challenge card has a question related to scrum and agile development. 
+          If the player gets the question correct then a set number of hours will be deducted from the card they were working on. <br><br>
+  
+          After each player has taken a turn that is the end of the first sprint. 
+          The game has a set number of sprints which is 4. 
+          After the first sprint the team is presented with cards that each team member needs to fill out.
+          These cards are either Keep doing, doing better and Stop doing.
+          </p>
+  
+          <p>After each player has entered 1 of each card and selected the next set of cards to move into the to-do list the next sprint begins.
+            After each players turn on this sprint including a challenge card appearing so to does either a keep doing, doing better or a stop doing card. 
+            The team is then able to have a discussion on what the card is about.</p><br><br>
+  
+          <p>For keep doing cards this allows the team to talk about why what is on the card is working and to agree to keep doing it. 
+  
+            For Doing better cards this allows the team to talk about ways they can improve on what is on the card and make a plan to improve. 
+  
+            For Stop doing cards this allows the players to discuss why a certain player thinks what they are doing 
+            needs to stop and also allows the team to see why certain behaviours are not good in relation to scrum/agile development.</p><br><br>
+  
+  
+          <p>The game then continues along this track until the total number of sprints has been reached or until all story points are completed. 
+  
+            Throughout the game their will be teaching points that come up. 
+            These teaching points will either explain the game and 
+            its features to players and also will have lessons on scrum development, agile development and Kanban boards.</p>
+        </div>
+  
+        <div class="description-2">
+          <h1 class="description-2">Cards</h1>
+          <b class="color-card-1">Keep doing: </b><p>This card will be where the player will say something they
+            think the team is doing the best and should keep on doing in order to progress the most in the game.</p> 
+  
+           <b class="color-card-2">Doing better: </b><p>This is where the player puts in what they think 
+           the team could be doing better at in order to make the most progression in the game.</p>
+           
+           <b class="color-card-3">Stop doing: </b><p>This is where the players can voice their opinion 
+           on something they think the team are doing wrong and they need to stop doing.</p><br>
+        </div>
+      </div>
+
+
       <!--Sprint Tracker-->
       <!--Create a sprint tracker that will time the
             the game while the users are playing
@@ -290,7 +337,7 @@
       <!-- User Inputted Eval Cards -->
       <div id="evalCardsDiv" style="position: absolute; align-self: center; justify-self: center; display: none;">
         <!-- used to make the background become uninteractable -->
-      <div id="page-mask" style="display: block;"></div>
+        <div id="page-mask1" style="display: block;"></div>
         <!-- Popup containing the cards that will be inputted -->
         <div class="popup" id="cardPopup" style="display: flex;">
           <!-- Keep Doing Card -->
@@ -321,6 +368,14 @@
         <!-- Submit Button - will be used to submit the text that has been collected from the users cards (not functional yet - TODO)-->
         <button id="Submit Card" onClick="closePopup('Popup');" style="position: absolute; left: 44%; margin: 10px;">Submit</button>
       </div>
+    </div>
+
+    <!-- Player Number Popup -->
+    <div id="currentPlayerPopup" style=" display: none; position:absolute; top: 25%; left: 50%; border-radius: 10px; background-color: white; padding: 5px;">
+      <!-- used to make the background become uninteractable -->
+      <div id="page-mask2" style="z-index: 1;"></div>
+      <!-- Player Number Popup -->
+      <p id="currentPlayer" style="font-size: 50px;">Player: 1</p>
     </div>
 </body>
 

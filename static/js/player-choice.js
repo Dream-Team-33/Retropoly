@@ -25,6 +25,8 @@ function setNumPlayers(numPlayers) {
     sessionStorage.setItem("numPlayers", numPlayers);
     // set the current player to 1
     sessionStorage.setItem("currentPlayer", 1);
+    // set the current sprint to 1
+    sessionStorage.setItem("currentSprint", 1);
     // send the user to the welcome page
     window.location.href = '/dashboard-welcome/'
 }
