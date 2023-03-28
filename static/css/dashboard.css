@@ -25,7 +25,10 @@ body {
     */
   zoom: 100%;
   min-height: 100vh;
-  background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);
+  /* background: linear-gradient(to bottom, #9AD3DE 30%, #FF6D6A 70%);  */
+  background: linear-gradient(to bottom, #f4f4f4 0%, #e5e5e5 100%);
+  /* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%); */
+  /* background: linear-gradient(to bottom, #5b98c0 0%, #df263d 100%); */
 }
 
 /*=====================
@@ -71,18 +74,60 @@ li {
 
 .side-bar {
   position: relative;
-  background: white;
+
   width: 400px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* border-style: groove;
+  border-color: #cfefcf;
+  border-width: 7px; */
+  background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%);
+
+
 }
 
 .side-bar .logo {
   width: 50px;
   height: 50px;
   border-radius: 10px;
-  padding: 10px;
+  padding: 5px;
+  margin-left: 10px;
+
+}
+
+.side-bar .logo-name h1 {
+  color: #FFFFFF;
+}
+
+.quote_txt{
+  font-family: cursive;
+  color: #e5e5e5;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 24px;
+  padding-top: 60%;
+  
+}
+.quote{
+  color: #000000;
+  text-align: center;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 15px;
+  
+  
+}
+
+.board_img {
+  height: 160px;
+  width: 160px;
+  align-items: flex-end;
+  display: flex;
+  position:fixed;
+  bottom:5%;
+  left:5%;
 }
 
 .side-bar .logo-name {
@@ -91,6 +136,8 @@ li {
   align-items: center;
   justify-content: center;
   padding: 10px;
+  /* background-color: #5b98c0; */
+  box-sizing: 20%;
 }
 
 .side-bar li {
@@ -98,6 +145,9 @@ li {
   padding: 10px 40px;
   display: flex;
   align-items: center;
+  /* border-style: groove;
+  border-color: #cfefcf;
+  border-width: 5px; */
 }
 
 .side-bar li:hover {
@@ -130,6 +180,7 @@ li {
  add board styles here
 } */
 
+
 #todo-form {
   padding: 32px 32px 0;
 }
@@ -141,7 +192,7 @@ li {
   justify-content: center;
   gap: 16px;
   padding: 24px 32px;
-
+  padding-top: 100px;
   height: 50%;
 }
 
@@ -149,6 +200,8 @@ li {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 8px;
+  justify-content: center;
+  align-items: center;
 }
 
 .swim-lane {
@@ -156,31 +209,28 @@ li {
   flex-direction: column;
   gap: 12px;
   overflow: scroll;
-  background: #f4f4f4;
+  background: #cfefcf;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-
   padding: 12px;
   border-radius: 4px;
   width: 225px;
   min-height: 120px;
   max-height: 500px;
-
   flex-shrink: 0;
 }
 
 .task {
   background: white;
   color: black;
+  font-style: italic;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
-
   padding: 12px;
   border-radius: 4px;
-
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .selected-task {
-  background: black;
+  background: #FF6D6A;
   color: white;
   cursor: move;
 }
@@ -188,7 +238,7 @@ li {
 .is-dragging {
   scale: 1.05;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-  background: rgb(50, 50, 50);
+  background: #D6E865;
   color: white;
 }
 
@@ -215,17 +265,21 @@ li {
 }
 
 /* Dice Roller */
+
 .groupedDice {
+  /* padding-bottom: 20px;
+  padding-left: 50px; */
   justify-self: center;
-  background-color: black;
+  background: #8ba6a1;
   border-radius: 15px;
   grid-area: groupedDice;
-  padding: 30px;
+  /* padding: 50px; */
   width: 260px;
   height: 200px;
   display: grid;
   gap: 0px 0px;
   padding: 10px;
+  margin-top: 100px;
   grid-template-columns: 50%;
   grid-template-rows: 50%;
   grid-template-areas:
@@ -251,7 +305,7 @@ li {
 button:hover,
 button:active {
   outline: none;
-  background: #50514F;
+  background: #c4e3c4;
   cursor: pointer;
   transform: translateY(1px);
 }
@@ -435,7 +489,7 @@ p {
 }
 
 button {
-  background: #9AD3DE;
+  background: #df263d;
   border: 0;
   border-radius: 4px;
   padding: 10px 20px;
@@ -449,11 +503,18 @@ button:focus {
 }
 
 button :hover {
-  background: lighten(#9AD3DE, 10%);
+  background: lighten(#df263d, 10%);
+}
+
+.question h2 {
+  color: #FFFFFF;
 }
 
 .wrapper {
-  background: #FFFFFF;
+
+  margin-top: 50px;
+  margin-right: 30px;
+  background: #8ba6a1; 
   padding: 20px 30px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px 0px rgba(#000000, 0.4);
@@ -478,7 +539,7 @@ button :hover {
   right: 0;
   bottom: 0;
   top: 0;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 #page-mask2 {
@@ -511,22 +572,6 @@ button :hover {
   grid-area: questions;
 }
 
-/* .wrap {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  margin: auto;
-  margin-top: 100px;
-  width: 900px;
-} */
-
-/* .wrap {
-  width: 200px;
-  margin: auto;
-  margin-top: 100px;
-} */
 
 /* this is linked to the Challenege cards and their contents */
 .container-ev {
@@ -633,14 +678,27 @@ body.wrong {
        Sprint Tracker
 =====================*/
 #timer {
-  background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #6a290a 100%);
-  color: #fff;
-  font-size: 30px;
-  height: 50px;
-  width: 150px;
+  background: #f4f4f4;
+  font-size: 20px;
+  text-align: center;
+  height: 40px;
+  width: 120px;
   padding: 10px;
-  position: fixed;
-  top: 5px;
-  right: 30px;
-  transform: translate(-50%, 0%);
+  position: absolute;
+  top: 40px;
+  right: 0;
+  margin-top: 1px;
+  
+  border-radius: 10px;
+  
+
+}
+#currentSprint{
+  background: #df263d;
+  color: #FFFFFF;
+  font-size: 20px;
+  text-align: center;
+  height: 40px;
+  width: 120px;
+  border-radius: 10px;
 }
