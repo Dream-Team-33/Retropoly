@@ -69,11 +69,12 @@
     <!--Board-->
     <!--Create a table (aka Kanban Board) that will have a function to allow
         users to drag cards in each section-->
+
+    <!-- TODO: Retain state after reload (BLOCK) -->
     <div class="board mainGrid">
       <div id="currentSprint" >
         <h4>Sprint {{sprintNumber}}</h4>
       </div>
-
       <!--sections of the board-->
       <div class="lanes">
         <div class="swim-lane backlog">
@@ -142,8 +143,6 @@
           </div>
         </div>
       </div> <!--End sections of the board-->
-
-
 
       <!-- Dice Roller - Both dice are grouped in this section to share css-->
       <!-- <p id="currentPlayer">Player: 1</p> -->
@@ -221,7 +220,6 @@
             <div class="dot six-6"></div>
           </div>
         </div>
-
         <!--Button for the dice roller-->
         <div id='roll' class='roll-button'>
           <button id="openMyPopup" data-popup="myPopup" onClick="openPopup('infoPopup')" aria-controls="myPopup"

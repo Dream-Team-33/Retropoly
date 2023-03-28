@@ -101,9 +101,9 @@ def error_handler(e):
 def default_error_handler(e):
     pass
 
-
-@socketio.on('diceroll')
-def handle_dice_roll(data):
+# will be used if they user gets the wrong answer in the challeneg card (1 dice used)
+@socketio.on('diceroll2')
+def handle_dice_roll1(data):
     # Extract the dice roll values from the data dictionary
     dice_one, dice_two, hours_from_selected = data['diceRollValues']
 
@@ -120,6 +120,24 @@ def handle_dice_roll(data):
     # Emit the new hours text to the client
     socketio.emit('new_hours', {'newHoursText': new_hours_text})
 
+# will be used if they user gets the right answer in the challeneg card (2 dice used)
+@socketio.on('diceroll1')
+def handle_dice_roll2(data):
+    # Extract the dice roll values from the data dictionary
+    dice_one, hours_from_selected = data['diceRollValues']
+
+    # Convert the selected hours format to an integer
+    new_hours_format = int(hours_from_selected.replace("hrs", ""))
+
+    # Calculate the new hours by subtracting the dice roll values from the selected hours
+    new_hours = new_hours_format-(int(dice_one))
+    if new_hours <= 0:
+        new_hours = 0
+    # Convert the new hours back to a string
+    new_hours_text = str(new_hours)
+
+    # Emit the new hours text to the client
+    socketio.emit('new_hours', {'newHoursText': new_hours_text})
 
 # home page
 @app.route('/')

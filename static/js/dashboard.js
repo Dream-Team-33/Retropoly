@@ -21,23 +21,23 @@ let hoursRemainingText = null;
 let taskSelectedAndRolled = false; // Add flag variable here
 
 function selectTask(taskElement) {
-  if (selectedTask !== null) {
-    selectedTask.classList.remove("selected-task");
-  }
-  selectedTask = taskElement;
-  var parent = selectedTask.parentNode;
+	if (selectedTask !== null) {
+		selectedTask.classList.remove("selected-task");
+	}
+	selectedTask = taskElement;
+	var parent = selectedTask.parentNode;
 
-  if (
-    parent.classList.contains("backlog") ||
-    parent.classList.contains("done")
-  ) {
-    console.log("backlog or done detected please choose a valid card!");
-  } else {
-    selectedTask.classList.add("selected-task");
-    const hoursRemainingElement = selectedTask.querySelector(".hoursRemaining");
-    hoursRemainingText = hoursRemainingElement.textContent;
-    taskSelectedAndRolled = false; // Reset flag variable
-  }
+	if (
+		parent.classList.contains("backlog") ||
+		parent.classList.contains("done")
+	) {
+		console.log("backlog or done detected please choose a valid card!");
+	} else {
+		selectedTask.classList.add("selected-task");
+		const hoursRemainingElement = selectedTask.querySelector(".hoursRemaining");
+		hoursRemainingText = hoursRemainingElement.textContent;
+		taskSelectedAndRolled = false; // Reset flag variable
+	}
 }
 
 var elDiceOne = document.getElementById("dice1");
@@ -45,22 +45,42 @@ var elDiceTwo = document.getElementById("dice2");
 var elComeOut = document.getElementById("roll");
 
 elComeOut.onclick = function () {
-  if (hoursRemainingText !== null && !taskSelectedAndRolled) { // Check if flag variable is false
-    rollDice(hoursRemainingText);
-    taskSelectedAndRolled = true; // Set flag variable to true
-  } else {
-    console.log("No task selected or task already rolled");
-  }
+	if (hoursRemainingText !== null && !taskSelectedAndRolled) {
+		// Check if flag variable is false
+		rollDice(hoursRemainingText);
+		taskSelectedAndRolled = true; // Set flag variable to true
+	} else {
+		console.log("No task selected or task already rolled");
+	}
 };
 
-function rollDice(hoursRemainingText) {
+async function rollDice(hoursRemainingText) {
 	// Accept the hoursRemainingText as a parameter
 	var diceOne = Math.floor(Math.random() * 6 + 1);
 	var diceTwo = Math.floor(Math.random() * 6 + 1);
 
-	socket.emit("diceroll", {
-		diceRollValues: [diceOne, diceTwo, hoursRemainingText],
-	}); // Pass the hoursRemaining text value
+	startQuiz(); // Call the startQuiz function
+
+	//basic try catch to wait for the user to select an answer before continuing
+	try {
+		//sets response to the value returned by the selectAnswer function
+		const response = await selectAnswer();
+		//checks if the response is true or false and sends the appropriate reqest to the server
+		if (response == "true") {
+			console.log("Correct answer");
+			socket.emit("diceroll2", {
+				diceRollValues: [diceOne, diceTwo, hoursRemainingText],
+			});
+		} else {
+			console.log("Incorrect answer");
+			socket.emit("diceroll1", {
+				diceRollValues: [diceOne, hoursRemainingText],
+			});
+		}
+		//if there is an error it will be logged to the console
+	} catch (error) {
+		console.log(error);
+	}
 
 	for (var i = 1; i <= 6; i++) {
 		elDiceOne.classList.remove("show-" + i);
@@ -86,21 +106,21 @@ function updateHoursRemaining(taskElement, newHoursText) {
 
 // will be used to update the current player displayed in the html
 function updatePlayerNumber() {
-  //read the number of players and the current player from the session storage
-  var numPlayersStored = sessionStorage.getItem("numPlayers");
-  var currentPlayer = sessionStorage.getItem("currentPlayer");
+	//read the number of players and the current player from the session storage
+	var numPlayersStored = sessionStorage.getItem("numPlayers");
+	var currentPlayer = sessionStorage.getItem("currentPlayer");
 
-  // set the currentPlayer number to the next number in the sequence as long as it is less than or equal to the number of players
-  if (currentPlayer <= numPlayersStored-1) {
-    currentPlayer++;
-  } else {
-    currentPlayer = 1;
-  }
+	// set the currentPlayer number to the next number in the sequence as long as it is less than or equal to the number of players
+	if (currentPlayer <= numPlayersStored - 1) {
+		currentPlayer++;
+	} else {
+		currentPlayer = 1;
+	}
 
-  // set the current player number in the html
-  sessionStorage.setItem("currentPlayer", currentPlayer);
-  // set the current player number in the html to the current player number
-  document.getElementById("currentPlayer").innerHTML = currentPlayer;
+	// set the current player number in the html
+	sessionStorage.setItem("currentPlayer", currentPlayer);
+	// set the current player number in the html to the current player number
+	document.getElementById("currentPlayer").innerHTML = currentPlayer;
 }
 
 // !!!!!!!!!!!!
@@ -120,8 +140,6 @@ function updatePlayerNumber() {
 // 	console.log(fileData);
 // });
 
-
-
 /**
  * This is for the sprint tracker. It will be used to display
  * the sprint time tracker during the game.
@@ -133,7 +151,6 @@ function updatePlayerNumber() {
 // const countdownEl = document.getElementById("countdown"); // This will get the element with the id of countdown
 
 // setInterval(updateCountdown, 1000); // This will update the countdown every second
-
 
 // //have a function that will update the time every second
 // function updateCountdown(){
@@ -157,27 +174,26 @@ setInterval(setTime, 1000); // Update the timer every second
 
 // Function to update the timer display
 function setTime() {
- 
-  ++totalSeconds; // Increment the total number of seconds
+	++totalSeconds; // Increment the total number of seconds
 
-  // Calculate the number of hours, minutes, and seconds
-  var hours = pad(parseInt(totalSeconds / 3600));
-  var minutes = pad(parseInt((totalSeconds % 3600) / 60));
-  var seconds = pad(totalSeconds % 60);
+	// Calculate the number of hours, minutes, and seconds
+	var hours = pad(parseInt(totalSeconds / 3600));
+	var minutes = pad(parseInt((totalSeconds % 3600) / 60));
+	var seconds = pad(totalSeconds % 60);
 
-  var timeString = hours + ":" + minutes + ":" + seconds;
+	var timeString = hours + ":" + minutes + ":" + seconds;
 
-  timer.innerHTML = timeString;  // Update the timer display
+	timer.innerHTML = timeString; // Update the timer display
 }
 
 // Function to pad a number with leading zeros if necessary
 function pad(val) {
-  var valString = val + ""; // Convert the input number to a string
+	var valString = val + ""; // Convert the input number to a string
 
-  // check if the string is less than 2 characters
-  if (valString.length < 2) {
-    return "0" + valString; // Add a 0 to the front of the string if it is less than 2 characters
-  } else {
-    return valString; // Return the string if it is 2 characters or more
-  }
+	// check if the string is less than 2 characters
+	if (valString.length < 2) {
+		return "0" + valString; // Add a 0 to the front of the string if it is less than 2 characters
+	} else {
+		return valString; // Return the string if it is 2 characters or more
+	}
 }

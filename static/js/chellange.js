@@ -1,4 +1,4 @@
-const startButton = document.getElementById("openMyPopup");
+// const startButton = document.getElementById("openMyPopup"); // disabled the start button and will now be ran from the dashboard.js file specifically the rollDice function
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
@@ -39,13 +39,29 @@ function displayQuestion() {
   });
 }
 
-// Function to handle selecting an answer
-function selectAnswer(e) {
-  const selectedButton = e.target;
-  const correct = selectedButton.dataset.correct;
-  setStatusClass(document.body, correct);
-  Array.from(answerButtonsElement.children).forEach(button => {
-    setStatusClass(button, button.dataset.correct);
+// Function to handle selecting an answer via promises and async/await
+function selectAnswer() {
+  // will return a promise that resolves with the correct value when the user clicks an answer
+  // essentially, this function will wait for the user to click an answer before continuing allowing us to set the number of dice used in the rollDice function in the dashboard.js file
+  return new Promise((resolve, reject) => {
+    // get all the buttons that are children of the answerButtonsElement
+    const buttons = Array.from(answerButtonsElement.children);
+    // loop through each button and add an event listener to it
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        //sets the selected button to be the button just clicked by the user
+        const selectedButton = button;
+        // sets the var "correct" to be whatever the value of the dataset is for the selected button (can be "true" or "undefined")
+        const correct = selectedButton.dataset.correct;
+        // sets the buttons to reflect whether they are a correct or incorrect answer
+        setStatusClass(document.body, correct);
+        buttons.forEach(button => {
+          setStatusClass(button, button.dataset.correct);
+        });
+        // resolves the promise with the value of the correct variable
+        resolve(correct);
+      });
+    });
   });
 }
 
@@ -66,11 +82,12 @@ function clearStatusClass(element) {
 }
 
 // Event listener for the Start button
-startButton.addEventListener("click", () => {
+// startButton.addEventListener("click", () => { // prevented the function looking for the start button to be pressed and will now be ran via a function call in the dashboard.js file
+function startQuiz() {
   shuffleQuestions();
   displayQuestion();
   questionContainerElement.classList.remove("hide");
-});
+};
 
 // Event listener for the Close button
 closeButton.addEventListener("click", () => {
