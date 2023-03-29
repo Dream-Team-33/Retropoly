@@ -14,6 +14,11 @@ socket.on("new_hours", function (data) {
 	updateHoursRemaining(taskElement, new_hours_text);
 });
 
+// add jquery to the project automatically with the most up to date version
+var script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.6.3.min.js'; // Check https://jquery.com/ for the current version
+document.getElementsByTagName('head')[0].appendChild(script);
+
 let cardNum = 0;
 
 let selectedTask = null;
@@ -138,22 +143,34 @@ function updateSprintNum(){
 	document.getElementById("sprintNum").innerHTML = "Sprint " + sprintNum;
 }
 
-// !!!!!!!!!!!!
-// COMMENTS WILL BE ADDED AFTER THE CARDS POPUP IS WORKING FOR THINGS TO ACTUALLY BE SAVED
-// !!!!!!!!!!!!
 
 // event listener for the save button
-// document.getElementById("save").addEventListener("click", saveCardInfo);
-// function saveCardInfo() {
-// 	socket.emit("jsonSave", {
-// 		cardInfo: {"card": cardNum+=1, "type": "Keep-Doing", "text": "Keep searching for who asked"},
-// 	});
-// }
+document.getElementById("submitCards").addEventListener("click", saveCardInfo);
+function saveCardInfo() {
 
-// socket.on("recieveJson", function (data) {
-// 	fileData = data;
-// 	console.log(fileData);
-// });
+	// takes each class od userInputEval and saves the id and value to the cardType and cardText variables
+	$(".userInputEval").each(function () {
+		cardType = this.id;
+		cardText = this.value;
+
+		//this then sends that data to the sever to be saved
+		socket.emit("jsonSave",{
+			cardInfo: {"card": cardNum+=1, "type": cardType, "text": cardText}, "socketid": socket.id
+		}, Queue="saveQueue");
+
+		// this will clear the text box after the data is saved
+		this.value = "";
+	});
+
+	document.getElementById("evalCardsDiv").style.display = "none";
+}
+
+socket.on("recieveJson", function (data) {
+	fileData = data;
+	console.log(fileData);
+});
+
+
 
 /**
  * This is for the sprint tracker. It will be used to display

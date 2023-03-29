@@ -7,6 +7,9 @@ from fileinput import filename
 from os import abort, remove
 from flask import Flask, redirect, url_for, request, render_template
 from flask_socketio import SocketIO, emit, join_room, leave_room
+from threading import Lock, Thread #used for threading th saving process
+from queue import Queue # similar to threading but to make a queue for saving
+
 import secrets, json
 
 app = Flask(__name__)
@@ -28,6 +31,7 @@ def player():
 # @app.route('/player-open-dashboard/')
 # def player_open_dashboard():
 #     return render_template('dashboard-welcome.html')          <======================================
+
 # prep for rooms
 user_key = ""
 # setup for a dictionary or room details
@@ -50,10 +54,10 @@ def handle_connect():
     emit('user_key', user_key)
 
     # creates a file for the user using their specific user key
-    # filename = f"datastorage/{user_key}.json"
-    # with open(filename, 'w') as f:
-    #     f.write("")
-    # f.close()
+    filename = f"datastorage/{user_key}.json"
+    with open(filename, 'w') as f:
+        f.write("")
+    f.close()
 
     # Join the default room for this client
     join_room(user_key)
@@ -66,8 +70,8 @@ def handle_disconnect():
     print('Client disconnected: '+user_key)
 
     # removes the file that was created for the user
-    # filename = f"datastorage/{user_key}.json"
-    # remove(filename)
+    filename = f"datastorage/{user_key}.json"
+    remove(filename)
 
     # Leave the default room for this client
     leave_room(user_key)
@@ -248,36 +252,69 @@ def join():
 # INFO: This is the code for file saving and reading for the cards
 # handle JSON data
 
-# !!!!!!!!!!!!
-# COMMENTS WILL BE ADDED AFTER THE CARDS POPUP IS WORKING FOR THINGS TO ACTUALLY BE SAVED
-# !!!!!!!!!!!!
 
-# @socketio.on('jsonRead')
-# def read_json():
-#     with open('datastorage/playerCardInfo.json', 'r') as f:
-#         data = json.load(f)
-#         socketio.emit("recieveJson", data)
+# creates a new Queue object and Lock object to allow for queueing of data to be saved
+# this will hold the data to be saved to the JSON files until the thread can save it
+saveQueue = Queue()
+# this will be used to lock the queue so that only one thread can access it at a time to prevent data loss
+queueLock = Lock()
 
+# used to process all of the data in the queue and save it to the JSON files
+def processQueue():
+    print("Starting queue processing thread") # to validate the thread is running
+    while True: # loop forever
+        with queueLock: # lock the queue so that only one thread can access it at a time
+            if not saveQueue.empty(): # if there is data in the queue
+                data = saveQueue.get() # get the data from the queue
+            else:
+                socketio.sleep(1) # if there is no data in the queue, wait 0.1 seconds and check again
+                #time.sleep(0.1) # if there is a problem with the socketio.sleep function and it waits too long then switch to this. should be fine though
+                continue
+        # assign the vars to the their appropriate values - raw data and the client ID
+        dataToSaveRAW = data["cardInfo"]
+        clientID = data["socketid"]
+        #assign the standard file path to the variable with the client ID appended in the middle
+        filePath = 'datastorage/'+clientID+'.json'
+        
+        # print("saving data: " + str(dataToSaveRAW)) #troubleshooting print statement
+        try:
+            # file handling - open the file, read the data, close the file
+            with open(filePath, 'r') as rJson:
+                fileContent = json.load(rJson)
+                rJson.close()
+            # append the new data to the old file data
+            fileContent.append(dataToSaveRAW)
+            # file handling - open the file, write the data, close the file
+            with open(filePath, 'w') as wJson:
+                json.dump(fileContent, wJson, indent=4)
+                wJson.close()
+        except:
+            # if the file is empty then create a new list and append the data to it
+            print("No data in file. Creating blank variable.")
+            fileContent = []
+                
+            fileContent.append(dataToSaveRAW)
+            with open(filePath, 'w') as wJson:
+                json.dump(fileContent, wJson, indent=4)
+                wJson.close()
+# start the queue processing thread - this will run in the background and save the data to the JSON files (processQueue is the name of the function that is above that will actually process the requests for saving)
+Thread(target=processQueue).start()            
 
-# # @socketio.on('jsonSave')
-# def save_json(data):
-#     dataToSaveRAW = data["cardInfo"]
-#     print("saving data: " + str(dataToSaveRAW))
-#     try:
-#         with open('datastorage/playerCardInfo.json', 'r') as rJson:
-#             fileContent = json.load(rJson)
-#             rJson.close()
-#     except:
-#         print("No data in file. Creating blank variable.")
-#         fileContent = [{"cards": []}]
+# if the client requests the JSON data, send it to them (their socket id should be passed in the request so that the correct file can be read)
+@socketio.on('jsonRead')
+def read_json(sid):
+    with open('datastorage/'+sid+'.json', 'r') as f:
+        data = json.load(f) # load the data from the file into the var data
+        socketio.emit("recieveJson", data)#send the data to the client
 
-#     fileContent.append(dataToSaveRAW)
-#     print("fileContent: " + str(fileContent))
-#     with open('datastorage/playerCardInfo.json', 'w') as wJson:
-#         json.dump(fileContent, wJson, indent=4)
-#         wJson.close()
-
-#     read_json()
+# if the client sends data to be saved, add it to the queue to be saved
+@socketio.on('jsonSave')
+def save_json(data, sid): # DO NOT CHANGE "SID" - it will break and i dont know why yet)
+    # print("adding " + str(data["socketid"]) + " to save queue") # troubleshooting print statement
+    with queueLock: # blocks more than one thread from accessing the queue at a time
+        saveQueue.put(data) # add the data to the queue
+            
+    # read_json()
 
 
 if __name__ == '__main__':

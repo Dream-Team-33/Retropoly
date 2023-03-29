@@ -228,9 +228,6 @@
 
       </div> <!--End board-->
 
-      <!-- save button for file testing, to be removed after file system is 100% working -->
-      <!-- <button id="save">Save</button> -->
-
       <div class="challengeGrid">
         <!--Keep Doing card-->
         <div class="card keepDoing" style="display: none;">
@@ -339,7 +336,7 @@
       <!--End of game time tracker-->
 
       <!-- User Inputted Eval Cards -->
-      <div id="evalCardsDiv" style="position: absolute; align-self: center; justify-self: center; display: none;">
+      <div id="evalCardsDiv" style="position: absolute; top: 20%; justify-self: center; display: none;">
         <!-- used to make the background become uninteractable -->
         <div id="page-mask1" style="display: block;"></div>
         <!-- Popup containing the cards that will be inputted -->
@@ -348,7 +345,7 @@
           <div class="card keepDoing" style="display: block;">
             <img src="/static/images/keep-doing.png" alt="keep-doing">
             <div class="container-ev">
-              <textarea name="userInputEval" id="keepDoingEval" cols="25" rows="3" placeholder="Discuss as a team what should keep happening"></textarea>
+              <textarea name="userInputEval" class="userInputEval" id="keepDoingEvalCard" cols="25" rows="3" placeholder="Discuss as a team what should keep happening"></textarea>
             </div>
           </div>
 
@@ -357,7 +354,7 @@
 
             <img src="/static/images/doing-better.png" alt="doing-better">
             <div class="container-ev">
-              <textarea name="userInputEval" id="doingBetterEval" cols="25" rows="3" placeholder="Discuss as a team what could be done better"></textarea>
+              <textarea name="userInputEval" class="userInputEval" id="doingBetterEvalCard" cols="25" rows="3" placeholder="Discuss as a team what could be done better"></textarea>
             </div>
           </div>
 
@@ -365,12 +362,12 @@
           <div class="card stopDoing" style="display: inline-block;">
             <img src="/static/images/stop-doing.png" alt="stop-doing">
             <div class="container-ev">
-              <textarea name="userInputEval" id="stopDoingEval" cols="25" rows="3" placeholder="Discuss as a team what should be stopped from happening"></textarea>
+              <textarea name="userInputEval" class="userInputEval" id="stopDoingEvalCard" cols="25" rows="3" placeholder="Discuss as a team what should be stopped from happening"></textarea>
             </div>
           </div>
         </div>
         <!-- Submit Button - will be used to submit the text that has been collected from the users cards (not functional yet - TODO)-->
-        <button id="Submit Card" onClick="closePopup('Popup');" style="position: absolute; left: 44%; margin: 10px;">Submit</button>
+        <button id="submitCards" style="position: absolute; left: 44%; margin: 10px;">Submit</button>
       </div>
     </div>
 
