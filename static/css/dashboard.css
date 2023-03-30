@@ -22,11 +22,16 @@ body {
   min-height: 100vh;
   /* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);  */
   /* background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); */
-  background: linear-gradient(to bottom, #9AD3DE 30%, #FF6D6A 70%);
+   background: linear-gradient(to bottom, #9AD3DE 30%, #FF6D6A 70%);  
+/* background: linear-gradient(to bottom, #f4f4f4 0%, #e5e5e5 100%); */
+/* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%); */
+/* background: linear-gradient(to bottom, #5b98c0 0%, #df263d 100%); */
 }
 
+
+
 /*=====================
-       Icons
+     Icons
 =====================*/
 /*This is for the material icons (Google fonts)*/
 .material-icons-outlined {
@@ -42,6 +47,7 @@ body {
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  
 
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
@@ -56,18 +62,19 @@ body {
 }
 
 /*=====================
-       Side Bar
+     Side Bar
 =====================*/
-h1 { color: black; }
+h1 {
+  color: black;
+  margin-top: 0;
+  padding-right: 20px;
+}
 
 li { color: black; }
 
 .MainFlex { display: flex; }
 
 .MainFlex .side-bar {
-  flex: 1;
-  padding-left: 20px;
-  padding-right: 20px;
   position: relative;
   width: 300px;
   min-height: 100vh;
@@ -94,7 +101,10 @@ li { color: black; }
   box-sizing: 10px;
 }
 
-.side-bar .logo-name h1 { color: #FFFFFF; }
+.side-bar .logo-name h1 {
+  color: #FFFFFF;
+}
+
 
 .MainFlex .side-bar li {
   font-size: 24px;
@@ -109,12 +119,28 @@ li { color: black; }
   font-weight: bolder;
 }
 
+.MainFlex .side-bar .bottom-notes:hover {
+  background: aliceblue;
+  color: rgb(134, 183, 225);
+  font-weight: bolder;
+}
+
 .MainFlex .side-bar a {
   text-decoration: none;
   color: inherit;
 }
 
-.MainFlex .side-bar .active { font-weight: bolder; }
+.MainFlex .side-bar .active {
+  font-weight: bolder;
+}
+
+.bottom-notes{
+  position: absolute;
+  bottom: 1350px;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+}
 
 
 
