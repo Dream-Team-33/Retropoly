@@ -66,35 +66,21 @@ body {
 =====================*/
 h1 {
     color: black;
+    margin-top: 0;
+    padding-right: 20px;
 }
 
-li {
-    color: black;
-}
+li { color: black; }
 
-.MainFlex {
-    display: flex;
-}
+.MainFlex { display: flex; }
 
 .MainFlex .side-bar {
-    /* position: relative;
-    background-color: #f2f2f2;
-    width: 20vw;
+    position: relative;
+    width: 300px;
     min-height: 100vh;
     display: flex;
-    flex-direction: column; */
-    position: relative;
-
-  width: 400px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  /* border-style: groove;
-  border-color: #cfefcf;
-  border-width: 7px; */
-   background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); 
- 
-
+    flex-direction: column;
+    background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); 
 }
 
 .MainFlex .side-bar .logo {
@@ -103,7 +89,6 @@ li {
     border-radius: 10px;
     padding: 5px;
     margin-left: 10px;
-  
 }
 
 .MainFlex .side-bar .logo-name {

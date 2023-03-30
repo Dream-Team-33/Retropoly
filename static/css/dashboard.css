@@ -19,16 +19,10 @@
 }
 
 body {
-  /* 
-    This will change the default zoom setting when the page is loaded.
-    PLEASE LET ME KNOW IF THIS DOESNT LOOK RIGHT ON YOUR SCREEN!
-    */
-  zoom: 100%;
   min-height: 100vh;
-  /* background: linear-gradient(to bottom, #9AD3DE 30%, #FF6D6A 70%);  */
-  background: linear-gradient(to bottom, #f4f4f4 0%, #e5e5e5 100%);
-  /* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%); */
-  /* background: linear-gradient(to bottom, #5b98c0 0%, #df263d 100%); */
+  /* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);  */
+  /* background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); */
+  background: linear-gradient(to bottom, #9AD3DE 30%, #FF6D6A 70%);
 }
 
 /*=====================
@@ -64,116 +58,65 @@ body {
 /*=====================
        Side Bar
 =====================*/
-h1 {
-  color: black;
-}
+h1 { color: black; }
 
-li {
-  color: black;
-}
+li { color: black; }
 
-.side-bar {
+.MainFlex { display: flex; }
+
+.MainFlex .side-bar {
+  flex: 1;
+  padding-left: 20px;
+  padding-right: 20px;
   position: relative;
-
-  width: 400px;
+  width: 300px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* border-style: groove;
-  border-color: #cfefcf;
-  border-width: 7px; */
-  background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%);
-
-
+  background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); 
 }
 
-.side-bar .logo {
+.MainFlex .side-bar .logo {
   width: 50px;
   height: 50px;
   border-radius: 10px;
   padding: 5px;
   margin-left: 10px;
-
 }
 
-.side-bar .logo-name h1 {
-  color: #FFFFFF;
-}
-
-.quote_txt{
-  font-family: cursive;
-  color: #e5e5e5;
-  text-align: center;
-  font-weight: bold;
-  font-style: italic;
-  font-size: 24px;
-  padding-top: 60%;
-  
-}
-.quote{
-  color: #000000;
-  text-align: center;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 15px;
-  
-  
-}
-
-.board_img {
-  height: 160px;
-  width: 160px;
-  align-items: flex-end;
-  display: flex;
-  position:fixed;
-  bottom:5%;
-  left:5%;
-}
-
-.side-bar .logo-name {
+.MainFlex .side-bar .logo-name {
   height: 10vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  /* background-color: #5b98c0; */
-  box-sizing: 20%;
+  /* background-color: #537479; */
+  border-radius:10px; /* round corners */
+  box-sizing: 10px;
 }
 
-.side-bar li {
+.side-bar .logo-name h1 { color: #FFFFFF; }
+
+.MainFlex .side-bar li {
   font-size: 24px;
   padding: 10px 40px;
   display: flex;
   align-items: center;
-  /* border-style: groove;
-  border-color: #cfefcf;
-  border-width: 5px; */
 }
 
-.side-bar li:hover {
+.MainFlex .side-bar li:hover {
   background: aliceblue;
   color: rgb(134, 183, 225);
   font-weight: bolder;
 }
 
-.side-bar a {
+.MainFlex .side-bar a {
   text-decoration: none;
   color: inherit;
 }
 
-.side-bar .active {
-  font-weight: bolder;
-}
+.MainFlex .side-bar .active { font-weight: bolder; }
 
-/* sprint tracker number */
-#currentSprint {
-  /* grid-area: kanban; */
-  top: 0;
-  right: 0;
-  position: absolute;
-  padding: 0px 20px;
-  background: #f4f4f4;
-}
+
 
 /* ---- BOARD ---- */
 /* .board {
@@ -677,6 +620,21 @@ body.wrong {
 /*=====================
        Sprint Tracker
 =====================*/
+/* sprint tracker number */
+#currentSprint {
+  grid-area: kanban;
+  background: #df263d;
+  color: #fff;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 20px;
+  text-align: center;
+  height: 40px;
+  width: 140px;
+  border-radius: 10px;;
+}
+
 #timer {
   background: #f4f4f4;
   font-size: 20px;
@@ -685,20 +643,8 @@ body.wrong {
   width: 140px;
   padding: 10px;
   position: absolute;
-  top: 40px;
-  right: 0;
+  top: 50px;
+  right: 5px;
   margin-top: 1px;
-  
-  border-radius: 10px;
-  
-
-}
-#currentSprint{
-  background: #df263d;
-  color: #FFFFFF;
-  font-size: 20px;
-  text-align: center;
-  height: 40px;
-  width: 140px;
   border-radius: 10px;
 }
