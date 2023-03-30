@@ -25,7 +25,7 @@ a {
 }
 
 a:hover {
-	color: #ffaf53 !important;
+	color: rgb(21, 21, 114) !important;
 }
 
 img {
@@ -98,7 +98,8 @@ h6 {
 }
 
 .navbar .active {
-	color: #ffaf53 !important;
+	/* color: #ffaf53 !important; */
+	color: rgb(21, 21, 114) !important;
 }
 
 
@@ -215,7 +216,8 @@ h6 {
 }
 
 .section-title h3 {
-	color: #ab2f52;
+	/* color: #ab2f52; */
+	color: #fff;
 	text-transform: uppercase;
 	font-weight: 300;
 	margin-bottom: 22px;
@@ -275,6 +277,7 @@ h6 {
 
 .sub-title-paragraph h4 {
 	margin-bottom: 5px;
+	color: rgb(21, 21, 114);
 }
 
 .sub-title-paragraph h5 {
@@ -583,7 +586,7 @@ h6 {
 
 .info-box .icon i {
 	font-size: 20px;
-	color: #ab2f52;
+	color: rgb(21, 21, 114);
 }
 
 .info-box .content {
@@ -615,7 +618,7 @@ h6 {
 	color: #fff;
 	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
-	background: #ab2f52;
+	background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); 
 	padding: 12px 45px;
 	font-size: 15px;
 	border-radius: 30px;
