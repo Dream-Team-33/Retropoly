@@ -7,18 +7,18 @@
     outline: none !important;
     padding: 0;
     margin: 0;
-
+  
     -ms-overflow-style: none;
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */
-}
-
-*::-webkit-scrollbar {
+  }
+  
+  *::-webkit-scrollbar {
     display: none;
-}
-
-body {
+  }
+  
+  body {
     min-height: 100vh;
     /* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);  */
     /* background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); */
@@ -26,15 +26,15 @@ body {
   /* background: linear-gradient(to bottom, #f4f4f4 0%, #e5e5e5 100%); */
   /* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%); */
   /* background: linear-gradient(to bottom, #5b98c0 0%, #df263d 100%); */
-}
-
-
-
-/*=====================
+  }
+  
+  
+  
+  /*=====================
        Icons
-=====================*/
-/*This is for the material icons (Google fonts)*/
-.material-icons-outlined {
+  =====================*/
+  /*This is for the material icons (Google fonts)*/
+  .material-icons-outlined {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -48,50 +48,50 @@ body {
     white-space: nowrap;
     direction: ltr;
     
-
+  
     /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;
     /* Support for Safari and Chrome. */
     text-rendering: optimizeLegibility;
-
+  
     /* Support for Firefox. */
     -moz-osx-font-smoothing: grayscale;
-
+  
     /* Support for IE. */
     font-feature-settings: 'liga';
-}
-
-/*=====================
+  }
+  
+  /*=====================
        Side Bar
-=====================*/
-h1 {
+  =====================*/
+  h1 {
     color: black;
     margin-top: 0;
     padding-right: 20px;
-}
-
-li { color: black; }
-
-.MainFlex { display: flex; }
-
-.MainFlex .side-bar {
+  }
+  
+  li { color: black; }
+  
+  .MainFlex { display: flex; }
+  
+  .MainFlex .side-bar {
     position: relative;
     width: 300px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); 
-}
-
-.MainFlex .side-bar .logo {
+  }
+  
+  .MainFlex .side-bar .logo {
     width: 50px;
     height: 50px;
     border-radius: 10px;
     padding: 5px;
     margin-left: 10px;
-}
-
-.MainFlex .side-bar .logo-name {
+  }
+  
+  .MainFlex .side-bar .logo-name {
     height: 10vh;
     display: flex;
     align-items: center;
@@ -99,34 +99,48 @@ li { color: black; }
     /* background-color: #537479; */
     border-radius:10px; /* round corners */
     box-sizing: 10px;
-}
-
-.side-bar .logo-name h1 {
+  }
+  
+  .side-bar .logo-name h1 {
     color: #FFFFFF;
   }
-
-
-.MainFlex .side-bar li {
+  
+  
+  .MainFlex .side-bar li {
     font-size: 24px;
     padding: 10px 40px;
     display: flex;
     align-items: center;
-}
-
-.MainFlex .side-bar li:hover {
+  }
+  
+  .MainFlex .side-bar li:hover {
     background: aliceblue;
     color: rgb(134, 183, 225);
     font-weight: bolder;
-}
-
-.MainFlex .side-bar a {
+  }
+  
+  .MainFlex .side-bar .bottom-notes:hover {
+    background: aliceblue;
+    color: rgb(134, 183, 225);
+    font-weight: bolder;
+  }
+  
+  .MainFlex .side-bar a {
     text-decoration: none;
     color: inherit;
-}
-
-.MainFlex .side-bar .active {
+  }
+  
+  .MainFlex .side-bar .active {
     font-weight: bolder;
-}
+  }
+  
+  .bottom-notes{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+  }
 
 
 

@@ -191,18 +191,6 @@ def notes():
         return render_template('Notes.html')
 
 
-# rules page
-@app.route('/dashboard/rules')
-def rules():
-    return render_template('Rules.html')
-
-
-# teams page
-@app.route('/dashboard/teams')
-def teams():
-    return render_template('Teams.html')
-
-
 # Room Creation
 @app.route('/dashboard/teams/create', methods=['GET', 'POST'])
 def create():
