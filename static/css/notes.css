@@ -152,7 +152,8 @@ li { color: black; }
     top: 10%;
     grid-area: main;
     display: block;
-    position: relative;
+    position: absolute;
+    left: 40%;
     border: 1px solid #ccc;
     width: 100%;
     max-width: 450px;
