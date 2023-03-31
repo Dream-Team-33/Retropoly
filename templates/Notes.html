@@ -51,7 +51,12 @@
 						<li><span class="material-icons-outlined">logout</span><a href="{{ url_for('home') }}">Exit</a></li>
 					</ul>
 					<ul class="bottom-notes">
-						<li><span class="material-icons-outlined notes-item">description</span><a href="{{ url_for('notes') }}" class="active">Notes</a></li>
+						<li>
+							<button class="btn-notes">
+								<span class="material-icons-outlined notes-item">description</span>
+								<a href="{{ url_for('notes') }}" class="active">Notes</a>
+							</button>
+						</li>
 					</ul>
 				</div>
 			</div><!--End layout of side bar-->
@@ -69,6 +74,5 @@
 			</div>
 		</div>
 		<!--End of lines of notes-->
-
 </body>
 </html>
