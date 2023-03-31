@@ -60,9 +60,9 @@
         <li><span class="material-icons-outlined">dashboard</span><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
         <li><span class="material-icons-outlined">logout</span><a href="{{ url_for('home') }}">Exit</a></li>
       </ul>
-      <ul class="bottom-notes">
-        <li><span class="material-icons-outlined notes-item">description</span><a href="{{ url_for('notes') }}">Notes</a></li>
-      </ul>
+        <!-- <ul class="bottom-notes">
+          <li><span class="material-icons-outlined notes-item">description</span><a href="{{ url_for('notes') }}">Notes</a></li>
+        </ul> -->
     </div><!--End layout of side bar-->
 
     <!--Board-->
@@ -80,64 +80,49 @@
           <h3 class="heading">Backlog</h3>
           <div class="task" draggable="true">
             <p>
-              template card
+              Scenario (WIP)
             </p>
-            <p class="hoursRemaining" style="float: right">24hrs</p>
+            <p class="hoursRemaining" style="float: right">10hrs</p>
             <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
           </div>
           <div class="task" draggable="true">
             <p>
-              template card
-            </p>
-            <p class="hoursRemaining" style="float: right">18hrs</p>
-            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
-          </div>
-          <div class="task" draggable="true">
-            <p>
-              template card
+              Scenario (WIP)
             </p>
             <p class="hoursRemaining" style="float: right">14hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              Scenario (WIP)
+            </p>
+            <p class="hoursRemaining" style="float: right">23hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              Scenario (WIP)
+            </p>
+            <p class="hoursRemaining" style="float: right">100hrs</p>
             <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
           </div>
         </div>
+
         <div class="swim-lane todo" id="todo-lane">
           <h3 class="heading">To Do</h3>
-
-          <div class="task" draggable="true">
-            <p>
-              template card
-            </p>
-            <p class="hoursRemaining" style="float: right">14hrs</p>
-            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
-          </div>
-          <div class="task" draggable="true">
-            <p>
-              template card
-            </p>
-            <p class="hoursRemaining" style="float: right">14hrs</p>
-            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
-          </div>
         </div>
 
         <div class="swim-lane  doing">
           <h3 class="heading">Doing</h3>
-
-          <div class="task" draggable="true">
-            <p>
-              template card
-            </p>
-            <p class="hoursRemaining" style="float: right">14hrs</p>
-            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
-          </div>
         </div>
 
         <div class="swim-lane done">
           <h3 class="heading">Done</h3>
           <div class="task" draggable="true">
             <p>
-              template card
+              Scenario (WIP)
             </p>
-            <p class="hoursRemaining" style="float: right">14hrs</p>
+            <p class="hoursRemaining" style="float: right">0hrs</p>
             <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
           </div>
         </div>

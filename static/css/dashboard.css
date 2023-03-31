@@ -19,40 +19,37 @@
 }
 
 body {
-  min-height: 100vh;
-  /* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);  */
-  /* background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); */
-   background: linear-gradient(to bottom, #9AD3DE 30%, #FF6D6A 70%);  
-/* background: linear-gradient(to bottom, #f4f4f4 0%, #e5e5e5 100%); */
-/* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%); */
-/* background: linear-gradient(to bottom, #5b98c0 0%, #df263d 100%); */
+	min-height: 100vh;
+	/* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);  */
+	/* background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); */
+	background: linear-gradient(to bottom, #9ad3de 30%, #ff6d6a 70%);
+	/* background: linear-gradient(to bottom, #f4f4f4 0%, #e5e5e5 100%); */
+	/* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%); */
+	/* background: linear-gradient(to bottom, #5b98c0 0%, #df263d 100%); */
 }
-
-
 
 /*=====================
      Icons
 =====================*/
 /*This is for the material icons (Google fonts)*/
 .material-icons-outlined {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  
+	font-family: "Material Icons";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	/* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
 
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
 
 	/* Support for Firefox. */
 	-moz-osx-font-smoothing: grayscale;
@@ -65,9 +62,9 @@ body {
      Side Bar
 =====================*/
 h1 {
-  color: black;
-  margin-top: 0;
-  padding-right: 20px;
+	color: black;
+	margin-top: 0;
+	padding-right: 20px;
 }
 
 li {
@@ -79,12 +76,12 @@ li {
 }
 
 .MainFlex .side-bar {
-  position: relative;
-  width: 300px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); 
+	position: relative;
+	width: 300px;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background: linear-gradient(to bottom, #6dbddb 0%, #467da1 100%);
 }
 
 .MainFlex .side-bar .logo {
@@ -106,9 +103,8 @@ li {
 }
 
 .side-bar .logo-name h1 {
-  color: #FFFFFF;
+	color: #ffffff;
 }
-
 
 .MainFlex .side-bar li {
 	font-size: 24px;
@@ -124,9 +120,9 @@ li {
 }
 
 .MainFlex .side-bar .bottom-notes:hover {
-  background: aliceblue;
-  color: rgb(134, 183, 225);
-  font-weight: bolder;
+	background: aliceblue;
+	color: rgb(134, 183, 225);
+	font-weight: bolder;
 }
 
 .MainFlex .side-bar a {
@@ -135,18 +131,16 @@ li {
 }
 
 .MainFlex .side-bar .active {
-  font-weight: bolder;
+	font-weight: bolder;
 }
 
-.bottom-notes{
-  position: absolute;
-  bottom: 1350px;
-  width: 100%;
-  height: 10vh;
-  display: flex;
+.bottom-notes {
+	position: absolute;
+	bottom: 1350px;
+	width: 100%;
+	height: 10vh;
+	display: flex;
 }
-
-
 
 /* ---- BOARD ---- */
 /* .board {
@@ -654,9 +648,7 @@ body.wrong {
 	background: #f4f4f4;
 	font-size: 20px;
 	text-align: center;
-	height: 40px;
 	width: 140px;
-	padding: 10px;
 	position: absolute;
 	top: 50px;
 	right: 5px;
