@@ -230,7 +230,7 @@
         <div class="card keepDoing" style="display: none;">
           <img src="/static/images/keep-doing.png" alt="keep-doing">
           <div class="container-ev">
-            <p>Users can send emails securely to unspecified reipients</p>
+            <p id="cardTextPara">Users can send emails securely to unspecified reipients</p>
           </div>
         </div>
 
@@ -238,7 +238,7 @@
         <div class="card doingBetter" style="display: none;">
           <img src="/static/images/doing-better.png" alt="doing-better">
           <div class="container-ev">
-            <p>Users can manage their emails effectively</p>
+            <p id="cardTextPara">Users can manage their emails effectively</p>
           </div>
         </div>
 
@@ -246,7 +246,7 @@
         <div class="card stopDoing" style="display: none;">
           <img src="/static/images/stop-doing.png" alt="stop-doing">
           <div class="container-ev">
-            <p>Users can send emails securely to unspecified reipients</p>
+            <p id="cardTextPara">Users can send emails securely to unspecified reipients</p>
           </div>
         </div>
 
@@ -339,27 +339,27 @@
         <!-- Popup containing the cards that will be inputted -->
         <div class="popup" id="cardPopup" style="display: flex;">
           <!-- Keep Doing Card -->
-          <div class="card keepDoing" style="display: block;">
+          <div class="card keepDoingEval" style="display: block;">
             <img src="/static/images/keep-doing.png" alt="keep-doing">
             <div class="container-ev">
-              <textarea name="userInputEval" class="userInputEval" id="keepDoingEvalCard" cols="25" rows="3" placeholder="Discuss as a team what should keep happening"></textarea>
+              <textarea name="userInputEval" class="userInputEval" id="keepDoing" cols="25" rows="3" placeholder="Discuss as a team what should keep happening"></textarea>
             </div>
           </div>
 
           <!--Doing Better card-->
-          <div class="card doingBetter" style="display: block;">
+          <div class="card doingBetterEval" style="display: block;">
 
             <img src="/static/images/doing-better.png" alt="doing-better">
             <div class="container-ev">
-              <textarea name="userInputEval" class="userInputEval" id="doingBetterEvalCard" cols="25" rows="3" placeholder="Discuss as a team what could be done better"></textarea>
+              <textarea name="userInputEval" class="userInputEval" id="doingBetter" cols="25" rows="3" placeholder="Discuss as a team what could be done better"></textarea>
             </div>
           </div>
 
           <!-- Stop Doing Card -->
-          <div class="card stopDoing" style="display: inline-block;">
+          <div class="card stopDoingEval" style="display: inline-block;">
             <img src="/static/images/stop-doing.png" alt="stop-doing">
             <div class="container-ev">
-              <textarea name="userInputEval" class="userInputEval" id="stopDoingEvalCard" cols="25" rows="3" placeholder="Discuss as a team what should be stopped from happening"></textarea>
+              <textarea name="userInputEval" class="userInputEval" id="stopDoing" cols="25" rows="3" placeholder="Discuss as a team what should be stopped from happening"></textarea>
             </div>
           </div>
         </div>

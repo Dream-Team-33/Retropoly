@@ -15,9 +15,9 @@ socket.on("new_hours", function (data) {
 });
 
 // add jquery to the project automatically with the most up to date version
-var script = document.createElement('script');
-script.src = 'https://code.jquery.com/jquery-3.6.3.min.js'; // Check https://jquery.com/ for the current version
-document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement("script");
+script.src = "https://code.jquery.com/jquery-3.6.3.min.js"; // Check https://jquery.com/ for the current version
+document.getElementsByTagName("head")[0].appendChild(script);
 
 let cardNum = 0;
 
@@ -119,9 +119,11 @@ function updatePlayerNumber() {
 	// set the currentPlayer number to the next number in the sequence as long as it is less than or equal to the number of players
 	if (currentPlayer <= numPlayersStored - 1) {
 		currentPlayer++;
+		socket.emit("jsonRead", { socketid: socket.id });
 	} else {
 		currentPlayer = 1;
 		updateSprintNum();
+		showEval();
 	}
 
 	// set the current player number in the html
@@ -129,34 +131,43 @@ function updatePlayerNumber() {
 	// set the current player number in the html to the current player number
 	document.getElementById("currentPlayer").innerHTML = "Player: " + currentPlayer;
 	document.getElementById("currentPlayerPopup").style.display = "block";
-	// setTimeout(document.getElementById("currentPlayerPopup").style.display = "none", 5000) // this will make the popup disappear after 5 seconds
-	//change the number 5000 to adjust the time the popup is displayed
-	setTimeout(function(){
+	// setTimeout(document.getElementById("currentPlayerPopup").style.display = "none", 2000) // this will make the popup disappear after 2 seconds
+	//change the number 2000 to adjust the time the popup is displayed
+	setTimeout(function () {
 		document.getElementById("currentPlayerPopup").style.display = "none";
-	}, 5000);
+	}, 2000);
 }
 
-function updateSprintNum(){
+function updateSprintNum() {
 	var sprintNum = sessionStorage.getItem("currentSprint");
 	sprintNum++;
 	sessionStorage.setItem("currentSprint", sprintNum);
 	document.getElementById("sprintNum").innerHTML = "Sprint " + sprintNum;
 }
 
+function showEval() {
+	setTimeout(function () {
+		document.getElementById("evalCardsDiv").style.display = "block";
+	}, 2000);
+}
 
 // event listener for the save button
 document.getElementById("submitCards").addEventListener("click", saveCardInfo);
 function saveCardInfo() {
-
 	// takes each class od userInputEval and saves the id and value to the cardType and cardText variables
 	$(".userInputEval").each(function () {
 		cardType = this.id;
 		cardText = this.value;
 
 		//this then sends that data to the sever to be saved
-		socket.emit("jsonSave",{
-			cardInfo: {"card": cardNum+=1, "type": cardType, "text": cardText}, "socketid": socket.id
-		}, Queue="saveQueue");
+		socket.emit(
+			"jsonSave",
+			{
+				cardInfo: { card: (cardNum += 1), type: cardType, text: cardText },
+				socketid: socket.id,
+			},
+			(Queue = "saveQueue")
+		);
 
 		// this will clear the text box after the data is saved
 		this.value = "";
@@ -167,11 +178,57 @@ function saveCardInfo() {
 
 socket.on("recieveJson", function (data) {
 	fileData = data;
-	console.log(fileData);
+
+	// read certain keys from the json object recieved from the server
+	var cardType = fileData.cardInfo.type;
+
+	switch (cardType) {
+		case "keepDoing":
+			setCard(fileData.cardInfo.type, fileData.cardInfo.text);
+			break;
+		case "doingBetter":
+			setCard(fileData.cardInfo.type, fileData.cardInfo.text);
+			break;
+		case "stopDoing":
+			setCard(fileData.cardInfo.type, fileData.cardInfo.text);
+			break;
+		default:
+			break;
+	}
 });
 
+function setCard(cardType, cardText) {
+	// get the container for the card and the nested container for the text
+	var cardContainer = document.querySelector("." + cardType);
+	var nestedContainer = document.querySelector("." + cardType + " #cardTextPara");
 
+	nestedContainer.innerHTML = cardText;
+	
+	// check what type of card is being sent and then display the correct cards
+	switch (cardType) {
+		case "keepDoing":
+			cardContainer.style.display = "block";
+			document.querySelectorAll(".doingBetter").forEach((a) => (a.style.display = "none"));
+			document.querySelectorAll(".stopDoing").forEach((a) => (a.style.display = "none"));
+			break;
+		case "doingBetter":
+			document.querySelectorAll(".keepDoing").forEach((a) => (a.style.display = "none"));
+			cardContainer.style.display = "block";
+			document.querySelectorAll(".stopDoing").forEach((a) => (a.style.display = "none"));
+			break;
+		case "stopDoing":
+			document.querySelectorAll(".keepDoing").forEach((a) => (a.style.display = "none"));
+			document.querySelectorAll(".doingBetter").forEach((a) => (a.style.display = "none"));
+			cardContainer.style.display = "block";
+			break;
+		default:
+			break;
+	}
 
+	// document.querySelectorAll(".keepDoing").forEach(a => a.style.display = "none");
+	// document.querySelectorAll(".doingBetter").forEach(a => a.style.display = "none");
+	// document.querySelectorAll(".stopDoing").forEach(a => a.style.display = "block");
+}
 /**
  * This is for the sprint tracker. It will be used to display
  * the sprint time tracker during the game.

@@ -1,28 +1,28 @@
 * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-family: "Nunito", sans-serif;
-  text-decoration: none !important;
-  list-style: none !important;
-  outline: none !important;
-  padding: 0;
-  margin: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: "Nunito", sans-serif;
+	text-decoration: none !important;
+	list-style: none !important;
+	outline: none !important;
+	padding: 0;
+	margin: 0;
 
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
+	-ms-overflow-style: none;
+	/* IE and Edge */
+	scrollbar-width: none;
+	/* Firefox */
 }
 
 *::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 body {
-  min-height: 100vh;
-  /* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);  */
-  /* background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); */
-  background: linear-gradient(to bottom, #9AD3DE 30%, #FF6D6A 70%);
+	min-height: 100vh;
+	/* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);  */
+	/* background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); */
+	background: linear-gradient(to bottom, #9ad3de 30%, #ff6d6a 70%);
 }
 
 /*=====================
@@ -30,305 +30,310 @@ body {
 =====================*/
 /*This is for the material icons (Google fonts)*/
 .material-icons-outlined {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
+	font-family: "Material Icons";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	/* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
 
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
 
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
 
-  /* Support for IE. */
-  font-feature-settings: 'liga';
+	/* Support for IE. */
+	font-feature-settings: "liga";
 }
 
 /*=====================
        Side Bar
 =====================*/
-h1 { color: black; }
+h1 {
+	color: black;
+}
 
-li { color: black; }
+li {
+	color: black;
+}
 
-.MainFlex { display: flex; }
+.MainFlex {
+	display: flex;
+}
 
 .MainFlex .side-bar {
-  flex: 1;
-  padding-left: 20px;
-  padding-right: 20px;
-  position: relative;
-  width: 300px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); 
+	flex: 1;
+	padding-left: 20px;
+	padding-right: 20px;
+	position: relative;
+	width: 300px;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background: linear-gradient(to bottom, #6dbddb 0%, #467da1 100%);
 }
 
 .MainFlex .side-bar .logo {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  padding: 5px;
-  margin-left: 10px;
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
+	padding: 5px;
+	margin-left: 10px;
 }
 
 .MainFlex .side-bar .logo-name {
-  height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-color: #537479; */
-  border-radius:10px; /* round corners */
-  box-sizing: 10px;
+	height: 10vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* background-color: #537479; */
+	border-radius: 10px; /* round corners */
+	box-sizing: 10px;
 }
 
-.side-bar .logo-name h1 { color: #FFFFFF; }
+.side-bar .logo-name h1 {
+	color: #ffffff;
+}
 
 .MainFlex .side-bar li {
-  font-size: 24px;
-  padding: 10px 40px;
-  display: flex;
-  align-items: center;
+	font-size: 24px;
+	padding: 10px 40px;
+	display: flex;
+	align-items: center;
 }
 
 .MainFlex .side-bar li:hover {
-  background: aliceblue;
-  color: rgb(134, 183, 225);
-  font-weight: bolder;
+	background: aliceblue;
+	color: rgb(134, 183, 225);
+	font-weight: bolder;
 }
 
 .MainFlex .side-bar a {
-  text-decoration: none;
-  color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
 
-.MainFlex .side-bar .active { font-weight: bolder; }
-
-
+.MainFlex .side-bar .active {
+	font-weight: bolder;
+}
 
 /* ---- BOARD ---- */
 /* .board {
  add board styles here
 } */
 
-
 #todo-form {
-  padding: 32px 32px 0;
+	padding: 32px 32px 0;
 }
 
 .lanes {
-  grid-area: kanban;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 16px;
-  padding: 24px 32px;
-  padding-top: 100px;
-  height: 50%;
+	grid-area: kanban;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 16px;
+	padding: 24px 32px;
+	height: 50%;
 }
 
 .heading {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  justify-content: center;
-  align-items: center;
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 8px;
+	justify-content: center;
+	align-items: center;
 }
 
 .swim-lane {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  overflow: scroll;
-  background: #cfefcf;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-  padding: 12px;
-  border-radius: 4px;
-  width: 225px;
-  min-height: 120px;
-  max-height: 500px;
-  flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	overflow: scroll;
+	background: #cfefcf;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+	padding: 12px;
+	border-radius: 4px;
+	width: 225px;
+	min-height: 120px;
+	max-height: 500px;
+	flex-shrink: 0;
 }
 
 .task {
-  background: white;
-  color: black;
-  font-style: italic;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
-  padding: 12px;
-  border-radius: 4px;
-  font-size: 20px;
+	background: white;
+	color: black;
+	font-style: italic;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+	padding: 12px;
+	border-radius: 4px;
+	font-size: 20px;
 }
 
 .selected-task {
-  background: #FF6D6A;
-  color: white;
-  cursor: move;
+	background: #ff6d6a;
+	color: white;
+	cursor: move;
 }
 
 .is-dragging {
-  scale: 1.05;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-  background: #D6E865;
-  color: white;
+	scale: 1.05;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+	background: #d6e865;
+	color: white;
 }
 
 /* combine Table and sidebar */
 
 .MainFlex {
-  display: flex;
+	display: flex;
 }
 
 .board {
-  flex-basis: 100%;
+	flex-basis: 100%;
 }
 
 /* Main playspace grid for the main play space to for easier playspace management */
 .mainGrid {
-  padding: 30px;
-  display: grid;
-  gap: 0px 0px;
-  grid-template-columns: 1fr 0.3fr;
-  grid-template-rows: 55ch auto;
-  grid-template-areas:
-    "kanban kanban"
-    "other groupedDice";
+	padding: 30px;
+	padding-top: 50px;
+	display: grid;
+	gap: 0px 0px;
+	grid-template-columns: 1fr 0.3fr;
+	grid-template-rows: 55ch auto;
+	grid-template-areas:
+		"kanban kanban"
+		"other groupedDice";
 }
 
 /* Dice Roller */
 
 .groupedDice {
-  /* padding-bottom: 20px;
+	/* padding-bottom: 20px;
   padding-left: 50px; */
-  justify-self: center;
-  background: #8ba6a1;
-  border-radius: 15px;
-  grid-area: groupedDice;
-  /* padding: 50px; */
-  width: 260px;
-  height: 200px;
-  display: grid;
-  gap: 0px 0px;
-  padding: 10px;
-  margin-top: 100px;
-  grid-template-columns: 50%;
-  grid-template-rows: 50%;
-  grid-template-areas:
-    "die1 die2"
-    "button button";
-
+	justify-self: center;
+	background: #8ba6a1;
+	border-radius: 15px;
+	grid-area: groupedDice;
+	/* padding: 50px; */
+	width: 260px;
+	height: 200px;
+	display: grid;
+	gap: 0px 0px;
+	padding: 10px;
+	grid-template-columns: 50%;
+	grid-template-rows: 50%;
+	grid-template-areas:
+		"die1 die2"
+		"button button";
 }
 
 /* roll button */
 #roll {
-  grid-area: button;
-  align-self: center;
-  justify-self: center;
-  color: #fff;
-  border: none;
-  font-size: 20px;
-  border-radius: 5px;
-  box-shadow: 1px 3px #50514F;
-  outline: none;
-  transition: .3s;
+	grid-area: button;
+	align-self: center;
+	justify-self: center;
+	color: #fff;
+	border: none;
+	font-size: 20px;
+	border-radius: 5px;
+	box-shadow: 1px 3px #50514f;
+	outline: none;
+	transition: 0.3s;
 }
 
 button:hover,
 button:active {
-  outline: none;
-  background: #c4e3c4;
-  cursor: pointer;
-  transform: translateY(1px);
+	outline: none;
+	background: #c4e3c4;
+	cursor: pointer;
+	transform: translateY(1px);
 }
 
 /* style for both dice appearance */
 .dice {
-  align-self: center;
-  justify-self: center;
-  margin-top: 12px;
-  width: 100px;
-  height: 100px;
-  transform-style: preserve-3d;
-  transition: transform 1s;
+	align-self: center;
+	justify-self: center;
+	margin-top: 12px;
+	width: 100px;
+	height: 100px;
+	transform-style: preserve-3d;
+	transition: transform 1s;
 }
 
 /* style for the dots on the dice */
 .dot {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  margin: -10px 5px 5px -10px;
-  border-radius: 20px;
-  background-color: #ef233c;
-  box-shadow: inset 2px 2px #d90429;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	margin: -10px 5px 5px -10px;
+	border-radius: 20px;
+	background-color: #ef233c;
+	box-shadow: inset 2px 2px #d90429;
 }
 
 /* dice 1 and 2 specific changes can be made here */
 .dice-one {
-  display: flexbox;
-  align-self: center;
-  justify-content: center;
-  grid-area: die1;
+	display: flexbox;
+	align-self: center;
+	justify-content: center;
+	grid-area: die1;
 }
 
 .dice-two {
-  grid-area: die2;
-  display: flexbox;
-  align-self: center;
-  justify-content: center;
+	grid-area: die2;
+	display: flexbox;
+	align-self: center;
+	justify-content: center;
 }
 
 /* this is used for the bottom left location on the game space grid area. this can be changed later */
 .other {
-  grid-area: other;
-  min-width: 150px;
+	grid-area: other;
+	min-width: 150px;
 }
 
 .side {
-  position: absolute;
-  background-color: #ffF;
-  border-radius: 5px;
-  width: 100px;
-  height: 100px;
-  border: 1px solid #e5e5e5;
-  text-align: center;
-  line-height: 2em;
+	position: absolute;
+	background-color: #fff;
+	border-radius: 5px;
+	width: 100px;
+	height: 100px;
+	border: 1px solid #e5e5e5;
+	text-align: center;
+	line-height: 2em;
 }
 
 .side:nth-child(1) {
-  transform: translateZ(3.1em);
+	transform: translateZ(3.1em);
 }
 
 .side:nth-child(6) {
-  transform: rotateY(90deg) translateZ(3.1em);
+	transform: rotateY(90deg) translateZ(3.1em);
 }
 
 .side:nth-child(3) {
-  transform: rotateY(-90deg) translateZ(3.1em);
+	transform: rotateY(-90deg) translateZ(3.1em);
 }
 
 .side:nth-child(4) {
-  transform: rotateX(90deg) translateZ(3.1em);
+	transform: rotateX(90deg) translateZ(3.1em);
 }
 
 .side:nth-child(5) {
-  transform: rotateX(-90deg) translateZ(3.1em);
+	transform: rotateX(-90deg) translateZ(3.1em);
 }
 
 .side:nth-child(2) {
-  transform: rotateY(-180deg) translateZ(3.1em);
+	transform: rotateY(-180deg) translateZ(3.1em);
 }
 
 .two-1,
@@ -336,29 +341,29 @@ button:active {
 .four-1,
 .five-1,
 .six-1 {
-  top: 20%;
-  left: 20%;
+	top: 20%;
+	left: 20%;
 }
 
 .four-3,
 .five-3,
 .six-4 {
-  top: 20%;
-  left: 80%;
+	top: 20%;
+	left: 80%;
 }
 
 .one-1,
 .three-2,
 .five-5 {
-  top: 50%;
-  left: 50%;
+	top: 50%;
+	left: 50%;
 }
 
 .four-2,
 .five-2,
 .six-3 {
-  top: 80%;
-  left: 20%;
+	top: 80%;
+	left: 20%;
 }
 
 .two-2,
@@ -366,285 +371,273 @@ button:active {
 .four-4,
 .five-4,
 .six-6 {
-  top: 80%;
-  left: 80%;
+	top: 80%;
+	left: 80%;
 }
 
 .six-2 {
-  top: 50%;
-  left: 20%;
+	top: 50%;
+	left: 20%;
 }
 
 .six-5 {
-  top: 50%;
-  left: 80%;
+	top: 50%;
+	left: 80%;
 }
 
 /* Rotation */
 .show-1 {
-  transform: rotateX(720deg) rotateZ(-720deg);
+	transform: rotateX(720deg) rotateZ(-720deg);
 }
 
 .show-2 {
-  transform: rotateX(-900deg) rotateZ(1080deg);
+	transform: rotateX(-900deg) rotateZ(1080deg);
 }
 
 .show-6 {
-  transform: rotateY(-450deg) rotateZ(-1440deg);
+	transform: rotateY(-450deg) rotateZ(-1440deg);
 }
 
 .show-3 {
-  transform: rotateY(810deg) rotateZ(720deg);
+	transform: rotateY(810deg) rotateZ(720deg);
 }
 
 .show-4 {
-  transform: rotateX(-810deg) rotateZ(-1080deg);
+	transform: rotateX(-810deg) rotateZ(-1080deg);
 }
 
 .show-5 {
-  transform: rotateX(450deg) rotateZ(-720deg);
+	transform: rotateX(450deg) rotateZ(-720deg);
 }
 
 /* Message box */
 
-
 h2,
 p,
 button {
-  font-weight: 100;
+	font-weight: 100;
 }
 
 p,
 button {
-  font-weight: 300;
+	font-weight: 300;
 }
 
 h2 {
-  font-size: 45px;
-  text-align: center;
-  color: #666666;
-  margin: 0 0 30px 0;
+	font-size: 45px;
+	text-align: center;
+	color: #666666;
+	margin: 0 0 30px 0;
 }
 
 p {
-  color: #666666;
-  line-height: 1.5;
+	color: #666666;
+	line-height: 1.5;
 }
 
 button {
-  background: #df263d;
-  border: 0;
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-size: 18px;
-  color: #FFFFFF;
-  cursor: pointer;
+	background: #df263d;
+	border: 0;
+	border-radius: 4px;
+	padding: 10px 20px;
+	font-size: 18px;
+	color: #ffffff;
+	cursor: pointer;
 }
 
 button:focus {
-  outline: none;
+	outline: none;
 }
 
 button :hover {
-  background: lighten(#df263d, 10%);
+	background: lighten(#df263d, 10%);
 }
 
 .question h2 {
-  color: #FFFFFF;
+	color: #ffffff;
 }
 
 .wrapper {
-
-  margin-top: 50px;
-  margin-right: 30px;
-  background: #8ba6a1; 
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px 0px rgba(#000000, 0.4);
+	background: #8ba6a1;
+	padding: 20px 30px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 10px 0px rgba(#000000, 0.4);
 }
-
-
 
 /*==========================
        Evaluation cards
 ==========================*/
 /* style for the eval cards to be displayed to the user for input */
 #cardPopup {
-  display: block;
-  justify-self: center;
-  align-self: center;
-  white-space: normal;
+	display: block;
+	justify-self: center;
+	align-self: center;
+	white-space: normal;
 }
 
 #page-mask1 {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.6);
 }
 
 #page-mask2 {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
 }
-
 
 /* contains the css that controls the location and the layout of the challenge grid */
 .challengeGrid {
-  grid-area: other;
-  display: grid;
-  /* display: none; */
-  grid-template-rows: auto auto auto;
-  grid-template-columns: 45% 55%;
-  grid-template-areas:
-    "card questions"
-    "card questions"
-    "card questions";
-  /* z-index: 5; */
-
+	grid-area: other;
+	display: grid;
+	/* display: none; */
+	grid-template-rows: auto auto auto;
+	grid-template-columns: 45% 55%;
+	grid-template-areas:
+		"card questions"
+		"card questions"
+		"card questions";
+	/* z-index: 5; */
 }
 
 /* will specify the location of the popup and its contents */
 .popup {
-  margin: 0 10px;
-  grid-area: questions;
+	margin: 0 10px;
+	grid-area: questions;
 }
-
 
 /* this is linked to the Challenege cards and their contents */
 .container-ev {
-  grid-area: card;
-  padding: 2px 16px;
+	grid-area: card;
+	padding: 2px 16px;
 }
 
 /* this is the actual card properties */
 .card {
-  align-self: baseline;
-  justify-self: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  transition: 0.4s;
-  width: 30ch;
-  background: #fff;
-  text-align: center;
-  font-size: 16px;
-  margin: 0px 10px;
+	align-self: baseline;
+	justify-self: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+	transition: 0.4s;
+	width: 30ch;
+	background: #fff;
+	text-align: center;
+	font-size: 16px;
+	margin: 0px 10px;
 }
 
 .card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 5px;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 5px;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
 }
 
 /* end of card properties */
 
-
 /* quizz */
 :root {
-  --hue-neutral: 200;
-  --hue-wrong: 0;
-  --hue-correct: 145;
+	--hue-neutral: 200;
+	--hue-wrong: 0;
+	--hue-correct: 145;
 }
 
 body.correct {
-  --hue: var(--hue-correct);
+	--hue: var(--hue-correct);
 }
 
 body.wrong {
-  --hue: var(--hue-wrong);
+	--hue: var(--hue-wrong);
 }
 
 .container {
-  grid-area: questions;
-  width: 800px;
-  max-width: 80%;
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 0 10px 2px;
+	grid-area: questions;
+	width: 800px;
+	max-width: 80%;
+	background-color: white;
+	border-radius: 5px;
+	padding: 10px;
+	box-shadow: 0 0 10px 2px;
 }
 
 .btn-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
-  gap: 10px;
-  margin: 20px 0;
+	display: grid;
+	grid-template-columns: repeat(2, 50%);
+	gap: 10px;
+	margin: 20px 0;
 }
 
 .btn {
-  --hue: var(--hue-neutral);
-  border: 1px solid hsl(var(--hue), 100%, 30%);
-  background-color: hsl(var(--hue), 100%, 50%);
-  border-radius: 5px;
-  padding: 5px 10px;
-  color: white;
-  outline: none;
-  white-space: normal;
+	--hue: var(--hue-neutral);
+	border: 1px solid hsl(var(--hue), 100%, 30%);
+	background-color: hsl(var(--hue), 100%, 50%);
+	border-radius: 5px;
+	padding: 5px 10px;
+	color: white;
+	outline: none;
+	white-space: normal;
 }
 
 .btn:hover {
-  border-color: black;
+	border-color: black;
 }
 
 .btn.correct {
-  --hue: var(--hue-correct);
-  color: black;
+	--hue: var(--hue-correct);
+	color: black;
 }
 
 .btn.wrong {
-  --hue: var(--hue-wrong);
+	--hue: var(--hue-wrong);
 }
 
 .controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .hide {
-  display: none;
+	display: none;
 }
-
-
 
 /*=====================
        Sprint Tracker
 =====================*/
 /* sprint tracker number */
 #currentSprint {
-  grid-area: kanban;
-  background: #df263d;
-  color: #fff;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 20px;
-  text-align: center;
-  height: 40px;
-  width: 140px;
-  border-radius: 10px;;
+	grid-area: kanban;
+	background: #df263d;
+	color: #fff;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size: 20px;
+	text-align: center;
+	height: 40px;
+	width: 140px;
+	border-radius: 10px;
 }
 
 #timer {
-  background: #f4f4f4;
-  font-size: 20px;
-  text-align: center;
-  height: 40px;
-  width: 140px;
-  padding: 10px;
-  position: absolute;
-  top: 50px;
-  right: 5px;
-  margin-top: 1px;
-  border-radius: 10px;
+	background: #f4f4f4;
+	font-size: 20px;
+	text-align: center;
+	height: 40px;
+	width: 140px;
+	padding: 10px;
+	position: absolute;
+	top: 50px;
+	right: 5px;
+	margin-top: 1px;
+	border-radius: 10px;
 }

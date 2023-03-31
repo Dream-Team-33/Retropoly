@@ -7,10 +7,12 @@ from fileinput import filename
 from os import abort, remove
 from flask import Flask, redirect, url_for, request, render_template
 from flask_socketio import SocketIO, emit, join_room, leave_room
-from threading import Lock, Thread #used for threading th saving process
-from queue import Queue # similar to threading but to make a queue for saving
+from threading import Lock, Thread  # used for threading th saving process
+from queue import Queue  # similar to threading but to make a queue for saving
 
-import secrets, json
+import secrets
+import json
+import random
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MLPQlLg9afWMbBsbAAAB'
@@ -81,19 +83,24 @@ def handle_disconnect():
 def create_room(data):
     room = data['room']
     join_room(user_key)
-    socketio.emit('status', {'msg': 'User has created and entered the room.', 'room': room}, room=room)
+    socketio.emit('status', {
+                  'msg': 'User has created and entered the room.', 'room': room}, room=room)
+
 
 @socketio.on('join')
 def join_room(data):
     room = data['room']
     join_room(room)
-    socketio.emit('status', {'msg': 'User has entered the room.', 'room': room}, room=room)
+    socketio.emit(
+        'status', {'msg': 'User has entered the room.', 'room': room}, room=room)
+
 
 @socketio.on('leave')
 def leave_room(data):
     room = data['room']
     leave_room(room)
-    socketio.emit('status', {'msg': 'User has left the room.', 'room': room}, room=room)
+    socketio.emit(
+        'status', {'msg': 'User has left the room.', 'room': room}, room=room)
 
 
 @socketio.on_error()        # Handles the default namespace
@@ -233,7 +240,7 @@ def join():
                 # Use Flask's join_room function to add the user to the room
                 print("Joined Room:" + room_code)
                 join_room(room_code)
-                
+
                 # Add the username to the list of users in the room
                 rooms[room_code]['users'].add(username)
                 # Render the join template with a success message
@@ -261,21 +268,23 @@ queueLock = Lock()
 
 # used to process all of the data in the queue and save it to the JSON files
 def processQueue():
-    print("Starting queue processing thread") # to validate the thread is running
-    while True: # loop forever
-        with queueLock: # lock the queue so that only one thread can access it at a time
-            if not saveQueue.empty(): # if there is data in the queue
-                data = saveQueue.get() # get the data from the queue
+    # to validate the thread is running
+    print("Starting queue processing thread")
+    while True:  # loop forever
+        with queueLock:  # lock the queue so that only one thread can access it at a time
+            if not saveQueue.empty():  # if there is data in the queue
+                data = saveQueue.get()  # get the data from the queue
             else:
-                socketio.sleep(1) # if there is no data in the queue, wait 0.1 seconds and check again
-                #time.sleep(0.1) # if there is a problem with the socketio.sleep function and it waits too long then switch to this. should be fine though
+                # if there is no data in the queue, wait 0.1 seconds and check again
+                socketio.sleep(1)
+                # time.sleep(0.1) # if there is a problem with the socketio.sleep function and it waits too long then switch to this. should be fine though
                 continue
         # assign the vars to the their appropriate values - raw data and the client ID
         dataToSaveRAW = data["cardInfo"]
         clientID = data["socketid"]
-        #assign the standard file path to the variable with the client ID appended in the middle
+        # assign the standard file path to the variable with the client ID appended in the middle
         filePath = 'datastorage/'+clientID+'.json'
-        
+
         # print("saving data: " + str(dataToSaveRAW)) #troubleshooting print statement
         try:
             # file handling - open the file, read the data, close the file
@@ -292,28 +301,45 @@ def processQueue():
             # if the file is empty then create a new list and append the data to it
             print("No data in file. Creating blank variable.")
             fileContent = []
-                
+
             fileContent.append(dataToSaveRAW)
             with open(filePath, 'w') as wJson:
                 json.dump(fileContent, wJson, indent=4)
                 wJson.close()
+
+
 # start the queue processing thread - this will run in the background and save the data to the JSON files (processQueue is the name of the function that is above that will actually process the requests for saving)
-Thread(target=processQueue).start()            
+Thread(target=processQueue).start()
 
 # if the client requests the JSON data, send it to them (their socket id should be passed in the request so that the correct file can be read)
 @socketio.on('jsonRead')
 def read_json(sid):
-    with open('datastorage/'+sid+'.json', 'r') as f:
-        data = json.load(f) # load the data from the file into the var data
-        socketio.emit("recieveJson", data)#send the data to the client
+    key = sid['socketid']  # read the socket id sent from the client
+    data = []  # create an empty list to hold the data from the json file
+
+    # open the file related to the client
+    with open('datastorage/'+key+'.json', 'r') as f:
+        data = json.load(f)  # load the data from the file into the var data
+        f.close()  # close the file
+
+    # pick a random card from the list of cards read from the json file
+    randomCard = random.randint(0, len(data)-1)
+
+    # socketio.emit("recieveJson", {'cardInfo': data[randomCard]})
+
+    # random chance to actually get a random card sent back to the user
+    if random.randint(0, 1) == 1:
+        # send the data to the client
+        socketio.emit("recieveJson", {'cardInfo': data[randomCard]})
+
 
 # if the client sends data to be saved, add it to the queue to be saved
 @socketio.on('jsonSave')
-def save_json(data, sid): # DO NOT CHANGE "SID" - it will break and i dont know why yet)
+def save_json(data, sid):  # DO NOT CHANGE "SID" - it will break and i dont know why yet)
     # print("adding " + str(data["socketid"]) + " to save queue") # troubleshooting print statement
-    with queueLock: # blocks more than one thread from accessing the queue at a time
-        saveQueue.put(data) # add the data to the queue
-            
+    with queueLock:  # blocks more than one thread from accessing the queue at a time
+        saveQueue.put(data)  # add the data to the queue
+
     # read_json()
 
 
