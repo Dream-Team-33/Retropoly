@@ -60,9 +60,14 @@
         <li><span class="material-icons-outlined">dashboard</span><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
         <li><span class="material-icons-outlined">logout</span><a href="{{ url_for('home') }}">Exit</a></li>
       </ul>
-        <!-- <ul class="bottom-notes">
-          <li><span class="material-icons-outlined notes-item">description</span><a href="{{ url_for('notes') }}">Notes</a></li>
-        </ul> -->
+      <ul class="bottom-notes">
+        <li>
+          <button class="btn-notes">
+            <span class="material-icons-outlined notes-item">description</span>
+            <a href="{{ url_for('notes') }}">Notes</a>
+          </button>
+        </li>
+      </ul>
     </div><!--End layout of side bar-->
 
     <!--Board-->
@@ -112,7 +117,7 @@
           <h3 class="heading">To Do</h3>
         </div>
 
-        <div class="swim-lane  doing">
+        <div class="swim-lane doing">
           <h3 class="heading">Doing</h3>
         </div>
 

@@ -142,7 +142,18 @@ li { color: black; }
   display: flex;
 }
 
-
+.btn-notes{
+	position: relative;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to bottom, #6dbddb 0%, #467da1 100%);
+  padding: 12px 45px;
+  font-size: 24px;
+  border-radius: 30px;
+  margin-top: 30px;
+  border: none;
+}
 
 
 /*=====================
@@ -152,7 +163,8 @@ li { color: black; }
     top: 10%;
     grid-area: main;
     display: block;
-    position: relative;
+    position: absolute;
+    left: 40%;
     border: 1px solid #ccc;
     width: 100%;
     max-width: 450px;
