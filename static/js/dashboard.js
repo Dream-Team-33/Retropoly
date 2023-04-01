@@ -103,17 +103,23 @@ async function rollDice(hoursRemainingText) {
 	updatePlayerNumber();
 }
 
-function move_element(taskElement, destination){
+function move_element(taskElement, destination) {
 	var fragment = document.createDocumentFragment();
-		fragment.appendChild(taskElement);
-		document.getElementById(destination).appendChild(fragment);
+	fragment.appendChild(taskElement);
+
+	// get all instances of the destination class and select the first one
+	laneClasses = document.getElementsByClassName(destination);
+	target = laneClasses[0];
+
+	// append the task fragment to the target lane
+	target.appendChild(fragment);
 }
 
 function updateHoursRemaining(taskElement, newHoursText) {
 	const hoursRemainingElement = taskElement.querySelector(".hoursRemaining");
 	hoursRemainingElement.textContent = newHoursText.toString() + "hrs";
-	if (newHoursText == 0){
-		move_element(taskElement, "swim-lane done")
+	if (newHoursText == 0) {
+		move_element(taskElement, "swim-lane done");
 	}
 	taskElement.classList.remove("selected-task");
 	selectedTask == null;
@@ -138,7 +144,8 @@ function updatePlayerNumber() {
 	// set the current player number in the html
 	sessionStorage.setItem("currentPlayer", currentPlayer);
 	// set the current player number in the html to the current player number
-	document.getElementById("currentPlayer").innerHTML = "Player: " + currentPlayer;
+	document.getElementById("currentPlayer").innerHTML =
+		"Player: " + currentPlayer;
 	document.getElementById("currentPlayerPopup").style.display = "block";
 	// setTimeout(document.getElementById("currentPlayerPopup").style.display = "none", 2000) // this will make the popup disappear after 2 seconds
 	//change the number 2000 to adjust the time the popup is displayed
@@ -209,25 +216,39 @@ socket.on("recieveJson", function (data) {
 function setCard(cardType, cardText) {
 	// get the container for the card and the nested container for the text
 	var cardContainer = document.querySelector("." + cardType);
-	var nestedContainer = document.querySelector("." + cardType + " #cardTextPara");
+	var nestedContainer = document.querySelector(
+		"." + cardType + " #cardTextPara"
+	);
 
 	nestedContainer.innerHTML = cardText;
-	
+
 	// check what type of card is being sent and then display the correct cards
 	switch (cardType) {
 		case "keepDoing":
 			cardContainer.style.display = "block";
-			document.querySelectorAll(".doingBetter").forEach((a) => (a.style.display = "none"));
-			document.querySelectorAll(".stopDoing").forEach((a) => (a.style.display = "none"));
+			document
+				.querySelectorAll(".doingBetter")
+				.forEach((a) => (a.style.display = "none"));
+			document
+				.querySelectorAll(".stopDoing")
+				.forEach((a) => (a.style.display = "none"));
 			break;
 		case "doingBetter":
-			document.querySelectorAll(".keepDoing").forEach((a) => (a.style.display = "none"));
+			document
+				.querySelectorAll(".keepDoing")
+				.forEach((a) => (a.style.display = "none"));
 			cardContainer.style.display = "block";
-			document.querySelectorAll(".stopDoing").forEach((a) => (a.style.display = "none"));
+			document
+				.querySelectorAll(".stopDoing")
+				.forEach((a) => (a.style.display = "none"));
 			break;
 		case "stopDoing":
-			document.querySelectorAll(".keepDoing").forEach((a) => (a.style.display = "none"));
-			document.querySelectorAll(".doingBetter").forEach((a) => (a.style.display = "none"));
+			document
+				.querySelectorAll(".keepDoing")
+				.forEach((a) => (a.style.display = "none"));
+			document
+				.querySelectorAll(".doingBetter")
+				.forEach((a) => (a.style.display = "none"));
 			cardContainer.style.display = "block";
 			break;
 		default:
