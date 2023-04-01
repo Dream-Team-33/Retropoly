@@ -103,9 +103,18 @@ async function rollDice(hoursRemainingText) {
 	updatePlayerNumber();
 }
 
+function move_element(taskElement, destination){
+	var fragment = document.createDocumentFragment();
+		fragment.appendChild(taskElement);
+		document.getElementById(destination).appendChild(fragment);
+}
+
 function updateHoursRemaining(taskElement, newHoursText) {
 	const hoursRemainingElement = taskElement.querySelector(".hoursRemaining");
 	hoursRemainingElement.textContent = newHoursText.toString() + "hrs";
+	if (newHoursText == 0){
+		move_element(taskElement, "swim-lane done")
+	}
 	taskElement.classList.remove("selected-task");
 	selectedTask == null;
 }
