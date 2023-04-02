@@ -102,8 +102,8 @@ const questions = [
     answers: [
       { text: "a. With regular communication between the customer and team.", correct: true },
       { text: "b. With incentives and kickbacks for approving completed features.", correct: false },
-      { text: "c. With a defect information radiator showing customer meeting absences. ", correct: false},
-      { text:"d. With bi-weekly communication between the customer and team.", correct: false},
+      { text: "c. With a defect information radiator showing customer meeting absences. ", correct: false },
+      { text: "d. With bi-weekly communication between the customer and team.", correct: false },
     ],
   },
   {
@@ -142,7 +142,8 @@ const questions = [
       { text: "d. To create a project timeline", correct: false },
     ],
   },
-  {question: "What is the difference between a Scrum board and a Kanban board?",
+  {
+    question: "What is the difference between a Scrum board and a Kanban board?",
     answers: [
       { text: "a. A Scrum board is used for planning, while a Kanban board is used for tracking progress", correct: false },
       { text: "b. A Scrum board has predefined stages, while a Kanban board can be customized", correct: true },
@@ -195,4 +196,85 @@ const questions = [
       { text: "d. To discuss progress and obstacles with the team", correct: true },
     ],
   },
+  {
+    question: "What is a sprint in Scrum methodology?",
+    answers: [
+      { text: "a. A period of time for planning and preparing for the project", correct: false },
+      { text: "b. A period of time for executing and completing the project", correct: true },
+      { text: "c. A period of time for reviewing and evaluating the project", correct: false },
+      { text: "d. A period of time for maintenance and bug fixing", correct: false },
+    ],
+  },
+  {
+    question: "What is the purpose of a burndown chart?",
+    answers: [
+      { text: "a. To track the progress of the team during a sprint", correct: true },
+      { text: "b. To assign tasks to team members", correct: false },
+      { text: "c. To track the hours worked by individual team members", correct: false },
+      { text: "d. To estimate the time required to complete the project", correct: false },
+    ],
+  },
+  {
+    question: "What is the purpose of a retrospective meeting?",
+    answers: [
+      { text: "a. To review the progress of the project", correct: false },
+      { text: "b. To review and improve the team's processes", correct: true },
+      { text: "c. To assign tasks for the next sprint", correct: false },
+      { text: "d. To discuss the project with stakeholders", correct: false },
+    ],
+  },
+  {
+    question: "What is the role of a Product Owner in Scrum methodology?",
+    answers: [
+      { text: "a. To manage the team and assign tasks", correct: false },
+      { text: "b. To review and approve completed work items", correct: false },
+      { text: "c. To develop and test the product", correct: false },
+      { text: "d. To represent the interests of the stakeholders", correct: true },
+    ],
+  },
+  {
+    question: "What is the role of a Scrum Master in Scrum methodology?",
+    answers: [
+      { text: "a. To manage the team and assign tasks", correct: false },
+      { text: "b. To represent the interests of the stakeholders", correct: false },
+      { text: "c. To develop and test the product", correct: false },
+      { text: "d. To facilitate the Scrum process and ensure its proper implementation", correct: true },
+    ],
+  },
+  {
+    question: "What is the purpose of a 'Definition of Done' in Scrum methodology?",
+    answers: [
+      { text: "a. To define the scope of the project", correct: false },
+      { text: "b. To define the acceptance criteria for completed work items", correct: true },
+      { text: "c. To define the roles and responsibilities of the team members", correct: false },
+      { text: "d. To define the timeline for the project", correct: false },
+    ],
+  },
+  {
+    question: "What is a retrospective board?",
+    answers: [
+      { text: "a. A board used for tracking the progress of the project", correct: false },
+      { text: "b. A board used for brainstorming ideas for improvement", correct: true },
+      { text: "c. A board used for assigning tasks to team members", correct: false },
+      { text: "d. A board used for visualizing the project timeline", correct: false },
+    ],
+  },
+  {
+    question: "When are requirements completed in iterative projects?",
+    answers: [
+      { text: "a. Once the product owner says so", correct: false },
+      { text: "b. When the project is completed", correct: false },
+      { text: "c. Once the code is written for the story", correct: false },
+      { text: "d. They're never completed", correct: true },
+    ],
+  },
+  {
+    question: "Scrum values people and interactions over... ",
+    answers: [
+      { text: "a. Contract negotiation ", correct: false },
+      { text: "b. Projects and tools", correct: false },
+      { text: "c. Working tools", correct: false },
+      { text: "d. Processes and tools", correct: true },
+    ],
+  }
 ];
