@@ -34,12 +34,18 @@ img {
 	vertical-align: middle;
 }
 
-span, a {
+span,
+a {
 	display: inline-block;
 	color: inherit;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	color: #151515;
 	font-weight: 600;
 	font-family: "Open Sans", sans-serif;
@@ -103,10 +109,6 @@ h6 {
 }
 
 
-/* .navbar .navbar-brand {
-} */
-
-
 .logo-1 {
 	width: auto;
 	height: 10vh;
@@ -135,7 +137,8 @@ h6 {
 	color: #fff;
 }
 
-.navbar-style2 .active:after, .navbar-style2 .nav-link:after {
+.navbar-style2 .active:after,
+.navbar-style2 .nav-link:after {
 	display: none;
 }
 
@@ -173,15 +176,14 @@ h6 {
 }
 
 .banner {
-	/* background:url(/static/images/bg1.jpg) no-repeat 0% 0% / 100% 100%; */
+
 	color: #ffffff;
 	text-align: center;
 	width: 100%;
 }
 
 .banner-overlay {
-	background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); 
-	/* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%); */
+	background: linear-gradient(to bottom, #6dbddb 0%, #467da1 100%);
 	padding: 220px 0px 170px;
 }
 
@@ -216,7 +218,7 @@ h6 {
 }
 
 .section-title h3 {
-	/* color: #ab2f52; */
+
 	color: #fff;
 	text-transform: uppercase;
 	font-weight: 300;
@@ -570,7 +572,8 @@ h6 {
 	margin-bottom: 10px !important;
 }
 
-.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
 	background: #ab2f52 !important;
 }
 
@@ -602,7 +605,8 @@ h6 {
 	background-color: black;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
 	border: none;
 	border-bottom: 1px solid #1c1c1c;
 	border-radius: 0;
@@ -618,7 +622,7 @@ h6 {
 	color: #fff;
 	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
-	background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); 
+	background: linear-gradient(to bottom, #6dbddb 0%, #467da1 100%);
 	padding: 12px 45px;
 	font-size: 15px;
 	border-radius: 30px;
@@ -649,7 +653,9 @@ h6 {
 }
 
 @media all and (max-width:768px) {
-	.nav-scroll .navbar-brand img, .navbar-brand img {
+
+	.nav-scroll .navbar-brand img,
+	.navbar-brand img {
 		transform: scale(0.75) !important;
 		-webkit-transform: scale(0.75) !important;
 	}

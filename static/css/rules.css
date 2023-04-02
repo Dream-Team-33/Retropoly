@@ -1,19 +1,31 @@
 /*=============================
        Main Content (Rules)
 ===============================*/
-.description p{ color: #fff; }
+.description p {
+    color: #fff;
+}
 
-.color-card-1{ color: rgb(27, 170, 27) }
+.color-card-1 {
+    color: rgb(27, 170, 27)
+}
 
-.color-card-2{ color: orange }
+.color-card-2 {
+    color: orange
+}
 
-.color-card-3{ color: red }
+.color-card-3 {
+    color: red
+}
 
-.description{
+.description {
     flex: 3;
     display: inline-block;
     flex-direction: column;
-    padding: 30px 30px; 
+    padding: 30px 30px;
 }
 
-.description-1{ margin-bottom: 1em; } /*layout borders of text*/
+.description-1 {
+    margin-bottom: 1em;
+}
+
+/*layout borders of text*/

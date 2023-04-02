@@ -1,191 +1,189 @@
 * {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: "Nunito", sans-serif;
-    text-decoration: none !important;
-    list-style: none !important;
-    outline: none !important;
-    padding: 0;
-    margin: 0;
-  
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
-  }
-  
-  *::-webkit-scrollbar {
-    display: none;
-  }
-  
-  body {
-    min-height: 100vh;
-    /* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%);  */
-    /* background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); */
-     background: linear-gradient(to bottom, #9AD3DE 30%, #FF6D6A 70%);  
-  /* background: linear-gradient(to bottom, #f4f4f4 0%, #e5e5e5 100%); */
-  /* background: linear-gradient(to bottom, rgba(82, 9, 30, 0.82) 0%, #af4716 100%); */
-  /* background: linear-gradient(to bottom, #5b98c0 0%, #df263d 100%); */
-  }
-  
-  
-  
-  /*=====================
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  text-decoration: none !important;
+  list-style: none !important;
+  outline: none !important;
+  padding: 0;
+  margin: 0;
+
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #9AD3DE 30%, #FF6D6A 70%);
+}
+
+
+
+/*=====================
        Icons
   =====================*/
-  /*This is for the material icons (Google fonts)*/
-  .material-icons-outlined {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    
-  
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-  
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-  
-    /* Support for IE. */
-    font-feature-settings: 'liga';
-  }
-  
-  /*=====================
+/*This is for the material icons (Google fonts)*/
+.material-icons-outlined {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/*=====================
        Side Bar
   =====================*/
-  h1 {
-    color: black;
-    margin-top: 0;
-    padding-right: 20px;
-  }
-  
-  li { color: black; }
-  
-  .MainFlex { display: flex; }
-  
-  .MainFlex .side-bar {
-    position: relative;
-    width: 300px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(to bottom, #6dbddb 0%,  #467da1 100%); 
-  }
-  
-  .MainFlex .side-bar .logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    padding: 5px;
-    margin-left: 10px;
-  }
-  
-  .MainFlex .side-bar .logo-name {
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* background-color: #537479; */
-    border-radius:10px; /* round corners */
-    box-sizing: 10px;
-  }
-  
-  .side-bar .logo-name h1 {
-    color: #FFFFFF;
-  }
-  
-  
-  .MainFlex .side-bar li {
-    font-size: 24px;
-    padding: 10px 40px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .MainFlex .side-bar li:hover {
-    background: aliceblue;
-    color: rgb(134, 183, 225);
-    font-weight: bolder;
-  }
-  
-  .MainFlex .side-bar .bottom-notes:hover {
-    background: aliceblue;
-    color: rgb(134, 183, 225);
-    font-weight: bolder;
-  }
-  
-  .MainFlex .side-bar a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .MainFlex .side-bar .active {
-    font-weight: bolder;
-  }
-  
-  .bottom-notes{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 10vh;
-    display: flex;
-  }
+h1 {
+  color: black;
+  margin-top: 0;
+  padding-right: 20px;
+}
+
+li {
+  color: black;
+}
+
+.MainFlex {
+  display: flex;
+}
+
+.MainFlex .side-bar {
+  position: relative;
+  width: 300px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #6dbddb 0%, #467da1 100%);
+}
+
+.MainFlex .side-bar .logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.MainFlex .side-bar .logo-name {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  /* round corners */
+  box-sizing: 10px;
+}
+
+.side-bar .logo-name h1 {
+  color: #FFFFFF;
+}
 
 
-  .btn-notes{
-    position: relative;
-    cursor: pointer;
-    color: #fff;
-    transition: all 0.3s ease-in-out;
-    background: linear-gradient(to bottom, #6dbddb 0%, #467da1 100%);
-    padding: 12px 45px;
-    font-size: 20px;
-    border-radius: 30px;
-    margin-top: 30px;
-    border: none;
-  }
+.MainFlex .side-bar li {
+  font-size: 24px;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.MainFlex .side-bar li:hover {
+  background: aliceblue;
+  color: rgb(134, 183, 225);
+  font-weight: bolder;
+}
+
+.MainFlex .side-bar .bottom-notes:hover {
+  background: aliceblue;
+  color: rgb(134, 183, 225);
+  font-weight: bolder;
+}
+
+.MainFlex .side-bar a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.MainFlex .side-bar .active {
+  font-weight: bolder;
+}
+
+.bottom-notes {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+}
+
+
+.btn-notes {
+  position: relative;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to bottom, #6dbddb 0%, #467da1 100%);
+  padding: 12px 45px;
+  font-size: 20px;
+  border-radius: 30px;
+  margin-top: 30px;
+  border: none;
+}
 
 
 /*=====================
        container
 =====================*/
 .container {
-    font-family: "Nunito", sans-serif;
-    display: flex;
+  font-family: "Nunito", sans-serif;
+  display: flex;
 }
 
 .container h1 {
-    grid-area: text;
-    align-self: center;
-    justify-self: center;
-    /* background-color: white; */
-    font-size: 80px;
-    font-weight: 800;
+  grid-area: text;
+  align-self: center;
+  justify-self: center;
+  /* background-color: white; */
+  font-size: 80px;
+  font-weight: 800;
 }
 
 
 
 /*This is to set up the grid layout of the page*/
 .welcomeScreenGrid {
-    padding: 30px;
-    display: grid;
-    gap: 0px 0px;
-    grid-template-columns: 100%;
-    grid-template-rows: 70% 30%;
-    grid-template-areas:
-        "text"
-        "startButton";
+  padding: 30px;
+  display: grid;
+  gap: 0px 0px;
+  grid-template-columns: 100%;
+  grid-template-rows: 70% 30%;
+  grid-template-areas:
+    "text"
+    "startButton";
 }
 
 
@@ -194,16 +192,16 @@
 =================================*/
 /*Preloader*/
 #preloader {
-    background: white url(/static/images/preloader_circle2.gif) no-repeat center;
-    background-size: 20%;
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    z-index: 100;
+  background: white url(/static/images/preloader_circle2.gif) no-repeat center;
+  background-size: 20%;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
 }
 
 iframe {
-    display: none;
+  display: none;
 }
 
 /*What this will do is that it will hide the YT video showing on the page, but
