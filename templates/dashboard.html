@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
     integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/static/css/dashboard.css" /> <!--link to dashboard.css file-->
+  <link rel="stylesheet" type="text/css" href="/static/css/rules.css" /> <!--link to rules.css file-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
     integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css" />
@@ -31,7 +32,7 @@
   <script src="/static/js/drag.js" defer></script> <!--Link to the message.js file-->
   <script src="/static/js/message.js" defer></script> <!--Link to the message.js file-->
   <script src="/static/js/chellange.js" defer></script> <!--Link to the message.js file-->
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
     integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
     crossorigin="anonymous"></script>
@@ -45,101 +46,148 @@
   <div class="MainFlex">
     <div class="side-bar">
       <div class="logo-name">
-        <img src="/static/images/logo.jpg" alt="R.logo" class="logo"> <!--Logo of the game-->
-        <h1>Retropoly</h1> <!--Name of the game-->
-      </div>
+        <img src="/static/images/logo.jpg" alt="R.logo" class="logo">
+        <!--Logo of the game-->
+        <h1>Retropoly</h1>
+        <!--Name of the game-->
+        </div>
       <ul>
         <!--HINT: Add the <a> tag to link each item to a page of its own,
-                    so each will have an explanation (Rules), shows the number of 
-                    team members (Team), notes to be taken (Notes) and exit function
-                    (Exit)
-                -->
-        <li><span class="material-icons-outlined">dashboard</span><a href="#" class="active">Dashboard</a></li>
-        <li><span class="material-icons-outlined">density_small</span><a href="{{ url_for('rules') }}">Rules</a></li>
-        <li><span class="material-icons-outlined">groups</span><a href="{{ url_for('teams') }}">Team</a></li>
-        <li><span class="material-icons-outlined">description</span><a href="{{ url_for('notes') }}">Notes</a></li>
+              so each will have an explanation (Rules), shows the number of 
+              team members (Team), notes to be taken (Notes) and exit function
+              (Exit)
+            -->
+        <li><span class="material-icons-outlined">dashboard</span><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
         <li><span class="material-icons-outlined">logout</span><a href="{{ url_for('home') }}">Exit</a></li>
+      </ul>
+      <ul class="bottom-notes">
+        <li>
+          <button class="btn-notes">
+            <span class="material-icons-outlined notes-item">description</span>
+            <a href="{{ url_for('notes') }}">Notes</a>
+          </button>
+        </li>
       </ul>
     </div><!--End layout of side bar-->
 
     <!--Board-->
     <!--Create a table (aka Kanban Board) that will have a function to allow
         users to drag cards in each section-->
-    <div class="board mainGrid">
-      <!-- <div id="currentSprint">
-        <h4>Sprint {{sprintNumber}}</h4>
-      </div> -->
 
+    <!-- TODO: Retain state after reload (BLOCK) -->
+    <div class="board mainGrid">
+      <div id="currentSprint">
+        <h4 id="sprintNum">Sprint 1</h4>
+      </div>
       <!--sections of the board-->
       <div class="lanes">
         <div class="swim-lane backlog">
           <h3 class="heading">Backlog</h3>
           <div class="task" draggable="true">
             <p>
-              template card
+              Users can save chosen items to cart
             </p>
-            <p class="hoursRemaining" style="float: right">24hrs</p>
+            <p class="hoursRemaining" style="float: right">10hrs</p>
             <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
           </div>
           <div class="task" draggable="true">
             <p>
-              template card
-            </p>
-            <p class="hoursRemaining" style="float: right">18hrs</p>
-            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
-          </div>
-          <div class="task" draggable="true">
-            <p>
-              template card
+              Administartors of business can monitor orders
             </p>
             <p class="hoursRemaining" style="float: right">14hrs</p>
             <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
           </div>
+          <div class="task" draggable="true">
+            <p>
+              Administartors of business can monitor users
+            </p>
+            <p class="hoursRemaining" style="float: right">23hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              Users can secureley check out
+            </p>
+            <p class="hoursRemaining" style="float: right">100hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              System can process more than 3 items at once
+            </p>
+            <p class="hoursRemaining" style="float: right">100hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              Users can manage their cart
+            </p>
+            <p class="hoursRemaining" style="float: right">100hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              Users can send reports to busness
+            </p>
+            <p class="hoursRemaining" style="float: right">100hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              Users can communicate with buisness online
+            </p>
+            <p class="hoursRemaining" style="float: right">100hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              Users can acsess orders from mobile
+            </p>
+            <p class="hoursRemaining" style="float: right">100hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              Users don't want to recive spam-advertisments
+            </p>
+            <p class="hoursRemaining" style="float: right">100hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              Users can reviw their orders and leave comments
+            </p>
+            <p class="hoursRemaining" style="float: right">100hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
+          <div class="task" draggable="true">
+            <p>
+              Users can upload images to their review
+            </p>
+            <p class="hoursRemaining" style="float: right">100hrs</p>
+            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
+          </div>
         </div>
+
         <div class="swim-lane todo" id="todo-lane">
           <h3 class="heading">To Do</h3>
-
-          <div class="task" draggable="true">
-            <p>
-              template card
-            </p>
-            <p class="hoursRemaining" style="float: right">14hrs</p>
-            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
-          </div>
-          <div class="task" draggable="true">
-            <p>
-              template card
-            </p>
-            <p class="hoursRemaining" style="float: right">14hrs</p>
-            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
-          </div>
         </div>
 
-        <div class="swim-lane  doing">
+        <div class="swim-lane doing">
           <h3 class="heading">Doing</h3>
-
-          <div class="task" draggable="true">
-            <p>
-              template card
-            </p>
-            <p class="hoursRemaining" style="float: right">14hrs</p>
-            <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
-          </div>
         </div>
 
         <div class="swim-lane done">
           <h3 class="heading">Done</h3>
           <div class="task" draggable="true">
             <p>
-              template card
+              Scenario (WIP)
             </p>
-            <p class="hoursRemaining" style="float: right">14hrs</p>
+            <p class="hoursRemaining" style="float: right">0hrs</p>
             <button class="select-task-btn" onclick="selectTask(this.parentNode)">Select</button>
           </div>
         </div>
       </div> <!--End sections of the board-->
-
-
 
       <!-- Dice Roller - Both dice are grouped in this section to share css-->
       <div class="groupedDice"> <!-- Conatains both dice for better formatting -->
@@ -216,7 +264,6 @@
             <div class="dot six-6"></div>
           </div>
         </div>
-
         <!--Button for the dice roller-->
         <div id='roll' class='roll-button'>
           <button id="openMyPopup" data-popup="myPopup" onClick="openPopup('infoPopup')" aria-controls="myPopup"
@@ -228,13 +275,12 @@
 
       </div> <!--End board-->
 
-
       <div class="challengeGrid">
         <!--Keep Doing card-->
         <div class="card keepDoing" style="display: none;">
           <img src="/static/images/keep-doing.png" alt="keep-doing">
           <div class="container-ev">
-            <p>Users can send emails securely to unspecified reipients</p>
+            <p id="cardTextPara">Users can send emails securely to unspecified reipients</p>
           </div>
         </div>
 
@@ -242,7 +288,7 @@
         <div class="card doingBetter" style="display: none;">
           <img src="/static/images/doing-better.png" alt="doing-better">
           <div class="container-ev">
-            <p>Users can manage their emails effectively</p>
+            <p id="cardTextPara">Users can manage their emails effectively</p>
           </div>
         </div>
 
@@ -250,7 +296,7 @@
         <div class="card stopDoing" style="display: none;">
           <img src="/static/images/stop-doing.png" alt="stop-doing">
           <div class="container-ev">
-            <p>Users can send emails securely to unspecified reipients</p>
+            <p id="cardTextPara">Users can send emails securely to unspecified reipients</p>
           </div>
         </div>
 
@@ -260,36 +306,125 @@
           onClick="if(event.target == this){closePopup('infoPopup');}" style="display: none;">
           <div class="wrapper" aria-labelledby="popupTitle" aria-describedby="popupText" aria-modal="true">
             <div id="question-container" class="hide">
-              <div id="question">Question</div>
+              <div class ="question" id="question">Question</div>
               <div id="answer-buttons" class="btn-grid">
                 <button class="btn">Answer 1</button>
                 <button class="btn">Answer 2</button>
                 <button class="btn">Answer 3</button>
                 <button class="btn">Answer 4</button>
-          
               </div>
               <button id="closePopup" onClick="closePopup('infoPopup');" aria-label="Close popup">Close</button>
             </div>
           </div><!--  End of Popup Message Box -->
           <!--Evaluation Cards-->
         </div><!--End of Evaluation Cards-->
+      </div>
 
 
-        <!--Sprint Tracker-->
-        <!--Create a sprint tracker that will time the
+      <div class="description">
+        <div class="description-1">
+          <h1>Rules</h1>
+          <h2>Description</h2>
+          <p>Each player takes it in turns to select a card they want to develop and move it into the to-do list, 
+          this will highlight the card on the Kanban board, and roll the on screen dice. 
+          The number rolled is then deducted from the cards remaining hours. 
+          Each player gets 3 rolls per turn if the card hits 0 then it is moved into the completed section of the Kanban board. <br>
+          At the end of the players turn a challenge card may appear this challenge card has a question related to scrum and agile development. 
+          If the player gets the question correct then a set number of hours will be deducted from the card they were working on. <br><br>
+  
+          After each player has taken a turn that is the end of the first sprint. 
+          The game has a set number of sprints which is 4. 
+          After the first sprint the team is presented with cards that each team member needs to fill out.
+          These cards are either Keep doing, doing better and Stop doing.
+          </p>
+  
+          <p>After each player has entered 1 of each card and selected the next set of cards to move into the to-do list the next sprint begins.
+            After each players turn on this sprint including a challenge card appearing so to does either a keep doing, doing better or a stop doing card. 
+            The team is then able to have a discussion on what the card is about.</p><br><br>
+  
+          <p>For keep doing cards this allows the team to talk about why what is on the card is working and to agree to keep doing it. 
+  
+            For Doing better cards this allows the team to talk about ways they can improve on what is on the card and make a plan to improve. 
+  
+            For Stop doing cards this allows the players to discuss why a certain player thinks what they are doing 
+            needs to stop and also allows the team to see why certain behaviours are not good in relation to scrum/agile development.</p><br><br>
+  
+  
+          <p>The game then continues along this track until the total number of sprints has been reached or until all story points are completed. 
+  
+            Throughout the game their will be teaching points that come up. 
+            These teaching points will either explain the game and 
+            its features to players and also will have lessons on scrum development, agile development and Kanban boards.</p>
+        </div>
+  
+        <div class="description-2">
+          <h1 class="description-2">Cards</h1>
+          <b class="color-card-1">Keep doing: </b><p>This card will be where the player will say something they
+            think the team is doing the best and should keep on doing in order to progress the most in the game.</p> 
+  
+           <b class="color-card-2">Doing better: </b><p>This is where the player puts in what they think 
+           the team could be doing better at in order to make the most progression in the game.</p>
+           
+           <b class="color-card-3">Stop doing: </b><p>This is where the players can voice their opinion 
+           on something they think the team are doing wrong and they need to stop doing.</p><br>
+        </div>
+      </div>
+
+
+      <!--Sprint Tracker-->
+      <!--Create a sprint tracker that will time the
             the game while the users are playing
-        -->
-        <!-- <p class="sprintText" id="countdown">20:00</p> -->
-        <!--End of sprint tracker-->
+      -->
+      <!-- <p class="sprintText" id="countdown">20:00</p> -->
+      <!--End of sprint tracker-->
 
+      <!--Game time tracker / Sprint Tracker-->
+      <div id="timer">00:00:00</div>
+      <!--End of game time tracker-->
 
+      <!-- User Inputted Eval Cards -- **change display to block to try it out** -->
+      <div id="evalCardsDiv" style="position: absolute; top: 20%; justify-self: center; display: none;">
+        <!-- used to make the background become uninteractable -->
+        <div id="page-mask1" style="display: block;"></div>
+        <!-- Popup containing the cards that will be inputted -->
+        <div class="popup" id="cardPopup" style="display: flex;">
+          <!-- Keep Doing Card -->
+          <div class="card keepDoingEval" style="display: block;">
+            <img src="/static/images/keep-doing.png" alt="keep-doing">
+            <div class="container-ev">
+              <textarea name="userInputEval" class="userInputEval" id="keepDoing" cols="25" rows="3" placeholder="Discuss as a team what should keep happening"></textarea>
+            </div>
+          </div>
 
-        <!--Game time tracker / Sprint Tracker-->
-        <div id="timer">00:00:00</div>
-        <!--End of game time tracker-->
+          <!--Doing Better card-->
+          <div class="card doingBetterEval" style="display: block;">
 
-        
+            <img src="/static/images/doing-better.png" alt="doing-better">
+            <div class="container-ev">
+              <textarea name="userInputEval" class="userInputEval" id="doingBetter" cols="25" rows="3" placeholder="Discuss as a team what could be done better"></textarea>
+            </div>
+          </div>
 
+          <!-- Stop Doing Card -->
+          <div class="card stopDoingEval" style="display: inline-block;">
+            <img src="/static/images/stop-doing.png" alt="stop-doing">
+            <div class="container-ev">
+              <textarea name="userInputEval" class="userInputEval" id="stopDoing" cols="25" rows="3" placeholder="Discuss as a team what should be stopped from happening"></textarea>
+            </div>
+          </div>
+        </div>
+        <!-- Submit Button - will be used to submit the text that has been collected from the users cards (not functional yet - TODO)-->
+        <button id="submitCards" style="position: absolute; left: 44%; margin: 10px;">Submit</button>
+      </div>
+    </div>
+
+    <!-- Player Number Popup -->
+    <div id="currentPlayerPopup" style=" display: none; position:absolute; top: 25%; left: 50%; border-radius: 10px; background-color: white; padding: 5px;">
+      <!-- used to make the background become uninteractable -->
+      <div id="page-mask2" style="z-index: 1;"></div>
+      <!-- Player Number Popup -->
+      <p id="currentPlayer" style="font-size: 50px;">Player: 1</p>
+    </div>
 </body>
 
 </html>
